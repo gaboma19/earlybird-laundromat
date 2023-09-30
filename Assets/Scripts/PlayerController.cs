@@ -45,4 +45,20 @@ public class PlayerController : MonoBehaviour
 
         rigidbody2d.MovePosition(position);
     }
+
+    void OnInteract()
+    {
+        Debug.Log("i'm interacting");
+
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        var interactable = other.gameObject.GetComponent<IInteractable>();
+
+        if (interactable != null)
+        {
+            interactable.Interact();
+        }
+    }
+
 }

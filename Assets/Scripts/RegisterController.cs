@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RegisterController : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    public GameObject buttonPrompt;
+    bool isInteractable;
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        if (isInteractable)
+        {
+            buttonPrompt.SetActive(true);
+        }
+        else
+        {
+            buttonPrompt.SetActive(false);
+        }
+    }
 
+    public void Interact()
+    {
+        isInteractable = true;
+    }
+
+    public bool CanInteract()
+    {
+        return true;
     }
 }
