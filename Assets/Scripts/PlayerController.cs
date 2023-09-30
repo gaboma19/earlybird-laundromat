@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     float vertical;
     Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);
+    public PlayerInputActions playerControls;
+    private InputAction move;
 
     // Start is called before the first frame update
     void Start()
@@ -18,23 +21,39 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private void Awake()
+    {
+        playerControls = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        move = playerControls.Player.Move;
+        move.Enable();
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
+    }
+
     // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        Vector2 move = new Vector2(horizontal, vertical);
+        Vector2 moveDirection = move.ReadValue<Vector2>();
 
-        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+        if (!Mathf.Approximately(moveDirection.x, 0.0f) || !Mathf.Approximately(moveDirection.y, 0.0f))
         {
-            lookDirection.Set(move.x, move.y);
+            lookDirection.Set(moveDirection.x, moveDirection.y);
             lookDirection.Normalize();
         }
 
         animator.SetFloat("Look X", lookDirection.x);
         animator.SetFloat("Look Y", lookDirection.y);
-        animator.SetFloat("Speed", move.magnitude);
+        animator.SetFloat("Speed", moveDirection.magnitude);
     }
 
     void FixedUpdate()
@@ -44,21 +63,6 @@ public class PlayerController : MonoBehaviour
         position.y = position.y + speed * vertical * Time.deltaTime;
 
         rigidbody2d.MovePosition(position);
-    }
-
-    void OnInteract()
-    {
-        Debug.Log("i'm interacting");
-
-    }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        var interactable = other.gameObject.GetComponent<IInteractable>();
-
-        if (interactable != null)
-        {
-            interactable.Interact();
-        }
     }
 
 }

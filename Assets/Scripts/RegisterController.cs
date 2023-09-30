@@ -6,27 +6,24 @@ using UnityEngine.InputSystem;
 public class RegisterController : MonoBehaviour, IInteractable
 {
     public GameObject buttonPrompt;
-    bool isInteractable;
-
-    void Update()
-    {
-        if (isInteractable)
-        {
-            buttonPrompt.SetActive(true);
-        }
-        else
-        {
-            buttonPrompt.SetActive(false);
-        }
-    }
 
     public void Interact()
     {
-        isInteractable = true;
+        Debug.Log("register interacted with");
     }
 
     public bool CanInteract()
     {
         return true;
+    }
+
+    public void ShowInputPrompt()
+    {
+        buttonPrompt.SetActive(true);
+    }
+
+    public void HideInputPrompt()
+    {
+        buttonPrompt.SetActive(false);
     }
 }

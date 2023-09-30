@@ -6,4 +6,6 @@ public interface IInteractable
 {
     public void Interact();
     public bool CanInteract();
+    public void ShowInputPrompt();
+    public void HideInputPrompt();
 }
