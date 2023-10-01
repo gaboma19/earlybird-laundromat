@@ -40,10 +40,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-
         Vector2 moveDirection = move.ReadValue<Vector2>();
+
+        horizontal = moveDirection.x;
+        vertical = moveDirection.y;
 
         if (!Mathf.Approximately(moveDirection.x, 0.0f) || !Mathf.Approximately(moveDirection.y, 0.0f))
         {
