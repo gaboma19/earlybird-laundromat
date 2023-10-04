@@ -535,6 +535,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5688329576563188090, guid: aae535a4c8d25e544864c184fa02f9bd, type: 3}
+      propertyPath: customer
+      value: 
+      objectReference: {fileID: 393484254698697649, guid: faffedaab4402b34da06f915ada0bb23, type: 3}
     - target: {fileID: 7292950300945152795, guid: aae535a4c8d25e544864c184fa02f9bd, type: 3}
       propertyPath: m_Name
       value: Register
