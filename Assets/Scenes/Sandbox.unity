@@ -183,7 +183,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2253911629886400664, guid: dcf916440f069384bbee62becaecff26, type: 3}
       propertyPath: m_Name
-      value: sandbox-background
+      value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: dcf916440f069384bbee62becaecff26, type: 3}
       propertyPath: m_SortingOrder
