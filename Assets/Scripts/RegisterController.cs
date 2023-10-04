@@ -6,10 +6,11 @@ using UnityEngine.InputSystem;
 public class RegisterController : MonoBehaviour, IInteractable
 {
     public GameObject buttonPrompt;
+    public GameObject customer;
 
     public void Interact()
     {
-        Debug.Log("register interacted with");
+        Instantiate(customer, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     public bool CanInteract()
