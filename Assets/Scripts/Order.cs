@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Order : State
 {
-    public Order((GameObject _customer, Animator _anim, Transform _player) :
+    public Order(GameObject _customer, Animator _anim, Transform _player) :
         base(_customer, _anim, _player)
     {
         name = STATE.ORDER;
@@ -21,15 +21,14 @@ public class Order : State
     {
         // continue dialogue
         // until player finishes dialogue
-        // no nextState
+        // there is no nextState
         // stage = EVENT.EXIT
-
-        base.Update();
     }
 
     public override void Exit()
     {
         // customer leaves the laundromat
+        // and is destroyed
 
         base.Exit();
     }

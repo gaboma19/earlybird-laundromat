@@ -7,10 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 6.0f;
     Rigidbody2D rigidbody2d;
-    float horizontal;
-    float vertical;
     Animator animator;
-    Vector2 lookDirection = new Vector2(1, 0);
+    Vector2 lookDirection = new Vector2(0, -1);
+    Vector2 moveDirection;
     public PlayerInputActions playerControls;
     private InputAction move;
 
@@ -40,10 +39,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveDirection = move.ReadValue<Vector2>();
-
-        horizontal = moveDirection.x;
-        vertical = moveDirection.y;
+        moveDirection = move.ReadValue<Vector2>();
 
         if (!Mathf.Approximately(moveDirection.x, 0.0f) || !Mathf.Approximately(moveDirection.y, 0.0f))
         {
@@ -59,8 +55,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 position = rigidbody2d.position;
-        position.x = position.x + speed * horizontal * Time.deltaTime;
-        position.y = position.y + speed * vertical * Time.deltaTime;
+        position.x = position.x + speed * moveDirection.x * Time.deltaTime;
+        position.y = position.y + speed * moveDirection.y * Time.deltaTime;
 
         rigidbody2d.MovePosition(position);
     }
