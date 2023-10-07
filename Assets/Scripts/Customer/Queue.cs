@@ -6,14 +6,17 @@ public class Queue : State
 {
     Vector2 moveDirection;
     Vector2 lookDirection;
-    float speed = 5.0f;
+    float speed;
     Rigidbody2D rigidbody2d;
+    CustomerController customerController;
 
-    public Queue(GameObject _customer, Animator _anim, Transform _player) :
+    public Queue(GameObject _customer, Animator _anim, GameObject _player) :
         base(_customer, _anim, _player)
     {
         name = STATE.QUEUE;
         rigidbody2d = customer.GetComponent<Rigidbody2D>();
+        customerController = customer.GetComponent<CustomerController>();
+        speed = customerController.speed;
     }
 
     public override void Enter()
@@ -32,12 +35,6 @@ public class Queue : State
         // if there is a further queue spot available 
         // then the customer moves up
 
-        // if (customer.isInteractedWith() and is at the furthest queue spot)
-        // {
-        //     nextState = new Order(customer, anim, player);
-        //     stage = EVENT.EXIT;
-        // }
-
         if (!Mathf.Approximately(moveDirection.x, 0.0f) || !Mathf.Approximately(moveDirection.y, 0.0f))
         {
             lookDirection.Set(moveDirection.x, moveDirection.y);
@@ -53,6 +50,13 @@ public class Queue : State
         position.y = position.y + speed * moveDirection.y * Time.deltaTime;
 
         rigidbody2d.MovePosition(position);
+
+        if (customerController.isInteractedWith) // and is at the furthest queue spot
+        {
+            Debug.Log("transition to Order state!");
+            nextState = new Order(customer, anim, player);
+            stage = EVENT.EXIT;
+        }
     }
 
     public override void Exit()

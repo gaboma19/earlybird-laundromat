@@ -18,10 +18,10 @@ public class State
     protected EVENT stage;
     protected GameObject customer;
     protected Animator anim;
-    protected Transform player;
+    protected GameObject player;
     protected State nextState;
 
-    public State(GameObject _customer, Animator _anim, Transform _player)
+    public State(GameObject _customer, Animator _anim, GameObject _player)
     {
         customer = _customer;
         anim = _anim;

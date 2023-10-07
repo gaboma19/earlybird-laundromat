@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Order : State
 {
-    public Order(GameObject _customer, Animator _anim, Transform _player) :
+    GameObject dialoguePanel;
+    CustomerController customerController;
+
+    public Order(GameObject _customer, Animator _anim, GameObject _player) :
         base(_customer, _anim, _player)
     {
         name = STATE.ORDER;
+        dialoguePanel = GameObject.Find("Canvas/Dialogue Panel");
+        Debug.Log(dialoguePanel);
+        customerController = customer.GetComponent<CustomerController>();
+        customerController.isInteractedWith = false;
     }
 
     public override void Enter()
     {
-        // begin dialogue
+        dialoguePanel.SetActive(true);
 
         base.Enter();
     }
