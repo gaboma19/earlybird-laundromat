@@ -9,6 +9,7 @@ public class CustomerController : MonoBehaviour, IInteractable
     State currentState;
     Laundry laundry = new Laundry();
     public bool isInteractedWith { get; set; }
+    public bool isInteractable { get; set; }
     GameObject buttonPrompt;
     public float speed = 5.0f;
     public DialogueAsset dialogueAsset;
@@ -39,7 +40,7 @@ public class CustomerController : MonoBehaviour, IInteractable
 
     public bool CanInteract()
     {
-        return true;
+        return isInteractable;
     }
 
     public void ShowInputPrompt()

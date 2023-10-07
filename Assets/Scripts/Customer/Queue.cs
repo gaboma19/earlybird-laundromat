@@ -26,6 +26,8 @@ public class Queue : State
         float random = Random.Range(0f, 260f);
         moveDirection = new Vector2(Mathf.Cos(random), Mathf.Sin(random));
 
+        customerController.isInteractable = true;
+
         base.Enter();
     }
 
@@ -35,6 +37,17 @@ public class Queue : State
         // if there is a further queue spot available 
         // then the customer moves up
 
+        WalkRandom();
+
+        if (customerController.isInteractedWith) // and is at the furthest queue spot
+        {
+            nextState = new Order(customer, anim, player);
+            stage = EVENT.EXIT;
+        }
+    }
+
+    void WalkRandom()
+    {
         if (!Mathf.Approximately(moveDirection.x, 0.0f) || !Mathf.Approximately(moveDirection.y, 0.0f))
         {
             lookDirection.Set(moveDirection.x, moveDirection.y);
@@ -50,12 +63,6 @@ public class Queue : State
         position.y = position.y + speed * moveDirection.y * Time.deltaTime;
 
         rigidbody2d.MovePosition(position);
-
-        if (customerController.isInteractedWith) // and is at the furthest queue spot
-        {
-            nextState = new Order(customer, anim, player);
-            stage = EVENT.EXIT;
-        }
     }
 
     public override void Exit()
