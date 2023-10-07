@@ -11,6 +11,7 @@ public class CustomerController : MonoBehaviour, IInteractable
     public bool isInteractedWith { get; set; }
     GameObject buttonPrompt;
     public float speed = 5.0f;
+    public DialogueAsset dialogueAsset;
 
     // Start is called before the first frame update
     void Start()

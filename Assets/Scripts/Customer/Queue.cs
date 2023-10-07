@@ -53,7 +53,6 @@ public class Queue : State
 
         if (customerController.isInteractedWith) // and is at the furthest queue spot
         {
-            Debug.Log("transition to Order state!");
             nextState = new Order(customer, anim, player);
             stage = EVENT.EXIT;
         }

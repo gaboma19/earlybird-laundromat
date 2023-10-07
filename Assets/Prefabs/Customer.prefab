@@ -250,7 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b0d866082842514c8ad3ce8ce0fb1ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  speed: 5
+  dialogueAsset: {fileID: 11400000, guid: 4999abb290572724e8501bd6900b724b, type: 2}
 --- !u!4 &619268415865084884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: b483af7527174c04ba5b523c32e8e52f, type: 3}

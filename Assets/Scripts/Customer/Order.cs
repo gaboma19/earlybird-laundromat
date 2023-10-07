@@ -4,32 +4,37 @@ using UnityEngine;
 
 public class Order : State
 {
-    GameObject dialoguePanel;
+    GameObject dialogueBox;
     CustomerController customerController;
 
     public Order(GameObject _customer, Animator _anim, GameObject _player) :
         base(_customer, _anim, _player)
     {
         name = STATE.ORDER;
-        dialoguePanel = GameObject.Find("Canvas/Dialogue Panel");
-        Debug.Log(dialoguePanel);
         customerController = customer.GetComponent<CustomerController>();
         customerController.isInteractedWith = false;
+        DialogueBoxController.OnDialogueEnded += EndOrder;
     }
 
     public override void Enter()
     {
-        dialoguePanel.SetActive(true);
+        DialogueBoxController.instance.StartDialogue(customerController.dialogueAsset, 0, "Customer");
 
         base.Enter();
     }
 
     public override void Update()
     {
-        // continue dialogue
-        // until player finishes dialogue
-        // there is no nextState
-        // stage = EVENT.EXIT
+        if (customerController.isInteractedWith)
+        {
+            Debug.Log("i'll skip a line!");
+            DialogueBoxController.instance.SkipLine();
+        }
+    }
+
+    void EndOrder()
+    {
+        stage = EVENT.EXIT;
     }
 
     public override void Exit()
