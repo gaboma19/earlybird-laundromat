@@ -10,6 +10,10 @@ public class RegisterController : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        // call WorkShift which creates customers
+
+        // call DialogueBoxController to inform player
+
         Instantiate(customer, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
