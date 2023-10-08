@@ -6,6 +6,7 @@ public class WashingMachineController : MonoBehaviour, IInteractable
 {
     GameObject buttonPrompt;
     Animator anim;
+    public float time = 1.0f;
     public bool isInteractable { get; set; }
 
     // Start is called before the first frame update
@@ -16,9 +17,21 @@ public class WashingMachineController : MonoBehaviour, IInteractable
         isInteractable = true;
     }
 
+    void Update()
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("on"))
+        {
+            isInteractable = false;
+        }
+        else
+        {
+            isInteractable = true;
+        }
+    }
+
     public void Interact()
     {
-        //
+        anim.SetTrigger("Transition");
     }
 
     public bool CanInteract()

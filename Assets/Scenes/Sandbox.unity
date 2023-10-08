@@ -998,6 +998,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8492731791004366306, guid: 4e2fea1763643f241827171cfa2ec181, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9086636033111172514, guid: 4e2fea1763643f241827171cfa2ec181, type: 3}
       propertyPath: m_Name
       value: Washing Machine
