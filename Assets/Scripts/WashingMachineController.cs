@@ -22,6 +22,7 @@ public class WashingMachineController : MonoBehaviour, IInteractable
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("on"))
         {
             isInteractable = false;
+            HideInputPrompt();
         }
         else
         {

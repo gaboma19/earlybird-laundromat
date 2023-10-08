@@ -45,7 +45,11 @@ public class InteractionDetector : MonoBehaviour
         if (interactable != null && interactable.CanInteract())
         {
             _interactablesInRange.Add(interactable);
-            interactable.ShowInputPrompt();
+
+            if (_interactablesInRange.Count < 2)
+            {
+                interactable.ShowInputPrompt();
+            }
         }
     }
 
