@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WashingMachineController : MonoBehaviour, IInteractable
+public class DryerController : MonoBehaviour, IInteractable
 {
     GameObject buttonPrompt;
     Animator anim;
@@ -16,6 +16,7 @@ public class WashingMachineController : MonoBehaviour, IInteractable
         isInteractable = true;
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("on"))

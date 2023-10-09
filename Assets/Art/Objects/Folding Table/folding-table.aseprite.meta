@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dcf916440f069384bbee62becaecff26
+guid: 559fbf612e70fd14785a0db05996cadc
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 4
+    spritePixelsToUnits: 10
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638324465482506432
+  platformSettingsDirtyTick: 638323900590598253
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: sandbox-background
+  - name: folding-table
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 160
-      height: 100
-    spriteID: f4e8c923277fcfb48a368391338b1b9a
+      width: 33
+      height: 32
+    spriteID: 5a093219ee9301a41af1365e384a6a73
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,20 +142,20 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1328515788
-    name: sandbox-background
+    guid: 1640289162
+    name: folding-table
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: sandbox-background
+    - name: folding-table
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
-        width: 160
-        height: 100
-      spriteId: f4e8c923277fcfb48a368391338b1b9a
+        width: 33
+        height: 32
+      spriteId: 5a093219ee9301a41af1365e384a6a73
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -209,4 +209,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 160, y: 100}
+  canvasSize: {x: 33, y: 32}
