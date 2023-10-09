@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 88cc33a976984ec45b6090ef8729dc7e
+guid: c961bd43dfe98414492568feb3bbd2ba
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects:
@@ -7,22 +7,22 @@ ScriptedImporter:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
       name: done
-    second: {fileID: 7400000, guid: ce81cce1008097b48985261e5ab197ab, type: 2}
+    second: {fileID: 7400000, guid: 87bf7554e3f4e3744a903fd21d6a42ab, type: 2}
   - first:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
       name: loaded
-    second: {fileID: 7400000, guid: 5f2e072b11dcd724a9247ea1f757c703, type: 2}
+    second: {fileID: 7400000, guid: 66e4a56ff449b964f8c782ff5fe9af2c, type: 2}
   - first:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
       name: off
-    second: {fileID: 7400000, guid: 2967df1277b06794e81d65660cc2d70f, type: 2}
+    second: {fileID: 7400000, guid: 03094b51f1df3c949b4847331b9a80f6, type: 2}
   - first:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
       name: on
-    second: {fileID: 7400000, guid: bb75243288a9ddf4399fa4ae86edc8cd, type: 2}
+    second: {fileID: 7400000, guid: 66029b144f2caa34a9b5e951c51dbb22, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -115,7 +115,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638323922792726152
+  platformSettingsDirtyTick: 638324506199606494
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -139,18 +139,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: washing-machine_Frame_0
+  - name: dryer-top_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 27
-      height: 33
-    spriteID: 9e208b9caac5db444b1ff062b4c53c99
+      width: 33
+      height: 31
+    spriteID: 641d77a12e3327e45b53ff378b3aacd4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -159,18 +159,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: washing-machine_Frame_1
+  - name: dryer-top_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 39
+      x: 45
       y: 4
-      width: 27
-      height: 33
-    spriteID: a3301d008338cb34a886194aa7ea7858
+      width: 33
+      height: 31
+    spriteID: bcab430c47c07564d953845002d8b81c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -178,19 +178,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 39, y: 4}
-  - name: washing-machine_Frame_2
+    uvTransform: {x: 45, y: 4}
+  - name: dryer-top_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 74
+      x: 86
       y: 4
-      width: 27
-      height: 33
-    spriteID: a2d3a80cc6b70c54aa216c939bda6257
+      width: 33
+      height: 31
+    spriteID: e1278ba4a4187f44587469efbe188e1c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -198,19 +198,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 74, y: 4}
-  - name: washing-machine_Frame_3
+    uvTransform: {x: 86, y: 4}
+  - name: dryer-top_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 109
+      x: 127
       y: 4
-      width: 27
-      height: 33
-    spriteID: a3446648eb6c77041912823b4f16c93d
+      width: 33
+      height: 31
+    spriteID: 350bcc15a891d964e8a66170421fe27c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -218,19 +218,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 109, y: 4}
-  - name: washing-machine_Frame_4
+    uvTransform: {x: 127, y: 4}
+  - name: dryer-top_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 144
+      x: 168
       y: 4
-      width: 27
-      height: 33
-    spriteID: 803a35f9901458e43984f9bb1a694825
+      width: 33
+      height: 31
+    spriteID: f17013f5702f7d246a3ce20e71c60ea2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -238,19 +238,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 144, y: 4}
-  - name: washing-machine_Frame_5
+    uvTransform: {x: 168, y: 4}
+  - name: dryer-top_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 179
+      x: 209
       y: 4
-      width: 27
-      height: 33
-    spriteID: 4d7cf9dcf6879344184a16fac8a81101
+      width: 33
+      height: 31
+    spriteID: 1ddf056485b61534a97baae8ce30ead1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -258,39 +258,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 179, y: 4}
-  - name: washing-machine_Frame_6
+    uvTransform: {x: 209, y: 4}
+  - name: dryer-top_Frame_6
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 214
-      y: 4
-      width: 27
-      height: 33
-    spriteID: 9f842830c317a3449b4f9be066808dee
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 214, y: 4}
-  - name: washing-machine_Frame_7
-    originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 45
-      width: 27
-      height: 33
-    spriteID: 0e262b325186cfe49adb752a30113df7
+      y: 43
+      width: 33
+      height: 31
+    spriteID: 5ff628e3836fdb542a6e42a45b0adee2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -298,19 +278,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 45}
-  - name: washing-machine_Frame_8
+    uvTransform: {x: 4, y: 43}
+  - name: dryer-top_Frame_7
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 39
-      y: 45
-      width: 27
-      height: 33
-    spriteID: af00b4a912c89fb4fb33a39699d5e493
+      x: 45
+      y: 43
+      width: 33
+      height: 31
+    spriteID: 88dcb240f57b88c45944712464079d10
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -318,19 +298,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 39, y: 45}
-  - name: washing-machine_Frame_9
+    uvTransform: {x: 45, y: 43}
+  - name: dryer-top_Frame_8
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 74
-      y: 45
-      width: 27
-      height: 33
-    spriteID: 6967eb6ad8a438d45b75f2acecee91d9
+      x: 86
+      y: 43
+      width: 33
+      height: 31
+    spriteID: 57d841ea2654ce04e9578ae289cb8d76
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -338,19 +318,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 74, y: 45}
-  - name: washing-machine_Frame_10
+    uvTransform: {x: 86, y: 43}
+  - name: dryer-top_Frame_9
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 109
-      y: 45
-      width: 27
-      height: 33
-    spriteID: ff47f43290306904a95d700707a30f30
+      x: 127
+      y: 43
+      width: 33
+      height: 31
+    spriteID: accbd42a8c7ad59439dd324c4ade7542
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -358,19 +338,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 109, y: 45}
-  - name: washing-machine_Frame_11
+    uvTransform: {x: 127, y: 43}
+  - name: dryer-top_Frame_10
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 144
-      y: 45
-      width: 27
-      height: 33
-    spriteID: 50970005ea8136745b897c0bff21c7dc
+      x: 168
+      y: 43
+      width: 33
+      height: 31
+    spriteID: dc46bf8a05548d74a97fab85de366c1b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -378,19 +358,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 144, y: 45}
-  - name: washing-machine_Frame_12
+    uvTransform: {x: 168, y: 43}
+  - name: dryer-top_Frame_11
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 179
-      y: 45
-      width: 27
-      height: 33
-    spriteID: 0a096547127a0b34b95d654a2c725664
+      x: 209
+      y: 43
+      width: 33
+      height: 31
+    spriteID: 91bf04614e83ba34f9be847f647f0703
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -398,39 +378,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 179, y: 45}
-  - name: washing-machine_Frame_13
+    uvTransform: {x: 209, y: 43}
+  - name: dryer-top_Frame_12
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 214
-      y: 45
-      width: 27
-      height: 33
-    spriteID: 465fd9853ce0c9f44b975f14259d7386
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 214, y: 45}
-  - name: washing-machine_Frame_14
-    originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 86
-      width: 27
-      height: 33
-    spriteID: 3c09df451cb374f4f8388f8ff0c78e35
+      y: 82
+      width: 33
+      height: 31
+    spriteID: 4a75c5983ca76ac4eaef97562d41752b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -438,19 +398,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 86}
-  - name: washing-machine_Frame_15
+    uvTransform: {x: 4, y: 82}
+  - name: dryer-top_Frame_13
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 39
-      y: 86
-      width: 27
-      height: 33
-    spriteID: b8ef963da4b9517459f1beeed05db469
+      x: 45
+      y: 82
+      width: 33
+      height: 31
+    spriteID: 2966c4c2fcd047d4d9715deaffeb521c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -458,19 +418,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 39, y: 86}
-  - name: washing-machine_Frame_16
+    uvTransform: {x: 45, y: 82}
+  - name: dryer-top_Frame_14
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 74
-      y: 86
-      width: 27
-      height: 33
-    spriteID: 6cbcb2ccb876c494da6d567b7aa5ed28
+      x: 86
+      y: 82
+      width: 33
+      height: 31
+    spriteID: b8c42eae570ff434ca5fcc99238e3502
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -478,19 +438,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 74, y: 86}
-  - name: washing-machine_Frame_17
+    uvTransform: {x: 86, y: 82}
+  - name: dryer-top_Frame_15
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 109
-      y: 86
-      width: 27
-      height: 33
-    spriteID: ffe814d15b26da64092d4932fb3b0922
+      x: 127
+      y: 82
+      width: 33
+      height: 31
+    spriteID: d5c58d06f34043842ac51f17ac5536df
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -498,19 +458,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 109, y: 86}
-  - name: washing-machine_Frame_18
+    uvTransform: {x: 127, y: 82}
+  - name: dryer-top_Frame_16
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.80645156}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 144
-      y: 86
-      width: 27
-      height: 33
-    spriteID: 7c781c679d3d72b4fb8544007a273797
+      x: 168
+      y: 82
+      width: 33
+      height: 31
+    spriteID: 53137ccdf71dc6b438587ea608db4c29
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -518,168 +478,208 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 144, y: 86}
+    uvTransform: {x: 168, y: 82}
+  - name: dryer-top_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: -0.80645156}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 209
+      y: 82
+      width: 33
+      height: 31
+    spriteID: 49333e890e75a024a80d85ccc4765cc1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 209, y: 82}
+  - name: dryer-top_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: -0.80645156}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 121
+      width: 33
+      height: 31
+    spriteID: 4eda176b99698c442888d8de8eb006b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 121}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 263241169
-    name: washing-machine
+    guid: -935586298
+    name: dryer-top
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: washing-machine_Frame_0
+    - name: dryer-top_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: 9e208b9caac5db444b1ff062b4c53c99
-    - name: washing-machine_Frame_1
+        y: 25
+        width: 33
+        height: 31
+      spriteId: 641d77a12e3327e45b53ff378b3aacd4
+    - name: dryer-top_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: a3301d008338cb34a886194aa7ea7858
-    - name: washing-machine_Frame_2
+        y: 25
+        width: 33
+        height: 31
+      spriteId: bcab430c47c07564d953845002d8b81c
+    - name: dryer-top_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: a2d3a80cc6b70c54aa216c939bda6257
-    - name: washing-machine_Frame_3
+        y: 25
+        width: 33
+        height: 31
+      spriteId: e1278ba4a4187f44587469efbe188e1c
+    - name: dryer-top_Frame_3
       frameIndex: 3
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: a3446648eb6c77041912823b4f16c93d
-    - name: washing-machine_Frame_4
+        y: 25
+        width: 33
+        height: 31
+      spriteId: 350bcc15a891d964e8a66170421fe27c
+    - name: dryer-top_Frame_4
       frameIndex: 4
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: 803a35f9901458e43984f9bb1a694825
-    - name: washing-machine_Frame_5
+        y: 25
+        width: 33
+        height: 31
+      spriteId: f17013f5702f7d246a3ce20e71c60ea2
+    - name: dryer-top_Frame_5
       frameIndex: 5
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: 4d7cf9dcf6879344184a16fac8a81101
-    - name: washing-machine_Frame_6
+        y: 25
+        width: 33
+        height: 31
+      spriteId: 1ddf056485b61534a97baae8ce30ead1
+    - name: dryer-top_Frame_6
       frameIndex: 6
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: 9f842830c317a3449b4f9be066808dee
-    - name: washing-machine_Frame_7
+        y: 25
+        width: 33
+        height: 31
+      spriteId: 5ff628e3836fdb542a6e42a45b0adee2
+    - name: dryer-top_Frame_7
       frameIndex: 7
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: 0e262b325186cfe49adb752a30113df7
-    - name: washing-machine_Frame_8
+        y: 25
+        width: 33
+        height: 31
+      spriteId: 88dcb240f57b88c45944712464079d10
+    - name: dryer-top_Frame_8
       frameIndex: 8
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: af00b4a912c89fb4fb33a39699d5e493
-    - name: washing-machine_Frame_9
+        y: 25
+        width: 33
+        height: 31
+      spriteId: 57d841ea2654ce04e9578ae289cb8d76
+    - name: dryer-top_Frame_9
       frameIndex: 9
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: 6967eb6ad8a438d45b75f2acecee91d9
-    - name: washing-machine_Frame_10
+        y: 25
+        width: 33
+        height: 31
+      spriteId: accbd42a8c7ad59439dd324c4ade7542
+    - name: dryer-top_Frame_10
       frameIndex: 10
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: ff47f43290306904a95d700707a30f30
-    - name: washing-machine_Frame_11
+        y: 25
+        width: 33
+        height: 31
+      spriteId: dc46bf8a05548d74a97fab85de366c1b
+    - name: dryer-top_Frame_11
       frameIndex: 11
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: 50970005ea8136745b897c0bff21c7dc
-    - name: washing-machine_Frame_12
+        y: 25
+        width: 33
+        height: 31
+      spriteId: 91bf04614e83ba34f9be847f647f0703
+    - name: dryer-top_Frame_12
       frameIndex: 12
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: 0a096547127a0b34b95d654a2c725664
-    - name: washing-machine_Frame_13
+        y: 25
+        width: 33
+        height: 31
+      spriteId: 4a75c5983ca76ac4eaef97562d41752b
+    - name: dryer-top_Frame_13
       frameIndex: 13
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: 465fd9853ce0c9f44b975f14259d7386
-    - name: washing-machine_Frame_14
+        y: 25
+        width: 33
+        height: 31
+      spriteId: 2966c4c2fcd047d4d9715deaffeb521c
+    - name: dryer-top_Frame_14
       frameIndex: 14
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: 3c09df451cb374f4f8388f8ff0c78e35
-    - name: washing-machine_Frame_15
+        y: 25
+        width: 33
+        height: 31
+      spriteId: b8c42eae570ff434ca5fcc99238e3502
+    - name: dryer-top_Frame_15
       frameIndex: 15
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: b8ef963da4b9517459f1beeed05db469
-    - name: washing-machine_Frame_16
+        y: 25
+        width: 33
+        height: 31
+      spriteId: d5c58d06f34043842ac51f17ac5536df
+    - name: dryer-top_Frame_16
       frameIndex: 16
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: 6cbcb2ccb876c494da6d567b7aa5ed28
-    - name: washing-machine_Frame_17
+        y: 25
+        width: 33
+        height: 31
+      spriteId: 53137ccdf71dc6b438587ea608db4c29
+    - name: dryer-top_Frame_17
       frameIndex: 17
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: ffe814d15b26da64092d4932fb3b0922
-    - name: washing-machine_Frame_18
+        y: 25
+        width: 33
+        height: 31
+      spriteId: 49333e890e75a024a80d85ccc4765cc1
+    - name: dryer-top_Frame_18
       frameIndex: 18
       cellRect:
         x: 0
-        y: 0
-        width: 27
-        height: 33
-      spriteId: 7c781c679d3d72b4fb8544007a273797
+        y: 25
+        width: 33
+        height: 31
+      spriteId: 4eda176b99698c442888d8de8eb006b5
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -733,4 +733,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 27, y: 33}
+  canvasSize: {x: 33, y: 56}

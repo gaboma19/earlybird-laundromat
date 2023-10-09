@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WashingMachineController : MonoBehaviour, IInteractable
+public class FoldingTableController : MonoBehaviour, IInteractable
 {
     GameObject buttonPrompt;
     Animator anim;
@@ -18,23 +18,13 @@ public class WashingMachineController : MonoBehaviour, IInteractable
 
     void Update()
     {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("on"))
-        {
-            isInteractable = false;
-            HideInputPrompt();
-        }
-        else
-        {
-            isInteractable = true;
-        }
+        // no longer interactable if being used by a customer
     }
 
     public void Interact()
     {
-        if (isInteractable)
-        {
-            anim.SetTrigger("Transition");
-        }
+        // open folding clothes minigame
+        // with selected Laundry
     }
 
     public bool CanInteract()
