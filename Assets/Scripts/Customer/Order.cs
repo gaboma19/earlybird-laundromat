@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Order : State
 {
     Vector2 lookDirection;
     Vector2 moveDirection;
     CustomerController customerController;
+    public static event Action OnOrderPlaced;
 
     public Order(GameObject _customer, Animator _anim, GameObject _player) :
         base(_customer, _anim, _player)
@@ -85,6 +87,8 @@ public class Order : State
         WalkRandom();
 
         customerController.isInteractable = false;
+
+        DialogueBoxController.OnDialogueEnded -= EndOrder;
 
         base.Exit();
     }
