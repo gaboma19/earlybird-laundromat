@@ -27,7 +27,7 @@ public class Order : State
     {
         DialogueBoxController.instance.StartDialogue(customerController.dialogueAsset, 0, "Customer");
 
-        float random = Random.Range(0f, 260f);
+        float random = UnityEngine.Random.Range(0f, 260f);
         moveDirection = new Vector2(Mathf.Cos(random), Mathf.Sin(random));
 
         base.Enter();
