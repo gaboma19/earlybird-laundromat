@@ -85,6 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7912497779427733202}
+  - component: {fileID: 549771052434962916}
   m_Layer: 5
   m_Name: Workshift
   m_TagString: Untagged
@@ -113,6 +114,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &549771052434962916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999934270858833561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e758fda141fcfb488a1db2c49dcbe04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: {fileID: 231690328515180593}
+  customerTimeInterval: 10
+  customer: {fileID: 393484254698697649, guid: faffedaab4402b34da06f915ada0bb23, type: 3}
 --- !u!1 &3333429860934012792
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,8 +372,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 180, y: 0}
-  m_SizeDelta: {x: 200, y: 100}
+  m_AnchoredPosition: {x: 200, y: 0}
+  m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5601271166400992974
 CanvasRenderer:
@@ -387,7 +403,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5:00
+  m_text: 05:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e4bd24fa57ccab043a8845291f9c5b66, type: 2}
   m_sharedMaterial: {fileID: 6741904965289611901, guid: e4bd24fa57ccab043a8845291f9c5b66, type: 2}
@@ -467,6 +483,7 @@ GameObject:
   - component: {fileID: 7652384300248534642}
   - component: {fileID: 1503542181870963032}
   - component: {fileID: 587324131966936007}
+  - component: {fileID: 231690328515180593}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -532,6 +549,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &231690328515180593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164171269487259336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa664f5231c587488cdd71388b9d914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeRemaining: 300
+  timerIsRunning: 0
+  timeText: {fileID: 3024704712585188599}
 --- !u!1 &7197855992282985446
 GameObject:
   m_ObjectHideFlags: 0
