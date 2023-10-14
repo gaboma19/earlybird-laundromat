@@ -21,6 +21,8 @@ public class Order : State
         DialogueBoxController.OnDialogueEnded += EndOrder;
 
         FacePlayer();
+
+        OnOrderPlaced.Invoke();
     }
 
     public override void Enter()

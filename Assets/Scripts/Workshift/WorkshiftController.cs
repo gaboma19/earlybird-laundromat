@@ -9,11 +9,13 @@ public class Workshift : MonoBehaviour
     public Timer timer;
     public float customerTimeInterval;
     public GameObject customer;
+    public GameObject laundryCard;
 
     private void Awake()
     {
         RegisterController.OnWorkshiftStart += StartWorkShift;
         Timer.OnTimerEnded += EndWorkShift;
+        Order.OnOrderPlaced += AddActiveLaundry;
     }
 
     void StartWorkShift()
@@ -35,9 +37,12 @@ public class Workshift : MonoBehaviour
         yield return new WaitForSeconds(customerTimeInterval);
     }
 
+    void AddActiveLaundry()
+    {
+
+    }
 
 
-    // spawn a customer every t seconds
 
     // keeps track of customer Laundry objects
 
