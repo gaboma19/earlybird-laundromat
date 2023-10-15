@@ -44,3 +44,6 @@ TagManager:
   - name: Button Prompt
     uniqueID: 836734427
     locked: 0
+  - name: Doorway
+    uniqueID: 2820970577
+    locked: 0

@@ -920,7 +920,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.6234436, y: -1.0603776}
+  m_Offset: {x: 4.6234436, y: -0.85088265}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -931,7 +931,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.538631, y: 2.0952387}
+  m_Size: {x: 10.538631, y: 2.9476664}
   m_EdgeRadius: 0
 --- !u!68 &790525953
 EdgeCollider2D:
@@ -968,24 +968,24 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -4.6602407, y: -0.04361683}
-  - {x: -13.88596, y: -0.11838186}
+  - {x: -4.7180324, y: 0.57764417}
+  - {x: -13.683689, y: 0.531775}
   - {x: -12.200788, y: 7.182848}
   - {x: 12.246481, y: 7.208816}
   - {x: 16.195587, y: -10.524613}
   - {x: 16.186892, y: 10.305902}
   - {x: -16.551306, y: 10.395738}
   - {x: -16.660934, y: -10.5803795}
-  - {x: -16.15628, y: -10.494136}
-  - {x: -15.633451, y: -8.57913}
+  - {x: -15.795083, y: -10.580823}
+  - {x: -15.286701, y: -8.665817}
   - {x: -16.388624, y: -7.9260144}
   - {x: -16.007132, y: -6.3999157}
-  - {x: -14.9975195, y: -5.7453446}
+  - {x: -14.910832, y: -5.788688}
   - {x: -14.496094, y: -3.4556277}
   - {x: -14.498196, y: -2.2667034}
   - {x: -7.2961774, y: -2.268263}
   - {x: -4.678943, y: -2.254738}
-  - {x: -4.6701117, y: -0.019668669}
+  - {x: -4.713455, y: 0.5871444}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1077,21 +1077,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: laundromat-doorway
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 898a78d785641454589c49d89f97b20f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 898a78d785641454589c49d89f97b20f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 898a78d785641454589c49d89f97b20f, type: 3}
       propertyPath: m_SortingOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 898a78d785641454589c49d89f97b20f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 898a78d785641454589c49d89f97b20f, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 898a78d785641454589c49d89f97b20f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.42254102
+      value: -15.577459
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 898a78d785641454589c49d89f97b20f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2254629
+      value: -8.624537
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 898a78d785641454589c49d89f97b20f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.597382
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 898a78d785641454589c49d89f97b20f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1775,9 +1791,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4367395117190031486, guid: 2153befadafef964d833e989ec970c2b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7177887164538570647, guid: 2153befadafef964d833e989ec970c2b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 7177887164538570647, guid: 2153befadafef964d833e989ec970c2b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2796,22 +2816,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Workshift
       objectReference: {fileID: 0}
-    - target: {fileID: 2984469325793501451, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984469325793501451, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984469325793501451, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984469325793501451, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7912497779427733202, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2892,8 +2896,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8094455047062662784, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
