@@ -21,8 +21,6 @@ public class Order : State
         DialogueBoxController.OnDialogueEnded += EndOrder;
 
         FacePlayer();
-
-        OnOrderPlaced.Invoke();
     }
 
     public override void Enter()
@@ -58,6 +56,7 @@ public class Order : State
     {
         nextState = this;
         stage = EVENT.EXIT;
+        OnOrderPlaced.Invoke();
     }
 
     void WalkRandom()

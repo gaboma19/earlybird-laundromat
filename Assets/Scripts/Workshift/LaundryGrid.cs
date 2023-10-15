@@ -29,7 +29,9 @@ public class LaundryGrid : MonoBehaviour
 
     void Start()
     {
+        UpdateVisual();
 
+        Workshift.OnLaundrySpawned += UpdateVisual;
     }
 
 }

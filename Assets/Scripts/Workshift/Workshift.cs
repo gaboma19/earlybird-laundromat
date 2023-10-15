@@ -10,6 +10,7 @@ public class Workshift : MonoBehaviour
     [SerializeField] private Timer timer;
     public float customerTimeInterval;
     [SerializeField] private GameObject customer;
+    public static event Action OnLaundrySpawned;
 
     private void Awake()
     {
@@ -42,23 +43,24 @@ public class Workshift : MonoBehaviour
 
     IEnumerator SpawnCustomer()
     {
-        Instantiate(customer, new Vector3(0, 0, 0), Quaternion.identity);
-        yield return new WaitForSeconds(customerTimeInterval);
+        while (true)
+        {
+            Instantiate(customer, new Vector3(0, 0, 0), Quaternion.identity);
+            yield return new WaitForSeconds(customerTimeInterval);
+        }
     }
 
     void AddActiveLaundry()
     {
-        // Laundry newLaundry =
+        Laundry newLaundry = new Laundry();
+        activeLaundry.Add(newLaundry);
+        OnLaundrySpawned.Invoke();
     }
 
     public List<Laundry> GetActiveLaundryList()
     {
         return activeLaundry;
     }
-
-
-
-    // keeps track of customer Laundry objects
 
     // keeps track of points / score / currency
 

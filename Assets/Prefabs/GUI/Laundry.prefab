@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 8012981749620897424}
   - component: {fileID: 2992142000410302279}
   - component: {fileID: 3179827843294356685}
-  - component: {fileID: 3894598291264272667}
   m_Layer: 5
-  m_Name: Laundry Card
+  m_Name: Laundry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,18 +76,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3894598291264272667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3223245792356006072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e81c484ec9bc8146b6f3d18ba56bd81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7501760803180714211
 GameObject:
   m_ObjectHideFlags: 0
