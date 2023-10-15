@@ -977,10 +977,10 @@ EdgeCollider2D:
   - {x: -16.551306, y: 10.395738}
   - {x: -16.660934, y: -10.5803795}
   - {x: -16.15628, y: -10.494136}
-  - {x: -15.50342, y: -7.9145255}
+  - {x: -15.633451, y: -8.57913}
   - {x: -16.388624, y: -7.9260144}
   - {x: -16.007132, y: -6.3999157}
-  - {x: -15.141999, y: -6.4099493}
+  - {x: -14.9975195, y: -5.7453446}
   - {x: -14.496094, y: -3.4556277}
   - {x: -14.498196, y: -2.2667034}
   - {x: -7.2961774, y: -2.268263}
@@ -1079,7 +1079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 898a78d785641454589c49d89f97b20f, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 898a78d785641454589c49d89f97b20f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1151,7 +1151,7 @@ Transform:
   m_GameObject: {fileID: 880572093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16, y: -7, z: 0.085782595}
+  m_LocalPosition: {x: -15.75, y: -7.25, z: 0.085782595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
