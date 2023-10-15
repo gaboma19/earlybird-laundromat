@@ -5,14 +5,23 @@ using System;
 
 public class Workshift : MonoBehaviour
 {
-    List<Laundry> activeLaundry = new List<Laundry>();
-    public Timer timer;
+    public static Workshift instance;
+    private List<Laundry> activeLaundry = new List<Laundry>();
+    [SerializeField] private Timer timer;
     public float customerTimeInterval;
-    public GameObject customer;
-    public GameObject laundryCard;
+    [SerializeField] private GameObject customer;
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
         RegisterController.OnWorkshiftStart += StartWorkShift;
         Timer.OnTimerEnded += EndWorkShift;
         Order.OnOrderPlaced += AddActiveLaundry;
@@ -39,7 +48,12 @@ public class Workshift : MonoBehaviour
 
     void AddActiveLaundry()
     {
+        // Laundry newLaundry =
+    }
 
+    public List<Laundry> GetActiveLaundryList()
+    {
+        return activeLaundry;
     }
 
 
@@ -47,8 +61,6 @@ public class Workshift : MonoBehaviour
     // keeps track of customer Laundry objects
 
     // keeps track of points / score / currency
-
-    // calls UI controller for displaying Laundry cards, timer, and score counter
 
     // play “getting it done” - game loop.
 
