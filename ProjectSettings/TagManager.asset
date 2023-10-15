@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Customer
   - Water
   - UI
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Button Prompt
     uniqueID: 836734427
+    locked: 0
+  - name: Doorway
+    uniqueID: 2820970577
     locked: 0

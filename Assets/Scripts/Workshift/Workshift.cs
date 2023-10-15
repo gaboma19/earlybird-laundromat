@@ -11,6 +11,7 @@ public class Workshift : MonoBehaviour
     public float customerTimeInterval;
     [SerializeField] private GameObject customer;
     public static event Action OnLaundrySpawned;
+    [SerializeField] private GameObject spawnPoint;
 
     private void Awake()
     {
@@ -45,7 +46,7 @@ public class Workshift : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(customer, new Vector3(0, 0, 0), Quaternion.identity);
+            Instantiate(customer, spawnPoint.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(customerTimeInterval);
         }
     }

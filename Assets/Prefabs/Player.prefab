@@ -159,6 +159,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: e6f4cad174b91044cae76912c7223b85, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1160356261127867848, guid: e6f4cad174b91044cae76912c7223b85, type: 3}
       propertyPath: m_Controller
       value: 
@@ -167,6 +171,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -5379050081517822886, guid: e6f4cad174b91044cae76912c7223b85, type: 3}
+    - target: {fileID: 3626916397498700004, guid: e6f4cad174b91044cae76912c7223b85, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: e6f4cad174b91044cae76912c7223b85, type: 3}
       propertyPath: m_SpriteSortPoint
       value: 1
@@ -181,11 +189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e6f4cad174b91044cae76912c7223b85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.25
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e6f4cad174b91044cae76912c7223b85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.36
+      value: -7.899921
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e6f4cad174b91044cae76912c7223b85, type: 3}
       propertyPath: m_LocalPosition.z
