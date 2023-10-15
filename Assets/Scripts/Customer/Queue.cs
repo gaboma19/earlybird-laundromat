@@ -22,9 +22,7 @@ public class Queue : State
     public override void Enter()
     {
         // customer enters the laundromat
-
-        float random = Random.Range(0f, 260f);
-        moveDirection = new Vector2(Mathf.Cos(random), Mathf.Sin(random));
+        moveDirection = RandomVector2(1.5707f, 5.4977f);
 
         customerController.isInteractable = true;
 
@@ -44,6 +42,12 @@ public class Queue : State
             nextState = new Order(customer, anim, player);
             stage = EVENT.EXIT;
         }
+    }
+
+    public Vector2 RandomVector2(float angle, float angleMin)
+    {
+        float random = Random.value * angle + angleMin;
+        return new Vector2(Mathf.Cos(random), Mathf.Sin(random));
     }
 
     void WalkRandom()

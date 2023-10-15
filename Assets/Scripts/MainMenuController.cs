@@ -7,6 +7,6 @@ public class MainMenuController : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Sandbox");
+        SceneManager.LoadScene("Laundromat");
     }
 }
