@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Order : State
 {
     Vector2 lookDirection;
     Vector2 moveDirection;
     CustomerController customerController;
+    public static event Action OnOrderPlaced;
 
     public Order(GameObject _customer, Animator _anim, GameObject _player) :
         base(_customer, _anim, _player)
@@ -25,7 +27,7 @@ public class Order : State
     {
         DialogueBoxController.instance.StartDialogue(customerController.dialogueAsset, 0, "Customer");
 
-        float random = Random.Range(0f, 260f);
+        float random = UnityEngine.Random.Range(0f, 260f);
         moveDirection = new Vector2(Mathf.Cos(random), Mathf.Sin(random));
 
         base.Enter();
@@ -54,6 +56,7 @@ public class Order : State
     {
         nextState = this;
         stage = EVENT.EXIT;
+        OnOrderPlaced.Invoke();
     }
 
     void WalkRandom()
@@ -85,6 +88,8 @@ public class Order : State
         WalkRandom();
 
         customerController.isInteractable = false;
+
+        DialogueBoxController.OnDialogueEnded -= EndOrder;
 
         base.Exit();
     }

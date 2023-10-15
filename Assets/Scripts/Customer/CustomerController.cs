@@ -7,7 +7,6 @@ public class CustomerController : MonoBehaviour, IInteractable
     Animator anim;
     GameObject player;
     State currentState;
-    Laundry laundry = new Laundry();
     public bool isInteractedWith { get; set; }
     public bool isInteractable { get; set; }
     GameObject buttonPrompt;
