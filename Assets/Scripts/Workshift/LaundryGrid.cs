@@ -20,10 +20,11 @@ public class LaundryGrid : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        foreach (Laundry l in Workshift.instance.GetActiveLaundryList())
+        foreach (Laundry laundry in Workshift.instance.GetActiveLaundryList())
         {
             Transform laundryTransform = Instantiate(laundryTemplate, grid);
             laundryTransform.gameObject.SetActive(true);
+            laundryTransform.GetComponent<LaundryCard>().SetLaundry(laundry);
         }
     }
 
