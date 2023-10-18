@@ -2808,10 +2808,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 886400651}
     m_Modifications:
-    - target: {fileID: 549771052434962916, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 880572093}
     - target: {fileID: 999934270858833561, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
       propertyPath: m_Name
       value: Workshift
