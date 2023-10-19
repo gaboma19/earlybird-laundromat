@@ -466,6 +466,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8012981749620897424, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
   m_PrefabInstance: {fileID: 5069121855213787035}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &3732064590774382676 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8472352271399937999, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
+  m_PrefabInstance: {fileID: 5069121855213787035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7701832113049906979 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3223245792356006072, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
@@ -484,6 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laundryText: {fileID: 0}
+  iconContainer: {fileID: 3732064590774382676}
   dirtyIcon: {fileID: 1976929723126907196, guid: 1bc3cda03a382744dabafef2af4838de, type: 3}
   washIcon: {fileID: 4770242948637938336, guid: b17f868f2b1841d468d0bfb4fb61972a, type: 3}
   dryIcon: {fileID: 3252351748947767745, guid: 51d558adc4d48b9479103af949052b74, type: 3}

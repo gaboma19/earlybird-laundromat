@@ -1268,8 +1268,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 768074671}
   - {fileID: 1250410787}
+  - {fileID: 768074671}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2808,6 +2808,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 886400651}
     m_Modifications:
+    - target: {fileID: 549771052434962916, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 880572093}
     - target: {fileID: 999934270858833561, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
       propertyPath: m_Name
       value: Workshift

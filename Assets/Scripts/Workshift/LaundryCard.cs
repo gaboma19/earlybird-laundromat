@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LaundryCard : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI laundryText;
-    private Image laundryIcon;
+    [SerializeField] private Transform iconContainer;
     [SerializeField] private Image dirtyIcon;
     [SerializeField] private Image washIcon;
     [SerializeField] private Image dryIcon;
@@ -18,16 +18,16 @@ public class LaundryCard : MonoBehaviour
         switch (laundry.state)
         {
             case Laundry.STATE.DIRTY:
-                laundryIcon = dirtyIcon;
+                Instantiate(dirtyIcon, iconContainer);
                 break;
             case Laundry.STATE.WASH:
-                laundryIcon = washIcon;
+                Instantiate(washIcon, iconContainer);
                 break;
             case Laundry.STATE.DRY:
-                laundryIcon = dryIcon;
+                Instantiate(dryIcon, iconContainer);
                 break;
             case Laundry.STATE.FOLD:
-                laundryIcon = foldIcon;
+                Instantiate(foldIcon, iconContainer);
                 break;
         }
     }
