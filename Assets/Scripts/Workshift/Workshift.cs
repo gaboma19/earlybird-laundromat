@@ -7,6 +7,7 @@ public class Workshift : MonoBehaviour
 {
     public static Workshift instance;
     private List<Laundry> activeLaundry = new List<Laundry>();
+    private Laundry selectedLaundry;
     [SerializeField] private Timer timer;
     public float customerTimeInterval;
     [SerializeField] private GameObject customer;
@@ -54,6 +55,12 @@ public class Workshift : MonoBehaviour
     void AddActiveLaundry()
     {
         Laundry newLaundry = new Laundry();
+
+        if (selectedLaundry is null)
+        {
+            newLaundry.isSelected = true;
+            selectedLaundry = newLaundry;
+        }
         activeLaundry.Add(newLaundry);
         OnLaundrySpawned.Invoke();
     }

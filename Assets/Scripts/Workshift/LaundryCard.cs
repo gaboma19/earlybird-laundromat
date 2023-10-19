@@ -12,9 +12,15 @@ public class LaundryCard : MonoBehaviour
     [SerializeField] private Image washIcon;
     [SerializeField] private Image dryIcon;
     [SerializeField] private Image foldIcon;
+    [SerializeField] private Image selectionIndicator;
 
     public void SetLaundry(Laundry laundry)
     {
+        foreach (Transform child in iconContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
         switch (laundry.state)
         {
             case Laundry.STATE.DIRTY:
@@ -29,6 +35,15 @@ public class LaundryCard : MonoBehaviour
             case Laundry.STATE.FOLD:
                 Instantiate(foldIcon, iconContainer);
                 break;
+        }
+
+        if (laundry.isSelected)
+        {
+            selectionIndicator.gameObject.SetActive(true);
+        }
+        else
+        {
+            selectionIndicator.gameObject.SetActive(false);
         }
     }
 }

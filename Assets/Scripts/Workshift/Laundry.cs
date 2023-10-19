@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Laundry
 {
@@ -11,6 +12,7 @@ public class Laundry
         DIRTY, WASH, DRY, FOLD, DONE
     }
     public STATE state { get; set; }
+    public bool isSelected { get; set; }
 
     public Laundry()
     {

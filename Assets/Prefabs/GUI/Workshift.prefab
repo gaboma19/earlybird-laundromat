@@ -357,14 +357,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laundry
       objectReference: {fileID: 0}
-    - target: {fileID: 7275383917705085650, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 17f392beaa79b814d954891ea5e1b53a, type: 3}
-    - target: {fileID: 7501760803180714211, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8012981749620897424, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -445,52 +437,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8472352271399937999, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 8472352271399937999, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 14
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3223245792356006072, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5218585341845541815}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
 --- !u!224 &2984469325793501451 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8012981749620897424, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
   m_PrefabInstance: {fileID: 5069121855213787035}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &3732064590774382676 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8472352271399937999, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
-  m_PrefabInstance: {fileID: 5069121855213787035}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7701832113049906979 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3223245792356006072, guid: 4cfc1cdf15cfa39489af517c4c0fe556, type: 3}
-  m_PrefabInstance: {fileID: 5069121855213787035}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5218585341845541815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7701832113049906979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eb7bc8f76db69c46a074b52b451a46f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laundryText: {fileID: 0}
-  iconContainer: {fileID: 3732064590774382676}
-  dirtyIcon: {fileID: 1976929723126907196, guid: 1bc3cda03a382744dabafef2af4838de, type: 3}
-  washIcon: {fileID: 4770242948637938336, guid: b17f868f2b1841d468d0bfb4fb61972a, type: 3}
-  dryIcon: {fileID: 3252351748947767745, guid: 51d558adc4d48b9479103af949052b74, type: 3}
-  foldIcon: {fileID: 7322720620812315951, guid: 1e4916edcff46d041aaa803efe7da210, type: 3}
