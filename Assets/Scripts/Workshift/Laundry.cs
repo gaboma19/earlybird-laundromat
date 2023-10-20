@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Laundry
 {
     private List<Clothes> clothes = new List<Clothes>();
-    public int maximumNumberOfClothes = 5;
+    [SerializeField] private int maximumNumberOfClothes = 5;
+    public enum STATE
+    {
+        DIRTY, WASH, DRY, FOLD, DONE
+    }
+    public STATE state { get; set; }
+    public bool isSelected { get; set; }
 
     public Laundry()
     {
@@ -14,5 +21,7 @@ public class Laundry
         {
             clothes.Add(new Clothes());
         }
+
+        this.state = STATE.DIRTY;
     }
 }
