@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System;
 
 public class Workshift : MonoBehaviour
@@ -13,6 +14,10 @@ public class Workshift : MonoBehaviour
     [SerializeField] private GameObject customer;
     public static event Action OnLaundrySpawned;
     [SerializeField] private GameObject spawnPoint;
+    public PlayerInputActions playerControls;
+    private InputAction selectLeft;
+    private InputAction selectRight;
+    public static event Action OnLaundrySelected;
 
     private void Awake()
     {
@@ -28,15 +33,37 @@ public class Workshift : MonoBehaviour
         RegisterController.OnWorkshiftStart += StartWorkShift;
         Timer.OnTimerEnded += EndWorkShift;
         Order.OnOrderPlaced += AddActiveLaundry;
+
+        playerControls = new PlayerInputActions();
+    }
+    private void OnEnable()
+    {
+        selectLeft = playerControls.Player.SelectLeft;
+        selectRight = playerControls.Player.SelectRight;
+        selectLeft.Enable();
+        selectRight.Enable();
+
+        selectLeft.performed += SelectLeftLaundry;
+        selectRight.performed += SelectRightLaundry;
     }
 
-    void StartWorkShift()
+    private void OnDisable()
+    {
+        selectLeft.Disable();
+        selectRight.Disable();
+
+        RegisterController.OnWorkshiftStart -= StartWorkShift;
+        Timer.OnTimerEnded -= EndWorkShift;
+        Order.OnOrderPlaced -= AddActiveLaundry;
+    }
+
+    private void StartWorkShift()
     {
         timer.timerIsRunning = true;
         StartCoroutine(SpawnCustomer());
     }
 
-    void EndWorkShift()
+    private void EndWorkShift()
     {
         StopCoroutine(SpawnCustomer());
 
@@ -52,7 +79,7 @@ public class Workshift : MonoBehaviour
         }
     }
 
-    void AddActiveLaundry()
+    private void AddActiveLaundry()
     {
         Laundry newLaundry = new Laundry();
 
@@ -63,6 +90,54 @@ public class Workshift : MonoBehaviour
         }
         activeLaundry.Add(newLaundry);
         OnLaundrySpawned.Invoke();
+    }
+
+    private void SelectLeftLaundry(InputAction.CallbackContext context)
+    {
+        if (selectedLaundry is null)
+        {
+            return;
+        }
+
+        selectedLaundry.isSelected = false;
+
+        int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
+        if (selectedLaundryIndex == 0)
+        {
+            selectedLaundryIndex = activeLaundry.Count - 1;
+        }
+        else
+        {
+            selectedLaundryIndex--;
+        }
+
+        activeLaundry[selectedLaundryIndex].isSelected = true;
+        selectedLaundry = activeLaundry[selectedLaundryIndex];
+        OnLaundrySelected.Invoke();
+    }
+
+    private void SelectRightLaundry(InputAction.CallbackContext context)
+    {
+        if (selectedLaundry is null)
+        {
+            return;
+        }
+
+        selectedLaundry.isSelected = false;
+
+        int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
+        if (selectedLaundryIndex == activeLaundry.Count - 1)
+        {
+            selectedLaundryIndex = 0;
+        }
+        else
+        {
+            selectedLaundryIndex++;
+        }
+
+        activeLaundry[selectedLaundryIndex].isSelected = true;
+        selectedLaundry = activeLaundry[selectedLaundryIndex];
+        OnLaundrySelected.Invoke();
     }
 
     public List<Laundry> GetActiveLaundryList()

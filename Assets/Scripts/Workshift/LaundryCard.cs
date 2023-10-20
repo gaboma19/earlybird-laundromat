@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class LaundryCard : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class LaundryCard : MonoBehaviour
     [SerializeField] private Image dryIcon;
     [SerializeField] private Image foldIcon;
     [SerializeField] private Image selectionIndicator;
-
     public void SetLaundry(Laundry laundry)
     {
         foreach (Transform child in iconContainer)
