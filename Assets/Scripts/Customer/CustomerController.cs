@@ -6,7 +6,7 @@ public class CustomerController : MonoBehaviour, IInteractable
 {
     Animator anim;
     GameObject player;
-    State currentState;
+    CustomerState currentState;
     public bool isInteractedWith { get; set; }
     public bool isInteractable { get; set; }
     GameObject buttonPrompt;

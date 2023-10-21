@@ -8,7 +8,6 @@ public class Workshift : MonoBehaviour
 {
     public static Workshift instance;
     private List<Laundry> activeLaundry = new List<Laundry>();
-    private Laundry selectedLaundry;
     [SerializeField] private Timer timer;
     public float customerTimeInterval;
     [SerializeField] private GameObject customer;
@@ -18,6 +17,7 @@ public class Workshift : MonoBehaviour
     private InputAction selectLeft;
     private InputAction selectRight;
     public static event Action OnLaundrySelected;
+    private Laundry selectedLaundry;
 
     private void Awake()
     {
@@ -33,6 +33,9 @@ public class Workshift : MonoBehaviour
         RegisterController.OnWorkshiftStart += StartWorkShift;
         Timer.OnTimerEnded += EndWorkShift;
         Order.OnOrderPlaced += AddActiveLaundry;
+        LoadedWash.OnLoadDirtyLaundry += LoadDirtyLaundry;
+        OnWash.OnLaundryWashing += SetWashingLaundry;
+        OnWash.OnLaundryWashed += SetWashedLaundry;
 
         playerControls = new PlayerInputActions();
     }
@@ -55,6 +58,9 @@ public class Workshift : MonoBehaviour
         RegisterController.OnWorkshiftStart -= StartWorkShift;
         Timer.OnTimerEnded -= EndWorkShift;
         Order.OnOrderPlaced -= AddActiveLaundry;
+        LoadedWash.OnLoadDirtyLaundry -= LoadDirtyLaundry;
+        OnWash.OnLaundryWashing -= SetWashingLaundry;
+        OnWash.OnLaundryWashed -= SetWashedLaundry;
     }
 
     private void StartWorkShift()
@@ -143,6 +149,55 @@ public class Workshift : MonoBehaviour
     public List<Laundry> GetActiveLaundryList()
     {
         return activeLaundry;
+    }
+
+    public Laundry GetSelectedLaundry()
+    {
+        return selectedLaundry;
+    }
+
+    private void SetWashingLaundry()
+    {
+        if (selectedLaundry is null)
+        {
+            return;
+        }
+
+        int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
+
+        if (selectedLaundry.state == Laundry.STATE.LOADED_WASH)
+        {
+            activeLaundry[selectedLaundryIndex].state = Laundry.STATE.WASHING;
+        }
+
+        selectedLaundry = activeLaundry[selectedLaundryIndex];
+    }
+
+    private void LoadDirtyLaundry()
+    {
+        if (selectedLaundry is null)
+        {
+            return;
+        }
+
+        int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
+
+        if (selectedLaundry.state == Laundry.STATE.DIRTY)
+        {
+            activeLaundry[selectedLaundryIndex].state = Laundry.STATE.LOADED_WASH;
+        }
+        else
+        {
+            // show dialogue "selected laundry is not dirty"
+        }
+
+        selectedLaundry = activeLaundry[selectedLaundryIndex];
+    }
+
+    private void SetWashedLaundry(Laundry laundry)
+    {
+        int washedLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[washedLaundryIndex].state = Laundry.STATE.WASHED;
     }
 
     // keeps track of points / score / currency

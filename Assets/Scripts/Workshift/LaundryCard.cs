@@ -26,13 +26,31 @@ public class LaundryCard : MonoBehaviour
             case Laundry.STATE.DIRTY:
                 Instantiate(dirtyIcon, iconContainer);
                 break;
-            case Laundry.STATE.WASH:
+            case Laundry.STATE.LOADED_WASH:
                 Instantiate(washIcon, iconContainer);
                 break;
-            case Laundry.STATE.DRY:
+            case Laundry.STATE.WASHING:
+                Instantiate(washIcon, iconContainer);
+                break;
+            case Laundry.STATE.WASHED:
+                Instantiate(washIcon, iconContainer);
+                break;
+            case Laundry.STATE.LOADED_DRY:
                 Instantiate(dryIcon, iconContainer);
                 break;
-            case Laundry.STATE.FOLD:
+            case Laundry.STATE.DRYING:
+                Instantiate(dryIcon, iconContainer);
+                break;
+            case Laundry.STATE.DRIED:
+                Instantiate(dryIcon, iconContainer);
+                break;
+            case Laundry.STATE.LOADED_FOLD:
+                Instantiate(foldIcon, iconContainer);
+                break;
+            case Laundry.STATE.FOLDING:
+                Instantiate(foldIcon, iconContainer);
+                break;
+            case Laundry.STATE.FOLDED:
                 Instantiate(foldIcon, iconContainer);
                 break;
         }

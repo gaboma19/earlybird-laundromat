@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class State
+public class CustomerState
 {
     public enum STATE
     {
@@ -19,9 +19,9 @@ public class State
     protected GameObject customer;
     protected Animator anim;
     protected GameObject player;
-    protected State nextState;
+    protected CustomerState nextState;
 
-    public State(GameObject _customer, Animator _anim, GameObject _player)
+    public CustomerState(GameObject _customer, Animator _anim, GameObject _player)
     {
         customer = _customer;
         anim = _anim;
@@ -33,7 +33,7 @@ public class State
     public virtual void Update() { stage = EVENT.UPDATE; }
     public virtual void Exit() { stage = EVENT.EXIT; }
 
-    public State Process()
+    public CustomerState Process()
     {
         if (stage == EVENT.ENTER) Enter();
         if (stage == EVENT.UPDATE) Update();

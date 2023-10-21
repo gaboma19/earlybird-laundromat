@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Queue : State
+public class Queue : CustomerState
 {
     Vector2 moveDirection;
     Vector2 lookDirection;
