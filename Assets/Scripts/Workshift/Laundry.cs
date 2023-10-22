@@ -9,7 +9,7 @@ public class Laundry
     [SerializeField] private int maximumNumberOfClothes = 5;
     public enum STATE
     {
-        DIRTY, LOADED_WASH, WASHING, WASHED, UNLOADED_WASH, LOADED_DRY, DRYING, DRIED, UNLOADED_DRY, LOADED_FOLD, FOLDING, FOLDED, DONE
+        DIRTY, LOADED_WASH, WASHING, WASHED, UNLOADED_WASH, LOADED_DRY, DRYING, DRIED, UNLOADED_DRY, FOLDING, FOLDED, DONE
     }
     public STATE state { get; set; }
     public bool isSelected { get; set; }

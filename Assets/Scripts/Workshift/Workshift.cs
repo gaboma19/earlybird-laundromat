@@ -41,6 +41,8 @@ public class Workshift : MonoBehaviour
         OnDry.OnLaundryDried += SetDriedLaundry;
         DoneWash.OnUnloadWasher += UnloadWashedLaundry;
         DoneDry.OnUnloadDryer += UnloadDriedLaundry;
+        InUseFold.OnLaundryFolding += FoldDriedLaundry;
+        InUseFold.OnLaundryFolded += SetFoldedLaundry;
 
         playerControls = new PlayerInputActions();
     }
@@ -71,6 +73,8 @@ public class Workshift : MonoBehaviour
         OnDry.OnLaundryDrying -= SetDryingLaundry;
         OnDry.OnLaundryDried -= SetDriedLaundry;
         DoneDry.OnUnloadDryer -= UnloadDriedLaundry;
+        InUseFold.OnLaundryFolding -= FoldDriedLaundry;
+        InUseFold.OnLaundryFolded -= SetFoldedLaundry;
     }
 
     private void StartWorkShift()
@@ -204,7 +208,7 @@ public class Workshift : MonoBehaviour
 
         int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
 
-        if (selectedLaundry.state == Laundry.STATE.WASHED)
+        if (selectedLaundry.state == Laundry.STATE.UNLOADED_WASH)
         {
             activeLaundry[selectedLaundryIndex].state = Laundry.STATE.LOADED_DRY;
         }
@@ -235,6 +239,35 @@ public class Workshift : MonoBehaviour
         int unloadedLaundryIndex = activeLaundry.IndexOf(laundry);
         activeLaundry[unloadedLaundryIndex].state = Laundry.STATE.UNLOADED_DRY;
     }
+
+    private void FoldDriedLaundry()
+    {
+        if (selectedLaundry is null)
+        {
+            return;
+        }
+
+        int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
+
+        if (selectedLaundry.state == Laundry.STATE.UNLOADED_DRY)
+        {
+            activeLaundry[selectedLaundryIndex].state = Laundry.STATE.FOLDING;
+        }
+
+        selectedLaundry = activeLaundry[selectedLaundryIndex];
+    }
+
+    private void SetFoldedLaundry(Laundry laundry)
+    {
+        int foldedLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[foldedLaundryIndex].state = Laundry.STATE.FOLDED;
+    }
+
+    // private void SetLaundryState(Laundry laundry, Laundry.STATE state)
+    // {
+    //     int laundryIndex = activeLaundry.IndexOf(laundry);
+    //     activeLaundry[laundryIndex].state = state;
+    // }
 
     // keeps track of points / score / currency
 

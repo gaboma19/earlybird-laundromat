@@ -23,9 +23,13 @@ public class DoneDry : DryerState
     {
         if (dryerController.isInteractedWith)
         {
-            anim.SetTrigger("Transition");
             dryerController.isInteractedWith = false;
+
+            anim.SetTrigger("Transition");
+
             OnUnloadDryer.Invoke(dryerController.loadedLaundry);
+            dryerController.loadedLaundry = null;
+
             nextState = new ReadyDry(dryer, anim);
             stage = EVENT.EXIT;
         }
