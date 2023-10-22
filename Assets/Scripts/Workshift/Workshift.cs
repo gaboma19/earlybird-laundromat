@@ -8,7 +8,6 @@ public class Workshift : MonoBehaviour
 {
     public static Workshift instance;
     private List<Laundry> activeLaundry = new List<Laundry>();
-    private Laundry selectedLaundry;
     [SerializeField] private Timer timer;
     public float customerTimeInterval;
     [SerializeField] private GameObject customer;
@@ -18,6 +17,7 @@ public class Workshift : MonoBehaviour
     private InputAction selectLeft;
     private InputAction selectRight;
     public static event Action OnLaundrySelected;
+    private Laundry selectedLaundry;
 
     private void Awake()
     {
@@ -33,6 +33,14 @@ public class Workshift : MonoBehaviour
         RegisterController.OnWorkshiftStart += StartWorkShift;
         Timer.OnTimerEnded += EndWorkShift;
         Order.OnOrderPlaced += AddActiveLaundry;
+        LoadedWash.OnLoadDirtyLaundry += LoadDirtyLaundry;
+        OnWash.OnLaundryWashing += SetWashingLaundry;
+        OnWash.OnLaundryWashed += SetWashedLaundry;
+        LoadedDry.OnLoadDryer += LoadWashedLaundry;
+        OnDry.OnLaundryDrying += SetDryingLaundry;
+        OnDry.OnLaundryDried += SetDriedLaundry;
+        DoneWash.OnUnloadWasher += UnloadWashedLaundry;
+        DoneDry.OnUnloadDryer += UnloadDriedLaundry;
 
         playerControls = new PlayerInputActions();
     }
@@ -55,6 +63,14 @@ public class Workshift : MonoBehaviour
         RegisterController.OnWorkshiftStart -= StartWorkShift;
         Timer.OnTimerEnded -= EndWorkShift;
         Order.OnOrderPlaced -= AddActiveLaundry;
+        LoadedWash.OnLoadDirtyLaundry -= LoadDirtyLaundry;
+        OnWash.OnLaundryWashing -= SetWashingLaundry;
+        OnWash.OnLaundryWashed -= SetWashedLaundry;
+        DoneWash.OnUnloadWasher -= UnloadWashedLaundry;
+        LoadedDry.OnLoadDryer -= LoadWashedLaundry;
+        OnDry.OnLaundryDrying -= SetDryingLaundry;
+        OnDry.OnLaundryDried -= SetDriedLaundry;
+        DoneDry.OnUnloadDryer -= UnloadDriedLaundry;
     }
 
     private void StartWorkShift()
@@ -143,6 +159,81 @@ public class Workshift : MonoBehaviour
     public List<Laundry> GetActiveLaundryList()
     {
         return activeLaundry;
+    }
+
+    public Laundry GetSelectedLaundry()
+    {
+        return selectedLaundry;
+    }
+
+    private void SetWashingLaundry(Laundry laundry)
+    {
+        int washingLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[washingLaundryIndex].state = Laundry.STATE.WASHING;
+    }
+
+    private void LoadDirtyLaundry()
+    {
+        if (selectedLaundry is null)
+        {
+            return;
+        }
+
+        int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
+
+        if (selectedLaundry.state == Laundry.STATE.DIRTY)
+        {
+            activeLaundry[selectedLaundryIndex].state = Laundry.STATE.LOADED_WASH;
+        }
+
+        selectedLaundry = activeLaundry[selectedLaundryIndex];
+    }
+
+    private void SetWashedLaundry(Laundry laundry)
+    {
+        int washedLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[washedLaundryIndex].state = Laundry.STATE.WASHED;
+    }
+
+    private void LoadWashedLaundry()
+    {
+        if (selectedLaundry is null)
+        {
+            return;
+        }
+
+        int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
+
+        if (selectedLaundry.state == Laundry.STATE.WASHED)
+        {
+            activeLaundry[selectedLaundryIndex].state = Laundry.STATE.LOADED_DRY;
+        }
+
+        selectedLaundry = activeLaundry[selectedLaundryIndex];
+    }
+
+    private void SetDriedLaundry(Laundry laundry)
+    {
+        int driedLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[driedLaundryIndex].state = Laundry.STATE.DRIED;
+    }
+
+    private void SetDryingLaundry(Laundry laundry)
+    {
+        int dryingLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[dryingLaundryIndex].state = Laundry.STATE.DRYING;
+    }
+
+    private void UnloadWashedLaundry(Laundry laundry)
+    {
+        int unloadedLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[unloadedLaundryIndex].state = Laundry.STATE.UNLOADED_WASH;
+    }
+
+    private void UnloadDriedLaundry(Laundry laundry)
+    {
+        int unloadedLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[unloadedLaundryIndex].state = Laundry.STATE.UNLOADED_DRY;
     }
 
     // keeps track of points / score / currency

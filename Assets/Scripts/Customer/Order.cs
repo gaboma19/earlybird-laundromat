@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Order : State
+public class Order : CustomerState
 {
     Vector2 lookDirection;
     Vector2 moveDirection;
@@ -88,6 +88,7 @@ public class Order : State
         WalkRandom();
 
         customerController.isInteractable = false;
+        customerController.HideInputPrompt();
 
         DialogueBoxController.OnDialogueEnded -= EndOrder;
 
