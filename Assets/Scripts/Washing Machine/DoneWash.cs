@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DoneWash : WashingMachineState
 {
     private WashingMachineController washingMachineController;
+    public static event Action<Laundry> OnUnloadWasher;
     public DoneWash(GameObject _washingMachine, Animator _anim) :
         base(_washingMachine, _anim)
     {
@@ -23,6 +25,7 @@ public class DoneWash : WashingMachineState
         {
             anim.SetTrigger("Transition");
             washingMachineController.isInteractedWith = false;
+            OnUnloadWasher.Invoke(washingMachineController.loadedLaundry);
             nextState = new ReadyWash(washingMachine, anim);
             stage = EVENT.EXIT;
         }

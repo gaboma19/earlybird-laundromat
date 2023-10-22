@@ -7,35 +7,32 @@ public class DryerController : MonoBehaviour, IInteractable
     GameObject buttonPrompt;
     Animator anim;
     public bool isInteractable { get; set; }
+    public bool isInteractedWith { get; set; }
+    DryerState currentState;
+    public Laundry loadedLaundry { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
         buttonPrompt = this.transform.Find("Button Prompt").gameObject;
         anim = this.GetComponent<Animator>();
-        isInteractable = true;
+        currentState = new ReadyDry(this.gameObject, anim);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("on"))
-        {
-            isInteractable = false;
-            HideInputPrompt();
-        }
-        else
-        {
-            isInteractable = true;
-        }
+        currentState = currentState.Process();
     }
 
     public void Interact()
     {
-        if (isInteractable)
+        if (!isInteractable)
         {
-            anim.SetTrigger("Transition");
+            return;
         }
+
+        isInteractedWith = true;
     }
 
     public bool CanInteract()

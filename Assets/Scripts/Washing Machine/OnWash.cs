@@ -6,9 +6,9 @@ using System;
 public class OnWash : WashingMachineState
 {
     public static event Action<Laundry> OnLaundryWashed;
-    public static event Action OnLaundryWashing;
+    public static event Action<Laundry> OnLaundryWashing;
     private WashingMachineController washingMachineController;
-    [SerializeField] private float washCycleTime = 60f;
+    [SerializeField] private float washCycleTime = 30f;
     public OnWash(GameObject _washingMachine, Animator _anim) :
         base(_washingMachine, _anim)
     {
@@ -19,8 +19,9 @@ public class OnWash : WashingMachineState
     public override void Enter()
     {
         washingMachineController.isInteractable = false;
+        washingMachineController.HideInputPrompt();
 
-        OnLaundryWashing.Invoke();
+        OnLaundryWashing.Invoke(washingMachineController.loadedLaundry);
 
         base.Enter();
     }

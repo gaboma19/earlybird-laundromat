@@ -88,6 +88,7 @@ public class Order : CustomerState
         WalkRandom();
 
         customerController.isInteractable = false;
+        customerController.HideInputPrompt();
 
         DialogueBoxController.OnDialogueEnded -= EndOrder;
 

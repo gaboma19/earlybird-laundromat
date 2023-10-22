@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 18fa2e4816d324045b7485c7b97e1808
+guid: 9e0f401f0fbf0f24d8ba9884f850c4ef
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,9 +119,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Dry
+  - name: UnloadedWash
     originalName: 
-    pivot: {x: 0.5, y: -0.071428575}
+    pivot: {x: 0.5, y: -0.06666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -129,8 +129,8 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 14
-      height: 14
-    spriteID: 51bfcded5df41e449b12beef9c39af64
+      height: 15
+    spriteID: 12369b77edfa5dc4cab037cde8872679
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,20 +142,20 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1037697713
-    name: Dry
+    guid: -29843431
+    name: UnloadedWash
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Dry
+    - name: UnloadedWash
       frameIndex: 0
       cellRect:
         x: 1
         y: 1
         width: 14
-        height: 14
-      spriteId: 51bfcded5df41e449b12beef9c39af64
+        height: 15
+      spriteId: 12369b77edfa5dc4cab037cde8872679
     linkedCells: []
     parentIndex: -1
   platformSettings: []

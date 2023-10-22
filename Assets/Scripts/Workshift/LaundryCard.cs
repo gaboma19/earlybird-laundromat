@@ -10,8 +10,14 @@ public class LaundryCard : MonoBehaviour
     [SerializeField] private TextMeshProUGUI laundryText;
     [SerializeField] private Transform iconContainer;
     [SerializeField] private Image dirtyIcon;
-    [SerializeField] private Image washIcon;
-    [SerializeField] private Image dryIcon;
+    [SerializeField] private Image washLoadedIcon;
+    [SerializeField] private Image washingIcon;
+    [SerializeField] private Image washedIcon;
+    [SerializeField] private Image washUnloadedIcon;
+    [SerializeField] private Image dryLoadedIcon;
+    [SerializeField] private Image dryingIcon;
+    [SerializeField] private Image driedIcon;
+    [SerializeField] private Image dryUnloadedIcon;
     [SerializeField] private Image foldIcon;
     [SerializeField] private Image selectionIndicator;
     public void SetLaundry(Laundry laundry)
@@ -25,33 +31,51 @@ public class LaundryCard : MonoBehaviour
         {
             case Laundry.STATE.DIRTY:
                 Instantiate(dirtyIcon, iconContainer);
+                laundryText.text = "Dirty";
                 break;
             case Laundry.STATE.LOADED_WASH:
-                Instantiate(washIcon, iconContainer);
+                Instantiate(washLoadedIcon, iconContainer);
+                laundryText.text = "Loaded";
                 break;
             case Laundry.STATE.WASHING:
-                Instantiate(washIcon, iconContainer);
+                Instantiate(washingIcon, iconContainer);
+                laundryText.text = "Washing";
                 break;
             case Laundry.STATE.WASHED:
-                Instantiate(washIcon, iconContainer);
+                Instantiate(washedIcon, iconContainer);
+                laundryText.text = "Washed";
+                break;
+            case Laundry.STATE.UNLOADED_WASH:
+                Instantiate(washUnloadedIcon, iconContainer);
+                laundryText.text = "Unloaded";
                 break;
             case Laundry.STATE.LOADED_DRY:
-                Instantiate(dryIcon, iconContainer);
+                Instantiate(dryLoadedIcon, iconContainer);
+                laundryText.text = "Loaded";
                 break;
             case Laundry.STATE.DRYING:
-                Instantiate(dryIcon, iconContainer);
+                Instantiate(dryingIcon, iconContainer);
+                laundryText.text = "Drying";
                 break;
             case Laundry.STATE.DRIED:
-                Instantiate(dryIcon, iconContainer);
+                Instantiate(driedIcon, iconContainer);
+                laundryText.text = "Dried";
+                break;
+            case Laundry.STATE.UNLOADED_DRY:
+                Instantiate(dryUnloadedIcon, iconContainer);
+                laundryText.text = "Unoaded";
                 break;
             case Laundry.STATE.LOADED_FOLD:
                 Instantiate(foldIcon, iconContainer);
+                laundryText.text = "Loaded";
                 break;
             case Laundry.STATE.FOLDING:
                 Instantiate(foldIcon, iconContainer);
+                laundryText.text = "Folding";
                 break;
             case Laundry.STATE.FOLDED:
                 Instantiate(foldIcon, iconContainer);
+                laundryText.text = "Folded";
                 break;
         }
 

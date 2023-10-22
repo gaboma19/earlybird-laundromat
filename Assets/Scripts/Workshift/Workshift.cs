@@ -36,6 +36,11 @@ public class Workshift : MonoBehaviour
         LoadedWash.OnLoadDirtyLaundry += LoadDirtyLaundry;
         OnWash.OnLaundryWashing += SetWashingLaundry;
         OnWash.OnLaundryWashed += SetWashedLaundry;
+        LoadedDry.OnLoadDryer += LoadWashedLaundry;
+        OnDry.OnLaundryDrying += SetDryingLaundry;
+        OnDry.OnLaundryDried += SetDriedLaundry;
+        DoneWash.OnUnloadWasher += UnloadWashedLaundry;
+        DoneDry.OnUnloadDryer += UnloadDriedLaundry;
 
         playerControls = new PlayerInputActions();
     }
@@ -61,6 +66,11 @@ public class Workshift : MonoBehaviour
         LoadedWash.OnLoadDirtyLaundry -= LoadDirtyLaundry;
         OnWash.OnLaundryWashing -= SetWashingLaundry;
         OnWash.OnLaundryWashed -= SetWashedLaundry;
+        DoneWash.OnUnloadWasher -= UnloadWashedLaundry;
+        LoadedDry.OnLoadDryer -= LoadWashedLaundry;
+        OnDry.OnLaundryDrying -= SetDryingLaundry;
+        OnDry.OnLaundryDried -= SetDriedLaundry;
+        DoneDry.OnUnloadDryer -= UnloadDriedLaundry;
     }
 
     private void StartWorkShift()
@@ -156,21 +166,10 @@ public class Workshift : MonoBehaviour
         return selectedLaundry;
     }
 
-    private void SetWashingLaundry()
+    private void SetWashingLaundry(Laundry laundry)
     {
-        if (selectedLaundry is null)
-        {
-            return;
-        }
-
-        int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
-
-        if (selectedLaundry.state == Laundry.STATE.LOADED_WASH)
-        {
-            activeLaundry[selectedLaundryIndex].state = Laundry.STATE.WASHING;
-        }
-
-        selectedLaundry = activeLaundry[selectedLaundryIndex];
+        int washingLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[washingLaundryIndex].state = Laundry.STATE.WASHING;
     }
 
     private void LoadDirtyLaundry()
@@ -186,10 +185,6 @@ public class Workshift : MonoBehaviour
         {
             activeLaundry[selectedLaundryIndex].state = Laundry.STATE.LOADED_WASH;
         }
-        else
-        {
-            // show dialogue "selected laundry is not dirty"
-        }
 
         selectedLaundry = activeLaundry[selectedLaundryIndex];
     }
@@ -198,6 +193,47 @@ public class Workshift : MonoBehaviour
     {
         int washedLaundryIndex = activeLaundry.IndexOf(laundry);
         activeLaundry[washedLaundryIndex].state = Laundry.STATE.WASHED;
+    }
+
+    private void LoadWashedLaundry()
+    {
+        if (selectedLaundry is null)
+        {
+            return;
+        }
+
+        int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
+
+        if (selectedLaundry.state == Laundry.STATE.WASHED)
+        {
+            activeLaundry[selectedLaundryIndex].state = Laundry.STATE.LOADED_DRY;
+        }
+
+        selectedLaundry = activeLaundry[selectedLaundryIndex];
+    }
+
+    private void SetDriedLaundry(Laundry laundry)
+    {
+        int driedLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[driedLaundryIndex].state = Laundry.STATE.DRIED;
+    }
+
+    private void SetDryingLaundry(Laundry laundry)
+    {
+        int dryingLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[dryingLaundryIndex].state = Laundry.STATE.DRYING;
+    }
+
+    private void UnloadWashedLaundry(Laundry laundry)
+    {
+        int unloadedLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[unloadedLaundryIndex].state = Laundry.STATE.UNLOADED_WASH;
+    }
+
+    private void UnloadDriedLaundry(Laundry laundry)
+    {
+        int unloadedLaundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[unloadedLaundryIndex].state = Laundry.STATE.UNLOADED_DRY;
     }
 
     // keeps track of points / score / currency

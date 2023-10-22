@@ -23,10 +23,17 @@ public class ReadyWash : WashingMachineState
     {
         if (washingMachineController.isInteractedWith)
         {
-            anim.SetTrigger("Transition");
+            if (Workshift.instance.GetSelectedLaundry().state == Laundry.STATE.DIRTY)
+            {
+                anim.SetTrigger("Transition");
+                nextState = new LoadedWash(washingMachine, anim);
+                stage = EVENT.EXIT;
+            }
+            else
+            {
+                // show dialogue "selected laundry is not dirty"
+            }
             washingMachineController.isInteractedWith = false;
-            nextState = new LoadedWash(washingMachine, anim);
-            stage = EVENT.EXIT;
         }
     }
 
