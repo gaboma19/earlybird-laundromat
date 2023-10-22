@@ -9,6 +9,7 @@ public class RegisterController : MonoBehaviour, IInteractable
     public GameObject buttonPrompt;
     public GameObject customer;
     public static event Action OnWorkshiftStart;
+    public static event Action OnLaundryDone;
     private bool isInteractable;
 
     void Start()
@@ -17,11 +18,19 @@ public class RegisterController : MonoBehaviour, IInteractable
     }
     public void Interact()
     {
-        OnWorkshiftStart.Invoke();
-        isInteractable = false;
-        HideInputPrompt();
-
-        // call DialogueBoxController to inform player
+        if (Workshift.instance.state == Workshift.STATE.STARTED)
+        {
+            OnLaundryDone.Invoke();
+        }
+        else if (Workshift.instance.state == Workshift.STATE.READY)
+        {
+            OnWorkshiftStart.Invoke();
+            // call DialogueBoxController to inform player
+        }
+        else if (Workshift.instance.state == Workshift.STATE.DONE)
+        {
+            // show dialogue saying the work shift is over
+        }
     }
 
     public bool CanInteract()

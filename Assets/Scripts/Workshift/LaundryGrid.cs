@@ -44,6 +44,7 @@ public class LaundryGrid : MonoBehaviour
         DoneDry.OnUnloadDryer += (_) => UpdateVisual();
         InUseFold.OnLaundryFolding += UpdateVisual;
         InUseFold.OnLaundryFolded += (_) => UpdateVisual();
+        RegisterController.OnLaundryDone += UpdateVisual;
     }
 
 }

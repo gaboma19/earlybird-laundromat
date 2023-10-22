@@ -10,6 +10,7 @@ public class Workshift : MonoBehaviour
     private List<Laundry> activeLaundry = new List<Laundry>();
     [SerializeField] private Timer timer;
     public float customerTimeInterval;
+    private float customerTimeRemaining;
     [SerializeField] private GameObject customer;
     public static event Action OnLaundrySpawned;
     [SerializeField] private GameObject spawnPoint;
@@ -18,6 +19,11 @@ public class Workshift : MonoBehaviour
     private InputAction selectRight;
     public static event Action OnLaundrySelected;
     private Laundry selectedLaundry;
+    public enum STATE
+    {
+        READY, STARTED, DONE
+    }
+    public STATE state;
 
     private void Awake()
     {
@@ -29,6 +35,9 @@ public class Workshift : MonoBehaviour
         {
             Destroy(this);
         }
+
+        state = STATE.READY;
+        customerTimeRemaining = customerTimeInterval;
 
         RegisterController.OnWorkshiftStart += StartWorkShift;
         Timer.OnTimerEnded += EndWorkShift;
@@ -43,6 +52,7 @@ public class Workshift : MonoBehaviour
         DoneDry.OnUnloadDryer += UnloadDriedLaundry;
         InUseFold.OnLaundryFolding += FoldDriedLaundry;
         InUseFold.OnLaundryFolded += SetFoldedLaundry;
+        RegisterController.OnLaundryDone += SetDoneLaundry;
 
         playerControls = new PlayerInputActions();
     }
@@ -75,27 +85,35 @@ public class Workshift : MonoBehaviour
         DoneDry.OnUnloadDryer -= UnloadDriedLaundry;
         InUseFold.OnLaundryFolding -= FoldDriedLaundry;
         InUseFold.OnLaundryFolded -= SetFoldedLaundry;
+        RegisterController.OnLaundryDone -= SetDoneLaundry;
     }
 
     private void StartWorkShift()
     {
         timer.timerIsRunning = true;
-        StartCoroutine(SpawnCustomer());
+        state = STATE.STARTED;
     }
 
     private void EndWorkShift()
     {
-        StopCoroutine(SpawnCustomer());
+        state = STATE.DONE;
 
         // show a "shift ended" UI element
     }
 
-    IEnumerator SpawnCustomer()
+    void Update()
     {
-        while (true)
+        if (state == STATE.STARTED)
         {
-            Instantiate(customer, spawnPoint.transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(customerTimeInterval);
+            if (customerTimeRemaining > 0)
+            {
+                customerTimeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                Instantiate(customer, spawnPoint.transform.position, Quaternion.identity);
+                customerTimeRemaining = customerTimeInterval;
+            }
         }
     }
 
@@ -261,6 +279,23 @@ public class Workshift : MonoBehaviour
     {
         int foldedLaundryIndex = activeLaundry.IndexOf(laundry);
         activeLaundry[foldedLaundryIndex].state = Laundry.STATE.FOLDED;
+    }
+
+    private void SetDoneLaundry()
+    {
+        if (selectedLaundry is null)
+        {
+            return;
+        }
+
+        int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
+
+        if (selectedLaundry.state == Laundry.STATE.FOLDED)
+        {
+            activeLaundry[selectedLaundryIndex].state = Laundry.STATE.DONE;
+        }
+
+        selectedLaundry = activeLaundry[selectedLaundryIndex];
     }
 
     // private void SetLaundryState(Laundry laundry, Laundry.STATE state)
