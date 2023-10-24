@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using System.Linq;
 
 public class Workshift : MonoBehaviour
 {
     public static Workshift instance;
     private List<Laundry> activeLaundry = new List<Laundry>();
+    private List<Laundry> doneLaundry = new List<Laundry>();
     [SerializeField] private Timer timer;
     public float customerTimeInterval;
     private float customerTimeRemaining;
@@ -18,7 +20,9 @@ public class Workshift : MonoBehaviour
     private InputAction selectLeft;
     private InputAction selectRight;
     public static event Action OnLaundrySelected;
+    public static event Action OnLaundryRemoved;
     private Laundry selectedLaundry;
+    public static event Action<decimal> OnScoreAdded;
     public enum STATE
     {
         READY, STARTED, DONE
@@ -113,6 +117,21 @@ public class Workshift : MonoBehaviour
             {
                 Instantiate(customer, spawnPoint.transform.position, Quaternion.identity);
                 customerTimeRemaining = customerTimeInterval;
+            }
+        }
+
+        foreach (Laundry laundry in doneLaundry.ToList())
+        {
+            if (laundry.doneTimeRemaining > 0)
+            {
+                laundry.doneTimeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                int doneLaundryIndex = activeLaundry.IndexOf(laundry);
+                activeLaundry.RemoveAt(doneLaundryIndex);
+                doneLaundry.Remove(laundry);
+                OnLaundryRemoved.Invoke();
             }
         }
     }
@@ -293,6 +312,8 @@ public class Workshift : MonoBehaviour
         if (selectedLaundry.state == Laundry.STATE.FOLDED)
         {
             activeLaundry[selectedLaundryIndex].state = Laundry.STATE.DONE;
+            doneLaundry.Add(activeLaundry[selectedLaundryIndex]);
+            OnScoreAdded.Invoke(1m);
         }
 
         selectedLaundry = activeLaundry[selectedLaundryIndex];

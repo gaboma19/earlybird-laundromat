@@ -45,6 +45,7 @@ public class LaundryGrid : MonoBehaviour
         InUseFold.OnLaundryFolding += UpdateVisual;
         InUseFold.OnLaundryFolded += (_) => UpdateVisual();
         RegisterController.OnLaundryDone += UpdateVisual;
+        Workshift.OnLaundryRemoved += UpdateVisual;
     }
 
 }

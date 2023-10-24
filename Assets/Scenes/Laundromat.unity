@@ -2808,10 +2808,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 886400651}
     m_Modifications:
-    - target: {fileID: 231690328515180593, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
-      propertyPath: timeRemaining
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 549771052434962916, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
       propertyPath: spawnPoint
       value: 
@@ -2846,10 +2842,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6713188294118215377, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7143685602817635196, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7652384300248534642, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
