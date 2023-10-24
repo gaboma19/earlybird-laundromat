@@ -7,24 +7,30 @@ public class FoldingTableController : MonoBehaviour, IInteractable
     GameObject buttonPrompt;
     Animator anim;
     public bool isInteractable { get; set; }
+    public bool isInteractedWith { get; set; }
+    FoldingTableState currentState;
+    public Laundry loadedLaundry { get; set; }
 
-    // Start is called before the first frame update
     void Start()
     {
         buttonPrompt = this.transform.Find("Button Prompt").gameObject;
         anim = this.GetComponent<Animator>();
-        isInteractable = true;
+        currentState = new ReadyFold(this.gameObject, anim);
     }
 
     void Update()
     {
-        // no longer interactable if being used by a customer
+        currentState = currentState.Process();
     }
 
     public void Interact()
     {
-        // open folding clothes minigame
-        // with selected Laundry
+        if (!isInteractable)
+        {
+            return;
+        }
+
+        isInteractedWith = true;
     }
 
     public bool CanInteract()

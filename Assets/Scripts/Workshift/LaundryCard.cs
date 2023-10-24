@@ -18,7 +18,9 @@ public class LaundryCard : MonoBehaviour
     [SerializeField] private Image dryingIcon;
     [SerializeField] private Image driedIcon;
     [SerializeField] private Image dryUnloadedIcon;
-    [SerializeField] private Image foldIcon;
+    [SerializeField] private Image foldingIcon;
+    [SerializeField] private Image foldedIcon;
+    [SerializeField] private Image doneIcon;
     [SerializeField] private Image selectionIndicator;
     public void SetLaundry(Laundry laundry)
     {
@@ -63,19 +65,19 @@ public class LaundryCard : MonoBehaviour
                 break;
             case Laundry.STATE.UNLOADED_DRY:
                 Instantiate(dryUnloadedIcon, iconContainer);
-                laundryText.text = "Unoaded";
-                break;
-            case Laundry.STATE.LOADED_FOLD:
-                Instantiate(foldIcon, iconContainer);
-                laundryText.text = "Loaded";
+                laundryText.text = "Unloaded";
                 break;
             case Laundry.STATE.FOLDING:
-                Instantiate(foldIcon, iconContainer);
+                Instantiate(foldingIcon, iconContainer);
                 laundryText.text = "Folding";
                 break;
             case Laundry.STATE.FOLDED:
-                Instantiate(foldIcon, iconContainer);
+                Instantiate(foldedIcon, iconContainer);
                 laundryText.text = "Folded";
+                break;
+            case Laundry.STATE.DONE:
+                Instantiate(doneIcon, iconContainer);
+                laundryText.text = "Done";
                 break;
         }
 
