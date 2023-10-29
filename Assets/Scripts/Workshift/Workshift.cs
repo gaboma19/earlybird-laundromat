@@ -319,13 +319,11 @@ public class Workshift : MonoBehaviour
         selectedLaundry = activeLaundry[selectedLaundryIndex];
     }
 
-    // private void SetLaundryState(Laundry laundry, Laundry.STATE state)
-    // {
-    //     int laundryIndex = activeLaundry.IndexOf(laundry);
-    //     activeLaundry[laundryIndex].state = state;
-    // }
-
-    // keeps track of points / score / currency
+    private void SetLaundryState(Laundry laundry, Laundry.STATE state)
+    {
+        int laundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[laundryIndex].state = state;
+    }
 
     // play “getting it done” - game loop.
 
