@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Minigame : MonoBehaviour
 {
+    private Clothes selectedClothes;
     public void Open()
     {
         gameObject.SetActive(true);
@@ -12,5 +13,10 @@ public class Minigame : MonoBehaviour
     public void Close()
     {
         gameObject.SetActive(false);
+    }
+
+    public Clothes GetSelectedClothes()
+    {
+        return selectedClothes;
     }
 }

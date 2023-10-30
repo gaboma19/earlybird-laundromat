@@ -1,20 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Clothes
 {
     public enum TYPE
     {
-        SHIRT, PANTS, UNDERWEAR, SOCKS
+        SHIRT, PANTS, PANTIES, BOXERS, SOCKS
     }
 
     public enum COLOR
     {
         DARK, LIGHT
     }
-    TYPE type { get; }
-    COLOR color { get; }
+    public TYPE type { get; }
+    public COLOR color { get; }
 
     public Clothes()
     {

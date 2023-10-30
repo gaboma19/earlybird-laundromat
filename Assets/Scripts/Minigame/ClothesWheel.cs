@@ -6,8 +6,8 @@ public class ClothesWheel : MonoBehaviour
 {
     [SerializeField] private Transform wheel;
     [SerializeField] private Transform clothesTemplate;
+    [SerializeField] private Minigame minigame;
     public Laundry laundry;
-    private float radius = 1f;
 
     private void Awake()
     {
@@ -16,6 +16,8 @@ public class ClothesWheel : MonoBehaviour
 
     void Start()
     {
+        laundry = new Laundry();
+
         UpdateVisual();
     }
 
@@ -27,14 +29,35 @@ public class ClothesWheel : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        int clothesCount = laundry.GetClothesList().Count;
-        float angleSection = Mathf.PI * 2f / clothesCount;
+        List<Clothes> clothesList = laundry.GetClothesList();
+        int clothesCount = clothesList.Count;
 
-        for (var i = 0; i < clothesCount; i++)
+        Clothes selectedClothes = minigame.GetSelectedClothes();
+        int selectedClothesIndex = clothesList.IndexOf(selectedClothes);
+
+        List<Clothes> visibleClothes = new List<Clothes>();
+
+        for (int i = selectedClothesIndex - 1; i <= selectedClothesIndex + 1; i++)
         {
-            float angle = i * angleSection;
-            Vector3 clothesPosition = this.transform.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle) * radius, 0);
-            Transform clothesTransform = Instantiate(clothesTemplate, clothesPosition, Quaternion.identity);
+            if (i < 0)
+            {
+                visibleClothes.Add(clothesList[clothesCount - 1]);
+            }
+            else if (i > clothesCount - 1)
+            {
+                visibleClothes.Add(clothesList[0]);
+            }
+            else
+            {
+                visibleClothes.Add(clothesList[i]);
+            }
+        }
+
+        foreach (Clothes clothes in visibleClothes)
+        {
+            Transform clothesTransform = Instantiate(clothesTemplate, wheel);
+            clothesTransform.gameObject.SetActive(true);
+            clothesTransform.GetComponent<ClothesToken>().SetClothes(clothes);
         }
     }
 }
