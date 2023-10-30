@@ -25,4 +25,9 @@ public class Laundry
 
         this.state = STATE.DIRTY;
     }
+
+    public List<Clothes> GetClothesList()
+    {
+        return clothes;
+    }
 }

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Minigame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Open()
     {
-        
+        gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Close()
     {
-        
+        gameObject.SetActive(false);
     }
 }
