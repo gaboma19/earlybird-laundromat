@@ -16,8 +16,6 @@ public class ClothesWheel : MonoBehaviour
 
     void Start()
     {
-        laundry = new Laundry();
-
         UpdateVisual();
     }
 

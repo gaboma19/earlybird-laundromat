@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Laundry
 {
@@ -20,7 +19,13 @@ public class Laundry
         int clothesCount = Random.Range(8, maximumNumberOfClothes + 1);
         for (int i = 0; i < clothesCount; i++)
         {
-            clothes.Add(new Clothes());
+            Clothes newClothes = new Clothes();
+            clothes.Add(newClothes);
+
+            if (newClothes.type == Clothes.TYPE.SOCKS)
+            {
+                clothes.Add(newClothes);
+            }
         }
 
         this.state = STATE.DIRTY;
