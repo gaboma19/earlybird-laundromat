@@ -7,7 +7,6 @@ public class ClothesWheel : MonoBehaviour
     [SerializeField] private Transform wheel;
     [SerializeField] private Transform clothesTemplate;
     [SerializeField] private Minigame minigame;
-    public Laundry laundry;
 
     private void Awake()
     {
@@ -27,31 +26,31 @@ public class ClothesWheel : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        List<Clothes> clothesList = laundry.GetClothesList();
-        int clothesCount = clothesList.Count;
+        List<Clothes> clothesList = minigame.laundry.clothes;
+        // int clothesCount = clothesList.Count;
 
-        Clothes selectedClothes = minigame.GetSelectedClothes();
-        int selectedClothesIndex = clothesList.IndexOf(selectedClothes);
+        // Clothes selectedClothes = minigame.GetSelectedClothes();
+        // int selectedClothesIndex = clothesList.IndexOf(selectedClothes);
 
-        List<Clothes> visibleClothes = new List<Clothes>();
+        // List<Clothes> visibleClothes = new List<Clothes>();
 
-        for (int i = selectedClothesIndex - 1; i <= selectedClothesIndex + 1; i++)
-        {
-            if (i < 0)
-            {
-                visibleClothes.Add(clothesList[clothesCount - 1]);
-            }
-            else if (i > clothesCount - 1)
-            {
-                visibleClothes.Add(clothesList[0]);
-            }
-            else
-            {
-                visibleClothes.Add(clothesList[i]);
-            }
-        }
+        // for (int i = selectedClothesIndex - 1; i <= selectedClothesIndex + 1; i++)
+        // {
+        //     if (i < 0)
+        //     {
+        //         visibleClothes.Add(clothesList[clothesCount - 1]);
+        //     }
+        //     else if (i > clothesCount - 1)
+        //     {
+        //         visibleClothes.Add(clothesList[0]);
+        //     }
+        //     else
+        //     {
+        //         visibleClothes.Add(clothesList[i]);
+        //     }
+        // }
 
-        foreach (Clothes clothes in visibleClothes)
+        foreach (Clothes clothes in clothesList)
         {
             Transform clothesTransform = Instantiate(clothesTemplate, wheel);
             clothesTransform.gameObject.SetActive(true);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Laundry
 {
-    private List<Clothes> clothes = new List<Clothes>();
+    public List<Clothes> clothes = new List<Clothes>();
     [SerializeField] private int maximumNumberOfClothes = 13;
     public enum STATE
     {
@@ -29,10 +29,5 @@ public class Laundry
         }
 
         this.state = STATE.DIRTY;
-    }
-
-    public List<Clothes> GetClothesList()
-    {
-        return clothes;
     }
 }

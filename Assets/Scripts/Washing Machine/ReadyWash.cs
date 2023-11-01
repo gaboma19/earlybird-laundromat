@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ReadyWash : WashingMachineState
 {
-    private WashingMachineController washingMachineController;
+    private readonly WashingMachineController washingMachineController;
     public ReadyWash(GameObject _washingMachine, Animator _anim) :
         base(_washingMachine, _anim)
     {
@@ -15,6 +15,8 @@ public class ReadyWash : WashingMachineState
     public override void Enter()
     {
         washingMachineController.isInteractable = true;
+
+        Minigame.OnMinigameEnded += EndReady;
 
         base.Enter();
     }
@@ -27,10 +29,6 @@ public class ReadyWash : WashingMachineState
 
             if (selectedLaundry.state == Laundry.STATE.DIRTY)
             {
-                // anim.SetTrigger("Transition");
-                // nextState = new LoadedWash(washingMachine, anim);
-                // stage = EVENT.EXIT;
-
                 Minigame.instance.SeparateClothes(selectedLaundry);
             }
             else
@@ -39,6 +37,13 @@ public class ReadyWash : WashingMachineState
             }
             washingMachineController.isInteractedWith = false;
         }
+    }
+
+    void EndReady()
+    {
+        anim.SetTrigger("Transition");
+        nextState = new LoadedWash(washingMachine, anim);
+        stage = EVENT.EXIT;
     }
 
     public override void Exit()
