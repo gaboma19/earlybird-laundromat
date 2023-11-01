@@ -4,19 +4,41 @@ using UnityEngine;
 
 public class Minigame : MonoBehaviour
 {
+    public static Minigame instance;
     private Clothes selectedClothes;
+    [SerializeField] private ClothesWheel clothesWheel;
+    [SerializeField] private CanvasGroup minigame;
     public void Open()
     {
-        gameObject.SetActive(true);
+        minigame.gameObject.SetActive(true);
     }
 
     public void Close()
     {
-        gameObject.SetActive(false);
+        minigame.gameObject.SetActive(false);
     }
 
     public Clothes GetSelectedClothes()
     {
         return selectedClothes;
+    }
+
+    public void SeparateClothes(Laundry laundry)
+    {
+        clothesWheel.laundry = laundry;
+
+        Open();
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 }

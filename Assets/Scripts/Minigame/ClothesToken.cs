@@ -9,7 +9,7 @@ public class ClothesToken : MonoBehaviour
     [SerializeField] private Image pantsImage;
     [SerializeField] private Image pantiesImage;
     [SerializeField] private Image boxersImage;
-    [SerializeField] private Image socksImage;
+    [SerializeField] private Image sockImage;
 
     public void SetClothes(Clothes clothes)
     {
@@ -90,10 +90,10 @@ public class ClothesToken : MonoBehaviour
         switch (clothes.color)
         {
             case Clothes.COLOR.LIGHT:
-                Instantiate(socksImage, this.transform);
+                Instantiate(sockImage, this.transform);
                 break;
             case Clothes.COLOR.DARK:
-                Instantiate(socksImage, this.transform);
+                Instantiate(sockImage, this.transform);
                 break;
         }
     }

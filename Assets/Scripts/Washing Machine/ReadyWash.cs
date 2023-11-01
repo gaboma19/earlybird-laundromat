@@ -23,11 +23,15 @@ public class ReadyWash : WashingMachineState
     {
         if (washingMachineController.isInteractedWith)
         {
-            if (Workshift.instance.GetSelectedLaundry().state == Laundry.STATE.DIRTY)
+            Laundry selectedLaundry = Workshift.instance.GetSelectedLaundry();
+
+            if (selectedLaundry.state == Laundry.STATE.DIRTY)
             {
-                anim.SetTrigger("Transition");
-                nextState = new LoadedWash(washingMachine, anim);
-                stage = EVENT.EXIT;
+                // anim.SetTrigger("Transition");
+                // nextState = new LoadedWash(washingMachine, anim);
+                // stage = EVENT.EXIT;
+
+                Minigame.instance.SeparateClothes(selectedLaundry);
             }
             else
             {
