@@ -23,17 +23,21 @@ public class ReadyDry : DryerState
     {
         if (dryerController.isInteractedWith)
         {
-            if (Workshift.instance.GetSelectedLaundry().state == Laundry.STATE.UNLOADED_WASH)
-            {
-                anim.SetTrigger("Transition");
-                nextState = new LoadedDry(dryer, anim);
-                stage = EVENT.EXIT;
-            }
-            else
-            {
-                // show dialogue "selected laundry is not ready for drying"
-            }
             dryerController.isInteractedWith = false;
+
+            if (Workshift.instance.state == Workshift.STATE.STARTED)
+            {
+                if (Workshift.instance.GetSelectedLaundry().state == Laundry.STATE.UNLOADED_WASH)
+                {
+                    anim.SetTrigger("Transition");
+                    nextState = new LoadedDry(dryer, anim);
+                    stage = EVENT.EXIT;
+                }
+                else
+                {
+                    // show dialogue "selected laundry is not ready for drying"
+                }
+            }
         }
     }
 

@@ -25,17 +25,21 @@ public class ReadyWash : WashingMachineState
     {
         if (washingMachineController.isInteractedWith)
         {
-            Laundry selectedLaundry = Workshift.instance.GetSelectedLaundry();
-
-            if (selectedLaundry.state == Laundry.STATE.DIRTY)
-            {
-                Minigame.instance.SeparateClothes(selectedLaundry);
-            }
-            else
-            {
-                // show dialogue "selected laundry is not dirty"
-            }
             washingMachineController.isInteractedWith = false;
+
+            if (Workshift.instance.state == Workshift.STATE.STARTED)
+            {
+                Laundry selectedLaundry = Workshift.instance.GetSelectedLaundry();
+
+                if (selectedLaundry.state == Laundry.STATE.DIRTY)
+                {
+                    Minigame.instance.SeparateClothes(selectedLaundry);
+                }
+                else
+                {
+                    // show dialogue "selected laundry is not dirty"
+                }
+            }
         }
     }
 

@@ -26,16 +26,19 @@ public class ReadyFold : FoldingTableState
         {
             foldingTableController.isInteractedWith = false;
 
-            Laundry selectedLaundry = Workshift.instance.GetSelectedLaundry();
-            if (selectedLaundry.state == Laundry.STATE.UNLOADED_DRY)
+            if (Workshift.instance.state == Workshift.STATE.STARTED)
             {
-                foldingTableController.loadedLaundry = selectedLaundry;
-                nextState = new InUseFold(foldingTable, anim);
-                stage = EVENT.EXIT;
-            }
-            else
-            {
-                // show dialogue "selected laundry is not ready for folding"
+                Laundry selectedLaundry = Workshift.instance.GetSelectedLaundry();
+                if (selectedLaundry.state == Laundry.STATE.UNLOADED_DRY)
+                {
+                    foldingTableController.loadedLaundry = selectedLaundry;
+                    nextState = new InUseFold(foldingTable, anim);
+                    stage = EVENT.EXIT;
+                }
+                else
+                {
+                    // show dialogue "selected laundry is not ready for folding"
+                }
             }
         }
     }
