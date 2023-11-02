@@ -19,7 +19,6 @@ public class Minigame : MonoBehaviour
     private List<Clothes> loadedClothes = new();
     private List<Clothes> keptClothes = new();
     private bool clothesProcessed = false;
-    public static event Action OnClothesProcessed;
     public void Open()
     {
         minigame.gameObject.SetActive(true);
@@ -75,9 +74,6 @@ public class Minigame : MonoBehaviour
         readyClothes[0].state = Clothes.STATE.LOADED;
         loadedClothes.Add(readyClothes[0]);
         clothesWheel.AnimateLoad();
-
-        readyClothes.RemoveAt(0);
-        OnClothesProcessed.Invoke();
     }
 
     private void KeepClothes()
@@ -85,9 +81,6 @@ public class Minigame : MonoBehaviour
         clothesProcessed = true;
         keptClothes.Add(readyClothes[0]);
         clothesWheel.AnimateKeep();
-
-        readyClothes.RemoveAt(0);
-        OnClothesProcessed.Invoke();
     }
 
     private bool IsClothesListEmpty()
@@ -121,6 +114,12 @@ public class Minigame : MonoBehaviour
         Close();
     }
 
+    private void PopReadyClothes()
+    {
+        readyClothes.RemoveAt(0);
+        clothesProcessed = false;
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -134,5 +133,7 @@ public class Minigame : MonoBehaviour
 
         playerControls = new PlayerInputActions();
         move = playerControls.Player.Move;
+
+        AnimationEnd.OnClothesProcessed += PopReadyClothes;
     }
 }

@@ -25,7 +25,7 @@ public class ClothesWheel : MonoBehaviour
     {
         UpdateVisual();
 
-        Minigame.OnClothesProcessed += UpdateVisual;
+        AnimationEnd.OnClothesProcessed += UpdateVisual;
     }
 
     private void UpdateVisual()
