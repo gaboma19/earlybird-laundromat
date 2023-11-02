@@ -12,6 +12,8 @@ public class InteractionDetector : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerInputActions();
+        Minigame.OnMinigameStarted += DisableInteract;
+        Minigame.OnMinigameEnded += EnableInteract;
     }
 
     private void OnEnable()
@@ -24,6 +26,16 @@ public class InteractionDetector : MonoBehaviour
     private void OnDisable()
     {
         interact.Disable();
+    }
+
+    private void DisableInteract()
+    {
+        interact.Disable();
+    }
+
+    private void EnableInteract()
+    {
+        interact.Enable();
     }
 
     private void Interact(InputAction.CallbackContext context)

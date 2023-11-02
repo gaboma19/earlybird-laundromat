@@ -10,11 +10,17 @@ public class ClothesWheel : MonoBehaviour
     private Transform firstClothesTransform;
     public void AnimateLoad()
     {
-        firstClothesTransform.GetComponent<ClothesToken>().AnimateLoad();
+        if (firstClothesTransform != null)
+        {
+            firstClothesTransform.GetComponent<ClothesToken>().AnimateLoad();
+        }
     }
     public void AnimateKeep()
     {
-        firstClothesTransform.GetComponent<ClothesToken>().AnimateKeep();
+        if (firstClothesTransform != null)
+        {
+            firstClothesTransform.GetComponent<ClothesToken>().AnimateKeep();
+        }
     }
     private void Awake()
     {

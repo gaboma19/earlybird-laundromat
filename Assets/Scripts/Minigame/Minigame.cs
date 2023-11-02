@@ -85,7 +85,14 @@ public class Minigame : MonoBehaviour
 
     private bool IsClothesListEmpty()
     {
-        return !readyClothes.Any();
+        if (readyClothes == null)
+        {
+            return true;
+        }
+        else
+        {
+            return !readyClothes.Any();
+        }
     }
 
     private bool FindReady(Clothes clothes)

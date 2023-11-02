@@ -25,8 +25,6 @@ public class ReadyWash : WashingMachineState
     {
         if (washingMachineController.isInteractedWith)
         {
-            washingMachineController.isInteractedWith = false;
-
             if (Workshift.instance.state == Workshift.STATE.STARTED)
             {
                 Laundry selectedLaundry = Workshift.instance.GetSelectedLaundry();
@@ -45,9 +43,13 @@ public class ReadyWash : WashingMachineState
 
     void EndReady()
     {
-        anim.SetTrigger("Transition");
-        nextState = new LoadedWash(washingMachine, anim);
-        stage = EVENT.EXIT;
+        if (washingMachineController.isInteractedWith)
+        {
+            washingMachineController.isInteractedWith = false;
+            anim.SetTrigger("Transition");
+            nextState = new LoadedWash(washingMachine, anim);
+            stage = EVENT.EXIT;
+        }
     }
 
     public override void Exit()
