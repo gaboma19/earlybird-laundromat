@@ -10,6 +10,18 @@ public class ClothesToken : MonoBehaviour
     [SerializeField] private Image pantiesImage;
     [SerializeField] private Image boxersImage;
     [SerializeField] private Image sockImage;
+    [SerializeField] private Transform tokenContainer;
+    Animator animator;
+
+    public void AnimateLoad()
+    {
+        animator.SetTrigger("Up");
+    }
+
+    public void AnimateKeep()
+    {
+        animator.SetTrigger("Down");
+    }
 
     public void SetClothes(Clothes clothes)
     {
@@ -32,29 +44,27 @@ public class ClothesToken : MonoBehaviour
                 break;
         }
     }
-
     private void InstantiateShirt(Clothes clothes)
     {
         switch (clothes.color)
         {
             case Clothes.COLOR.LIGHT:
-                Instantiate(shirtImage, this.transform);
+                Instantiate(shirtImage, tokenContainer);
                 break;
             case Clothes.COLOR.DARK:
-                Instantiate(shirtImage, this.transform);
+                Instantiate(shirtImage, tokenContainer);
                 break;
         }
     }
-
     private void InstantiatePants(Clothes clothes)
     {
         switch (clothes.color)
         {
             case Clothes.COLOR.LIGHT:
-                Instantiate(pantsImage, this.transform);
+                Instantiate(pantsImage, tokenContainer);
                 break;
             case Clothes.COLOR.DARK:
-                Instantiate(pantsImage, this.transform);
+                Instantiate(pantsImage, tokenContainer);
                 break;
         }
     }
@@ -64,10 +74,10 @@ public class ClothesToken : MonoBehaviour
         switch (clothes.color)
         {
             case Clothes.COLOR.LIGHT:
-                Instantiate(pantiesImage, this.transform);
+                Instantiate(pantiesImage, tokenContainer);
                 break;
             case Clothes.COLOR.DARK:
-                Instantiate(pantiesImage, this.transform);
+                Instantiate(pantiesImage, tokenContainer);
                 break;
         }
     }
@@ -77,10 +87,10 @@ public class ClothesToken : MonoBehaviour
         switch (clothes.color)
         {
             case Clothes.COLOR.LIGHT:
-                Instantiate(boxersImage, this.transform);
+                Instantiate(boxersImage, tokenContainer);
                 break;
             case Clothes.COLOR.DARK:
-                Instantiate(boxersImage, this.transform);
+                Instantiate(boxersImage, tokenContainer);
                 break;
         }
     }
@@ -90,11 +100,16 @@ public class ClothesToken : MonoBehaviour
         switch (clothes.color)
         {
             case Clothes.COLOR.LIGHT:
-                Instantiate(sockImage, this.transform);
+                Instantiate(sockImage, tokenContainer);
                 break;
             case Clothes.COLOR.DARK:
-                Instantiate(sockImage, this.transform);
+                Instantiate(sockImage, tokenContainer);
                 break;
         }
+    }
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
     }
 }

@@ -8,7 +8,6 @@ using System.Linq;
 public class Minigame : MonoBehaviour
 {
     public static Minigame instance;
-    private Clothes selectedClothes;
     [SerializeField] private ClothesWheel clothesWheel;
     [SerializeField] private CanvasGroup minigame;
     public static event Action OnMinigameStarted;
@@ -16,6 +15,11 @@ public class Minigame : MonoBehaviour
     public PlayerInputActions playerControls;
     private InputAction move;
     public Laundry laundry;
+    private List<Clothes> readyClothes;
+    private List<Clothes> loadedClothes = new();
+    private List<Clothes> keptClothes = new();
+    private bool clothesProcessed = false;
+    public static event Action OnClothesProcessed;
     public void Open()
     {
         minigame.gameObject.SetActive(true);
@@ -26,9 +30,9 @@ public class Minigame : MonoBehaviour
         minigame.gameObject.SetActive(false);
     }
 
-    public Clothes GetSelectedClothes()
+    public List<Clothes> GetReadyClothes()
     {
-        return selectedClothes;
+        return readyClothes;
     }
 
     public void SeparateClothes(Laundry _laundry)
@@ -37,7 +41,7 @@ public class Minigame : MonoBehaviour
         move.Enable();
 
         laundry = _laundry;
-        Debug.Log(laundry.clothes[0].type);
+        readyClothes = laundry.clothes.FindAll(FindReady);
         Open();
     }
 
@@ -51,26 +55,39 @@ public class Minigame : MonoBehaviour
             }
 
             Vector2 moveDirection = move.ReadValue<Vector2>();
-
-            if (moveDirection.y > 0.5f)
+            if (clothesProcessed == false)
             {
-                LoadClothes(laundry.clothes[0]);
-            }
-            else if (moveDirection.y < -0.5f)
-            {
-                KeepClothes(laundry.clothes[0]);
+                if (moveDirection.y > 0.5f)
+                {
+                    LoadClothes();
+                }
+                else if (moveDirection.y < -0.5f)
+                {
+                    KeepClothes();
+                }
             }
         }
     }
 
-    private void LoadClothes(Clothes clothes)
+    private void LoadClothes()
     {
+        clothesProcessed = true;
+        readyClothes[0].state = Clothes.STATE.LOADED;
+        loadedClothes.Add(readyClothes[0]);
+        clothesWheel.AnimateLoad();
 
+        readyClothes.RemoveAt(0);
+        OnClothesProcessed.Invoke();
     }
 
-    private void KeepClothes(Clothes clothes)
+    private void KeepClothes()
     {
+        clothesProcessed = true;
+        keptClothes.Add(readyClothes[0]);
+        clothesWheel.AnimateKeep();
 
+        readyClothes.RemoveAt(0);
+        OnClothesProcessed.Invoke();
     }
 
     private bool IsClothesListEmpty()
@@ -85,9 +102,22 @@ public class Minigame : MonoBehaviour
         }
     }
 
+    private bool FindReady(Clothes clothes)
+    {
+        if (clothes.state == Clothes.STATE.READY)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     private void EndMinigame()
     {
         OnMinigameEnded?.Invoke();
+        readyClothes = null;
         Close();
     }
 

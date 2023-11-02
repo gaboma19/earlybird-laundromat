@@ -4,18 +4,23 @@ public class Clothes
     {
         SHIRT, PANTS, PANTIES, BOXERS, SOCKS
     }
-
     public enum COLOR
     {
         DARK, LIGHT
     }
+    public enum STATE
+    {
+        READY, LOADED, DONE
+    }
     public TYPE type { get; }
     public COLOR color { get; }
+    public STATE state;
 
     public Clothes()
     {
         type = GetRandomEnum<TYPE>();
         color = GetRandomEnum<COLOR>();
+        state = STATE.READY;
     }
 
     static T GetRandomEnum<T>()
