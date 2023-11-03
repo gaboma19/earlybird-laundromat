@@ -19,7 +19,12 @@ public class ClothesWheel : MonoBehaviour
     {
         if (firstClothesTransform != null)
         {
+            Debug.Log("first clothes transform animate keep");
             firstClothesTransform.GetComponent<ClothesToken>().AnimateKeep();
+        }
+        else
+        {
+            Debug.Log("first clothes transform is null");
         }
     }
     private void Awake()
@@ -31,7 +36,8 @@ public class ClothesWheel : MonoBehaviour
     {
         UpdateVisual();
 
-        AnimationEnd.OnClothesProcessed += UpdateVisual;
+        UpAnimationEnd.OnClothesLoaded += UpdateVisual;
+        DownAnimationEnd.OnClothesKept += UpdateVisual;
     }
 
     private void UpdateVisual()
@@ -44,15 +50,18 @@ public class ClothesWheel : MonoBehaviour
 
         List<Clothes> clothesList = minigame.GetReadyClothes();
 
-        for (int i = 0; i < clothesList.Count; i++)
+        if (clothesList != null)
         {
-            Transform clothesTransform = Instantiate(clothesTemplate, wheel);
-            clothesTransform.gameObject.SetActive(true);
-            clothesTransform.GetComponent<ClothesToken>().SetClothes(clothesList[i]);
-
-            if (i == 0)
+            for (int i = 0; i < clothesList.Count; i++)
             {
-                firstClothesTransform = clothesTransform;
+                Transform clothesTransform = Instantiate(clothesTemplate, wheel);
+                clothesTransform.gameObject.SetActive(true);
+                clothesTransform.GetComponent<ClothesToken>().SetClothes(clothesList[i]);
+
+                if (i == 0)
+                {
+                    firstClothesTransform = clothesTransform;
+                }
             }
         }
     }

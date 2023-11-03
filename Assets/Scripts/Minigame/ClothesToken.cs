@@ -21,6 +21,7 @@ public class ClothesToken : MonoBehaviour
     public void AnimateKeep()
     {
         animator.SetTrigger("Down");
+        Debug.Log("set trigger down");
     }
 
     public void SetClothes(Clothes clothes)

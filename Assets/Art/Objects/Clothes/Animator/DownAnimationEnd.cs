@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class AnimationEnd : StateMachineBehaviour
+public class DownAnimationEnd : StateMachineBehaviour
 {
-    public static event Action OnClothesProcessed;
+    public static event Action OnClothesKept;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
@@ -18,10 +18,11 @@ public class AnimationEnd : StateMachineBehaviour
     //    
     //}
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        OnClothesProcessed.Invoke();
+        Debug.Log("down animation end");
+        OnClothesKept.Invoke();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
