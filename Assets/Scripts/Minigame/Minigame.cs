@@ -127,19 +127,6 @@ public class Minigame : MonoBehaviour
         clothesProcessed = false;
     }
 
-    private void PopReadyClothes_2()
-    {
-        readyClothes.RemoveAt(0);
-        Debug.Log(readyClothes.Count + " ready clothes");
-
-        if (IsClothesListEmpty())
-        {
-            EndMinigame();
-        }
-
-        clothesProcessed = false;
-    }
-
     private void Awake()
     {
         if (instance == null)
@@ -155,6 +142,6 @@ public class Minigame : MonoBehaviour
         move = playerControls.Player.Move;
 
         UpAnimationEnd.OnClothesLoaded += PopReadyClothes;
-        DownAnimationEnd.OnClothesKept += PopReadyClothes_2;
+        DownAnimationEnd.OnClothesKept += PopReadyClothes;
     }
 }
