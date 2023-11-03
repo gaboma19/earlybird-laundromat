@@ -31,12 +31,17 @@ public class ReadyWash : WashingMachineState
 
                 if (selectedLaundry.state == Laundry.STATE.DIRTY)
                 {
+                    washingMachineController.isInteractedWith = false;
                     Minigame.instance.SeparateClothes(selectedLaundry);
                 }
                 else
                 {
                     // show dialogue "selected laundry is not dirty"
                 }
+            }
+            else
+            {
+                // show dialogue "workshift not started"
             }
         }
     }
@@ -45,7 +50,6 @@ public class ReadyWash : WashingMachineState
     {
         if (washingMachineController.isInteractedWith)
         {
-            washingMachineController.isInteractedWith = false;
             anim.SetTrigger("Transition");
             nextState = new LoadedWash(washingMachine, anim);
             stage = EVENT.EXIT;

@@ -51,14 +51,13 @@ public class Minigame : MonoBehaviour
             Vector2 moveDirection = move.ReadValue<Vector2>();
             if (clothesProcessed == false)
             {
-                if (moveDirection.y > 0.5f)
+                if (moveDirection.y < -0.5f)
+                {
+                    KeepClothes();
+                }
+                else if (moveDirection.y > 0.5f)
                 {
                     LoadClothes();
-                }
-                else if (moveDirection.y < -0.5f)
-                {
-                    Debug.Log("clothesProcessed is " + clothesProcessed);
-                    KeepClothes();
                 }
             }
         }
@@ -70,17 +69,14 @@ public class Minigame : MonoBehaviour
         readyClothes[0].state = Clothes.STATE.LOADED;
         loadedClothes.Add(readyClothes[0]);
         clothesWheel.AnimateLoad();
-        Debug.Log(loadedClothes.Count + " loaded clothes");
     }
 
     private void KeepClothes()
     {
         clothesProcessed = true;
-        Debug.Log("clothesProcessed is true: " + clothesProcessed);
         readyClothes[0].state = Clothes.STATE.READY;
         keptClothes.Add(readyClothes[0]);
         clothesWheel.AnimateKeep();
-        Debug.Log(keptClothes.Count + " kept clothes");
     }
 
     private bool IsClothesListEmpty()
@@ -117,7 +113,6 @@ public class Minigame : MonoBehaviour
     private void PopReadyClothes()
     {
         readyClothes.RemoveAt(0);
-        Debug.Log(readyClothes.Count + " ready clothes");
 
         if (IsClothesListEmpty())
         {

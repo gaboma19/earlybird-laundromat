@@ -19,12 +19,7 @@ public class ClothesWheel : MonoBehaviour
     {
         if (firstClothesTransform != null)
         {
-            Debug.Log("first clothes transform animate keep");
             firstClothesTransform.GetComponent<ClothesToken>().AnimateKeep();
-        }
-        else
-        {
-            Debug.Log("first clothes transform is null");
         }
     }
     private void Awake()
