@@ -6,7 +6,6 @@ using System;
 public class LoadedWash : WashingMachineState
 {
     private WashingMachineController washingMachineController;
-    // public static event Action OnLoadDirtyLaundry;
     public LoadedWash(GameObject _washingMachine, Animator _anim) :
         base(_washingMachine, _anim)
     {
@@ -16,10 +15,6 @@ public class LoadedWash : WashingMachineState
 
     public override void Enter()
     {
-        // OnLoadDirtyLaundry.Invoke();
-
-        // washingMachineController.loadedLaundry = Workshift.instance.GetSelectedLaundry();
-
         base.Enter();
     }
 

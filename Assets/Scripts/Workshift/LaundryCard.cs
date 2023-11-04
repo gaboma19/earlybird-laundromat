@@ -20,6 +20,7 @@ public class LaundryCard : MonoBehaviour
     [SerializeField] private Image foldingIcon;
     [SerializeField] private Image foldedIcon;
     [SerializeField] private Image doneIcon;
+    [SerializeField] private Image discardIcon;
     [SerializeField] private Image selectionIndicator;
     public void SetLaundry(Laundry laundry)
     {
@@ -77,6 +78,10 @@ public class LaundryCard : MonoBehaviour
             case Laundry.STATE.DONE:
                 Instantiate(doneIcon, iconContainer);
                 laundryText.text = "Done";
+                break;
+            case Laundry.STATE.DISCARD:
+                Instantiate(discardIcon, iconContainer);
+                laundryText.text = "Discard";
                 break;
         }
 

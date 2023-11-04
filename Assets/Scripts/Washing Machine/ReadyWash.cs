@@ -50,7 +50,7 @@ public class ReadyWash : WashingMachineState
 
     void EndReady()
     {
-        if (washingMachineController.loadedClothes.Any())
+        if (washingMachineController.loadedLaundry != null)
         {
             anim.SetTrigger("Transition");
             nextState = new LoadedWash(washingMachine, anim);
@@ -60,6 +60,7 @@ public class ReadyWash : WashingMachineState
 
     public override void Exit()
     {
+        Minigame.OnMinigameEnded -= EndReady;
         base.Exit();
     }
 }

@@ -22,6 +22,7 @@ public class Minigame : MonoBehaviour
     private bool isActive = false;
     private WashingMachineController washingMachine;
     public static event Action<Laundry> OnLoadDirtyLaundry;
+    public static event Action<Laundry, Laundry.STATE> OnDiscardLaundry;
     public void Open()
     {
         minigame.gameObject.SetActive(true);
@@ -117,9 +118,16 @@ public class Minigame : MonoBehaviour
 
     private void EndMinigame()
     {
-        washingMachine.loadedClothes = loadedClothes;
-        laundry.clothes = keptClothes.Concat(loadedClothes).ToList();
-        OnLoadDirtyLaundry.Invoke(laundry);
+        if (!loadedClothes.Any())
+        {
+            OnDiscardLaundry.Invoke(laundry, Laundry.STATE.DISCARD);
+        }
+        else
+        {
+            laundry.clothes = loadedClothes;
+            washingMachine.loadedLaundry = laundry;
+            OnLoadDirtyLaundry.Invoke(laundry);
+        }
 
         OnMinigameEnded.Invoke();
         isActive = false;

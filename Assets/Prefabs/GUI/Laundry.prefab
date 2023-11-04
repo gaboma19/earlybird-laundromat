@@ -201,6 +201,7 @@ MonoBehaviour:
   foldingIcon: {fileID: 7322720620812315951, guid: 1e4916edcff46d041aaa803efe7da210, type: 3}
   foldedIcon: {fileID: 8955064157240613489, guid: 3843d212b8b29c7498ceeac8fa6359e0, type: 3}
   doneIcon: {fileID: 1834269094640726840, guid: 9dfcf4e7df53877438d703db454ff611, type: 3}
+  discardIcon: {fileID: 8992625273484078673, guid: 57587bbf495a9c54b8f74bcce6d75d24, type: 3}
   selectionIndicator: {fileID: 4326769678271334925}
 --- !u!114 &3179827843294356685
 MonoBehaviour:
