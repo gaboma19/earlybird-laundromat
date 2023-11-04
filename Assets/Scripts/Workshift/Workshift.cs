@@ -139,6 +139,11 @@ public class Workshift : MonoBehaviour
                 activeLaundry.RemoveAt(doneLaundryIndex);
                 doneLaundry.Remove(laundry);
                 OnLaundryRemoved.Invoke();
+
+                if (!activeLaundry.Any())
+                {
+                    selectedLaundry = null;
+                }
             }
         }
     }
@@ -226,18 +231,6 @@ public class Workshift : MonoBehaviour
         return selectedLaundry;
     }
 
-    // private void SetSelectedLaundry(Laundry laundry)
-    // {
-    //     int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
-    //     activeLaundry[selectedLaundryIndex] = laundry;
-    // }
-
-    // private void SetWashingLaundry(Laundry laundry)
-    // {
-    //     int washingLaundryIndex = activeLaundry.IndexOf(laundry);
-    //     activeLaundry[washingLaundryIndex].state = Laundry.STATE.WASHING;
-    // }
-
     private void LoadDirtyLaundry(Laundry laundry)
     {
         if (selectedLaundry is null)
@@ -255,12 +248,6 @@ public class Workshift : MonoBehaviour
 
         selectedLaundry = activeLaundry[selectedLaundryIndex];
     }
-
-    // private void SetWashedLaundry(Laundry laundry)
-    // {
-    //     int washedLaundryIndex = activeLaundry.IndexOf(laundry);
-    //     activeLaundry[washedLaundryIndex].state = Laundry.STATE.WASHED;
-    // }
 
     private void LoadWashedLaundry()
     {

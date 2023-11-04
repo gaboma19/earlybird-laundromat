@@ -45,7 +45,6 @@ public class ClothesWheel : MonoBehaviour
         }
 
         List<Clothes> clothesList = minigame.GetReadyClothes();
-        Debug.Log(clothesList.Count + " clothes in wheel");
 
         if (clothesList != null)
         {

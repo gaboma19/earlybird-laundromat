@@ -1713,7 +1713,7 @@ GameObject:
   - component: {fileID: 1060405056}
   - component: {fileID: 1060405055}
   m_Layer: 5
-  m_Name: Cart
+  m_Name: Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
