@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ReadyWash : WashingMachineState
 {
@@ -25,14 +26,15 @@ public class ReadyWash : WashingMachineState
     {
         if (washingMachineController.isInteractedWith)
         {
+            washingMachineController.isInteractedWith = false;
+
             if (Workshift.instance.state == Workshift.STATE.STARTED)
             {
                 Laundry selectedLaundry = Workshift.instance.GetSelectedLaundry();
 
                 if (selectedLaundry.state == Laundry.STATE.DIRTY)
                 {
-                    washingMachineController.isInteractedWith = false;
-                    Minigame.instance.SeparateClothes(selectedLaundry);
+                    Minigame.instance.SeparateClothes(selectedLaundry, washingMachineController);
                 }
                 else
                 {
@@ -48,7 +50,7 @@ public class ReadyWash : WashingMachineState
 
     void EndReady()
     {
-        if (washingMachineController.isInteractedWith)
+        if (washingMachineController.loadedClothes.Any())
         {
             anim.SetTrigger("Transition");
             nextState = new LoadedWash(washingMachine, anim);

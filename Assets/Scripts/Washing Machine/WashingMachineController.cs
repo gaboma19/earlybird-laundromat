@@ -10,11 +10,13 @@ public class WashingMachineController : MonoBehaviour, IInteractable
     public bool isInteractable { get; set; }
     WashingMachineState currentState;
     public Laundry loadedLaundry { get; set; }
+    public List<Clothes> loadedClothes;
 
     void Start()
     {
         buttonPrompt = this.transform.Find("Button Prompt").gameObject;
         anim = this.GetComponent<Animator>();
+        loadedClothes = new();
         currentState = new ReadyWash(this.gameObject, anim);
     }
 

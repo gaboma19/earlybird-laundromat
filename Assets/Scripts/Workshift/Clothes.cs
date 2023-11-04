@@ -10,7 +10,7 @@ public class Clothes
     }
     public enum STATE
     {
-        READY, LOADED, DONE
+        READY, LOADED
     }
     public TYPE type { get; }
     public COLOR color { get; }

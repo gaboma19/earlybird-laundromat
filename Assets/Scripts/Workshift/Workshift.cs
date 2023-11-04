@@ -46,7 +46,7 @@ public class Workshift : MonoBehaviour
         RegisterController.OnWorkshiftStart += StartWorkShift;
         Timer.OnTimerEnded += EndWorkShift;
         Order.OnOrderPlaced += AddActiveLaundry;
-        LoadedWash.OnLoadDirtyLaundry += LoadDirtyLaundry;
+        Minigame.OnLoadDirtyLaundry += SetSelectedLaundry;
         OnWash.OnLaundryWashing += SetWashingLaundry;
         OnWash.OnLaundryWashed += SetWashedLaundry;
         LoadedDry.OnLoadDryer += LoadWashedLaundry;
@@ -57,6 +57,8 @@ public class Workshift : MonoBehaviour
         InUseFold.OnLaundryFolding += FoldDriedLaundry;
         InUseFold.OnLaundryFolded += SetFoldedLaundry;
         RegisterController.OnLaundryDone += SetDoneLaundry;
+        Minigame.OnMinigameStarted += DisableSelect;
+        Minigame.OnMinigameEnded += EnableSelect;
 
         playerControls = new PlayerInputActions();
     }
@@ -79,7 +81,7 @@ public class Workshift : MonoBehaviour
         RegisterController.OnWorkshiftStart -= StartWorkShift;
         Timer.OnTimerEnded -= EndWorkShift;
         Order.OnOrderPlaced -= AddActiveLaundry;
-        LoadedWash.OnLoadDirtyLaundry -= LoadDirtyLaundry;
+        Minigame.OnLoadDirtyLaundry -= SetSelectedLaundry;
         OnWash.OnLaundryWashing -= SetWashingLaundry;
         OnWash.OnLaundryWashed -= SetWashedLaundry;
         DoneWash.OnUnloadWasher -= UnloadWashedLaundry;
@@ -197,6 +199,18 @@ public class Workshift : MonoBehaviour
         OnLaundrySelected.Invoke();
     }
 
+    private void DisableSelect()
+    {
+        selectLeft.Disable();
+        selectRight.Disable();
+    }
+
+    private void EnableSelect()
+    {
+        selectLeft.Enable();
+        selectRight.Enable();
+    }
+
     public List<Laundry> GetActiveLaundryList()
     {
         return activeLaundry;
@@ -207,28 +221,34 @@ public class Workshift : MonoBehaviour
         return selectedLaundry;
     }
 
+    private void SetSelectedLaundry(Laundry laundry)
+    {
+        int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
+        activeLaundry[selectedLaundryIndex] = laundry;
+    }
+
     private void SetWashingLaundry(Laundry laundry)
     {
         int washingLaundryIndex = activeLaundry.IndexOf(laundry);
         activeLaundry[washingLaundryIndex].state = Laundry.STATE.WASHING;
     }
 
-    private void LoadDirtyLaundry()
-    {
-        if (selectedLaundry is null)
-        {
-            return;
-        }
+    // private void LoadDirtyLaundry(Laundry laundry)
+    // {
+    //     if (selectedLaundry is null)
+    //     {
+    //         return;
+    //     }
 
-        int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
+    //     int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
 
-        if (selectedLaundry.state == Laundry.STATE.DIRTY)
-        {
-            activeLaundry[selectedLaundryIndex].state = Laundry.STATE.LOADED_WASH;
-        }
+    //     if (selectedLaundry.state == Laundry.STATE.DIRTY)
+    //     {
+    //         activeLaundry[selectedLaundryIndex].state = Laundry.STATE.LOADED_WASH;
+    //     }
 
-        selectedLaundry = activeLaundry[selectedLaundryIndex];
-    }
+    //     selectedLaundry = activeLaundry[selectedLaundryIndex];
+    // }
 
     private void SetWashedLaundry(Laundry laundry)
     {

@@ -34,7 +34,7 @@ public class LaundryGrid : MonoBehaviour
 
         Workshift.OnLaundrySpawned += UpdateVisual;
         Workshift.OnLaundrySelected += UpdateVisual;
-        LoadedWash.OnLoadDirtyLaundry += UpdateVisual;
+        Minigame.OnLoadDirtyLaundry += (_) => UpdateVisual();
         OnWash.OnLaundryWashed += (_) => UpdateVisual();
         OnWash.OnLaundryWashing += (_) => UpdateVisual();
         LoadedDry.OnLoadDryer += UpdateVisual;

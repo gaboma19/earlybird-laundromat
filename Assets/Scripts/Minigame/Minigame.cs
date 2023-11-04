@@ -19,6 +19,9 @@ public class Minigame : MonoBehaviour
     private List<Clothes> loadedClothes = new();
     private List<Clothes> keptClothes = new();
     private bool clothesProcessed = false;
+    private bool isActive = false;
+    private WashingMachineController washingMachine;
+    public static event Action<Laundry> OnLoadDirtyLaundry;
     public void Open()
     {
         minigame.gameObject.SetActive(true);
@@ -34,30 +37,39 @@ public class Minigame : MonoBehaviour
         return readyClothes;
     }
 
-    public void SeparateClothes(Laundry _laundry)
+    public void SeparateClothes(Laundry _laundry, WashingMachineController _washingMachine)
     {
-        OnMinigameStarted?.Invoke();
+        isActive = true;
         move.Enable();
 
         laundry = _laundry;
+        washingMachine = _washingMachine;
         readyClothes = laundry.clothes.FindAll(FindReady);
+        OnMinigameStarted?.Invoke();
         Open();
     }
 
     private void Update()
     {
-        if (isActiveAndEnabled && !IsClothesListEmpty())
+        if (isActive)
         {
-            Vector2 moveDirection = move.ReadValue<Vector2>();
-            if (clothesProcessed == false)
+            if (IsClothesListEmpty())
             {
-                if (moveDirection.y < -0.5f)
+                EndMinigame();
+            }
+            else
+            {
+                Vector2 moveDirection = move.ReadValue<Vector2>();
+                if (clothesProcessed == false)
                 {
-                    KeepClothes();
-                }
-                else if (moveDirection.y > 0.5f)
-                {
-                    LoadClothes();
+                    if (moveDirection.y < -0.5f)
+                    {
+                        KeepClothes();
+                    }
+                    else if (moveDirection.y > 0.5f)
+                    {
+                        LoadClothes();
+                    }
                 }
             }
         }
@@ -105,19 +117,20 @@ public class Minigame : MonoBehaviour
 
     private void EndMinigame()
     {
-        OnMinigameEnded?.Invoke();
-        readyClothes = null;
+        washingMachine.loadedClothes = loadedClothes;
+        laundry.clothes = keptClothes.Concat(loadedClothes).ToList();
+        OnLoadDirtyLaundry.Invoke(laundry);
+
+        OnMinigameEnded.Invoke();
+        isActive = false;
+        loadedClothes = new();
+        keptClothes = new();
         Close();
     }
 
     private void PopReadyClothes()
     {
         readyClothes.RemoveAt(0);
-
-        if (IsClothesListEmpty())
-        {
-            EndMinigame();
-        }
 
         clothesProcessed = false;
     }
