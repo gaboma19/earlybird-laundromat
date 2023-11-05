@@ -35,6 +35,7 @@ public class Order : CustomerState
 
     public override void Update()
     {
+        // interaction should be polled on the dialogue box instead
         if (customerController.isInteractedWith)
         {
             DialogueBoxController.instance.SkipLine();

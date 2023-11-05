@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ReadyWash : WashingMachineState
 {
-    private WashingMachineController washingMachineController;
+    private readonly WashingMachineController washingMachineController;
     public ReadyWash(GameObject _washingMachine, Animator _anim) :
         base(_washingMachine, _anim)
     {
@@ -16,6 +17,8 @@ public class ReadyWash : WashingMachineState
     {
         washingMachineController.isInteractable = true;
 
+        Minigame.OnMinigameEnded += EndReady;
+
         base.Enter();
     }
 
@@ -23,22 +26,41 @@ public class ReadyWash : WashingMachineState
     {
         if (washingMachineController.isInteractedWith)
         {
-            if (Workshift.instance.GetSelectedLaundry().state == Laundry.STATE.DIRTY)
+            washingMachineController.isInteractedWith = false;
+
+            if (Workshift.instance.state == Workshift.STATE.STARTED)
             {
-                anim.SetTrigger("Transition");
-                nextState = new LoadedWash(washingMachine, anim);
-                stage = EVENT.EXIT;
+                Laundry selectedLaundry = Workshift.instance.GetSelectedLaundry();
+
+                if (selectedLaundry.state == Laundry.STATE.DIRTY)
+                {
+                    Minigame.instance.SeparateClothes(selectedLaundry, washingMachineController);
+                }
+                else
+                {
+                    // show dialogue "selected laundry is not dirty"
+                }
             }
             else
             {
-                // show dialogue "selected laundry is not dirty"
+                // show dialogue "workshift not started"
             }
-            washingMachineController.isInteractedWith = false;
+        }
+    }
+
+    void EndReady()
+    {
+        if (washingMachineController.loadedLaundry != null)
+        {
+            anim.SetTrigger("Transition");
+            nextState = new LoadedWash(washingMachine, anim);
+            stage = EVENT.EXIT;
         }
     }
 
     public override void Exit()
     {
+        Minigame.OnMinigameEnded -= EndReady;
         base.Exit();
     }
 }

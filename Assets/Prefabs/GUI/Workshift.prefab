@@ -143,6 +143,10 @@ PrefabInstance:
       propertyPath: m_text
       value: '-'
       objectReference: {fileID: 0}
+    - target: {fileID: 2215424359057567254, guid: ff1487dac2ea6e640ba98582607fb221, type: 3}
+      propertyPath: timeRemaining
+      value: 240
+      objectReference: {fileID: 0}
     - target: {fileID: 3778534923074454224, guid: ff1487dac2ea6e640ba98582607fb221, type: 3}
       propertyPath: m_text
       value: '-'

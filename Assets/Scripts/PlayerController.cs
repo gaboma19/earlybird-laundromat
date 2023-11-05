@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 6.0f;
     Rigidbody2D rigidbody2d;
     Animator animator;
-    Vector2 lookDirection = new Vector2(0, -1);
+    Vector2 lookDirection = new(0, -1);
     Vector2 moveDirection;
     public PlayerInputActions playerControls;
     private InputAction move;
@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerInputActions();
+        Minigame.OnMinigameStarted += DisableMove;
+        Minigame.OnMinigameEnded += EnableMove;
     }
 
     private void OnEnable()
@@ -34,6 +36,16 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         move.Disable();
+    }
+
+    private void DisableMove()
+    {
+        move.Disable();
+    }
+
+    private void EnableMove()
+    {
+        move.Enable();
     }
 
     // Update is called once per frame
@@ -55,8 +67,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 position = rigidbody2d.position;
-        position.x = position.x + speed * moveDirection.x * Time.deltaTime;
-        position.y = position.y + speed * moveDirection.y * Time.deltaTime;
+        position.x += speed * moveDirection.x * Time.deltaTime;
+        position.y += speed * moveDirection.y * Time.deltaTime;
 
         rigidbody2d.MovePosition(position);
     }

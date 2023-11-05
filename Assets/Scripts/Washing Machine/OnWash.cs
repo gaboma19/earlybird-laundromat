@@ -5,8 +5,8 @@ using System;
 
 public class OnWash : WashingMachineState
 {
-    public static event Action<Laundry> OnLaundryWashed;
-    public static event Action<Laundry> OnLaundryWashing;
+    public static event Action<Laundry, Laundry.STATE> OnLaundryWashed;
+    public static event Action<Laundry, Laundry.STATE> OnLaundryWashing;
     private WashingMachineController washingMachineController;
     [SerializeField] private float washCycleTime = 30f;
     public OnWash(GameObject _washingMachine, Animator _anim) :
@@ -21,7 +21,7 @@ public class OnWash : WashingMachineState
         washingMachineController.isInteractable = false;
         washingMachineController.HideInputPrompt();
 
-        OnLaundryWashing.Invoke(washingMachineController.loadedLaundry);
+        OnLaundryWashing.Invoke(washingMachineController.loadedLaundry, Laundry.STATE.WASHING);
 
         base.Enter();
     }
@@ -32,7 +32,7 @@ public class OnWash : WashingMachineState
         if (washCycleTime <= 0.0f)
         {
             anim.SetTrigger("Transition");
-            OnLaundryWashed.Invoke(washingMachineController.loadedLaundry);
+            OnLaundryWashed.Invoke(washingMachineController.loadedLaundry, Laundry.STATE.WASHED);
             washingMachineController.isInteractable = true;
             nextState = new DoneWash(washingMachine, anim);
             stage = EVENT.EXIT;

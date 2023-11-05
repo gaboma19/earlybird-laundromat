@@ -15,7 +15,7 @@ public class Workshift : MonoBehaviour
     private float customerTimeRemaining;
     [SerializeField] private GameObject customer;
     public static event Action OnLaundrySpawned;
-    [SerializeField] private GameObject spawnPoint;
+    private GameObject spawnPoint;
     public PlayerInputActions playerControls;
     private InputAction selectLeft;
     private InputAction selectRight;
@@ -46,9 +46,12 @@ public class Workshift : MonoBehaviour
         RegisterController.OnWorkshiftStart += StartWorkShift;
         Timer.OnTimerEnded += EndWorkShift;
         Order.OnOrderPlaced += AddActiveLaundry;
-        LoadedWash.OnLoadDirtyLaundry += LoadDirtyLaundry;
-        OnWash.OnLaundryWashing += SetWashingLaundry;
-        OnWash.OnLaundryWashed += SetWashedLaundry;
+        Minigame.OnLoadDirtyLaundry += LoadDirtyLaundry;
+        Minigame.OnDiscardLaundry += DiscardLaundry;
+
+        OnWash.OnLaundryWashing += SetLaundryState;
+        OnWash.OnLaundryWashed += SetLaundryState;
+
         LoadedDry.OnLoadDryer += LoadWashedLaundry;
         OnDry.OnLaundryDrying += SetDryingLaundry;
         OnDry.OnLaundryDried += SetDriedLaundry;
@@ -57,8 +60,11 @@ public class Workshift : MonoBehaviour
         InUseFold.OnLaundryFolding += FoldDriedLaundry;
         InUseFold.OnLaundryFolded += SetFoldedLaundry;
         RegisterController.OnLaundryDone += SetDoneLaundry;
+        Minigame.OnMinigameStarted += DisableSelect;
+        Minigame.OnMinigameEnded += EnableSelect;
 
         playerControls = new PlayerInputActions();
+        spawnPoint = GameObject.Find("Spawn Point");
     }
     private void OnEnable()
     {
@@ -79,9 +85,11 @@ public class Workshift : MonoBehaviour
         RegisterController.OnWorkshiftStart -= StartWorkShift;
         Timer.OnTimerEnded -= EndWorkShift;
         Order.OnOrderPlaced -= AddActiveLaundry;
-        LoadedWash.OnLoadDirtyLaundry -= LoadDirtyLaundry;
-        OnWash.OnLaundryWashing -= SetWashingLaundry;
-        OnWash.OnLaundryWashed -= SetWashedLaundry;
+        Minigame.OnLoadDirtyLaundry -= LoadDirtyLaundry;
+        Minigame.OnDiscardLaundry -= DiscardLaundry;
+        OnWash.OnLaundryWashing -= SetLaundryState;
+        OnWash.OnLaundryWashed -= SetLaundryState;
+
         DoneWash.OnUnloadWasher -= UnloadWashedLaundry;
         LoadedDry.OnLoadDryer -= LoadWashedLaundry;
         OnDry.OnLaundryDrying -= SetDryingLaundry;
@@ -101,6 +109,10 @@ public class Workshift : MonoBehaviour
     private void EndWorkShift()
     {
         state = STATE.DONE;
+
+        activeLaundry.Clear();
+        selectedLaundry = null;
+        OnLaundryRemoved.Invoke();
 
         // show a "shift ended" UI element
     }
@@ -132,6 +144,11 @@ public class Workshift : MonoBehaviour
                 activeLaundry.RemoveAt(doneLaundryIndex);
                 doneLaundry.Remove(laundry);
                 OnLaundryRemoved.Invoke();
+
+                if (!activeLaundry.Any())
+                {
+                    selectedLaundry = null;
+                }
             }
         }
     }
@@ -197,6 +214,18 @@ public class Workshift : MonoBehaviour
         OnLaundrySelected.Invoke();
     }
 
+    private void DisableSelect()
+    {
+        selectLeft.Disable();
+        selectRight.Disable();
+    }
+
+    private void EnableSelect()
+    {
+        selectLeft.Enable();
+        selectRight.Enable();
+    }
+
     public List<Laundry> GetActiveLaundryList()
     {
         return activeLaundry;
@@ -207,13 +236,7 @@ public class Workshift : MonoBehaviour
         return selectedLaundry;
     }
 
-    private void SetWashingLaundry(Laundry laundry)
-    {
-        int washingLaundryIndex = activeLaundry.IndexOf(laundry);
-        activeLaundry[washingLaundryIndex].state = Laundry.STATE.WASHING;
-    }
-
-    private void LoadDirtyLaundry()
+    private void LoadDirtyLaundry(Laundry laundry)
     {
         if (selectedLaundry is null)
         {
@@ -221,6 +244,7 @@ public class Workshift : MonoBehaviour
         }
 
         int selectedLaundryIndex = activeLaundry.IndexOf(selectedLaundry);
+        activeLaundry[selectedLaundryIndex] = laundry;
 
         if (selectedLaundry.state == Laundry.STATE.DIRTY)
         {
@@ -228,12 +252,6 @@ public class Workshift : MonoBehaviour
         }
 
         selectedLaundry = activeLaundry[selectedLaundryIndex];
-    }
-
-    private void SetWashedLaundry(Laundry laundry)
-    {
-        int washedLaundryIndex = activeLaundry.IndexOf(laundry);
-        activeLaundry[washedLaundryIndex].state = Laundry.STATE.WASHED;
     }
 
     private void LoadWashedLaundry()
@@ -319,13 +337,19 @@ public class Workshift : MonoBehaviour
         selectedLaundry = activeLaundry[selectedLaundryIndex];
     }
 
-    // private void SetLaundryState(Laundry laundry, Laundry.STATE state)
-    // {
-    //     int laundryIndex = activeLaundry.IndexOf(laundry);
-    //     activeLaundry[laundryIndex].state = state;
-    // }
+    private void DiscardLaundry(Laundry laundry, Laundry.STATE state)
+    {
+        int laundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[laundryIndex].state = state;
 
-    // keeps track of points / score / currency
+        doneLaundry.Add(laundry);
+    }
+
+    private void SetLaundryState(Laundry laundry, Laundry.STATE state)
+    {
+        int laundryIndex = activeLaundry.IndexOf(laundry);
+        activeLaundry[laundryIndex].state = state;
+    }
 
     // play “getting it done” - game loop.
 
