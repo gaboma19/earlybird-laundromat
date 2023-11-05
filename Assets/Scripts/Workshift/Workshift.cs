@@ -15,7 +15,7 @@ public class Workshift : MonoBehaviour
     private float customerTimeRemaining;
     [SerializeField] private GameObject customer;
     public static event Action OnLaundrySpawned;
-    [SerializeField] private GameObject spawnPoint;
+    private GameObject spawnPoint;
     public PlayerInputActions playerControls;
     private InputAction selectLeft;
     private InputAction selectRight;
@@ -64,6 +64,7 @@ public class Workshift : MonoBehaviour
         Minigame.OnMinigameEnded += EnableSelect;
 
         playerControls = new PlayerInputActions();
+        spawnPoint = GameObject.Find("Spawn Point");
     }
     private void OnEnable()
     {
@@ -108,6 +109,10 @@ public class Workshift : MonoBehaviour
     private void EndWorkShift()
     {
         state = STATE.DONE;
+
+        activeLaundry.Clear();
+        selectedLaundry = null;
+        OnLaundryRemoved.Invoke();
 
         // show a "shift ended" UI element
     }
