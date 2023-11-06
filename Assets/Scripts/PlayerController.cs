@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
         playerControls = new PlayerInputActions();
         Minigame.OnMinigameStarted += DisableMove;
         Minigame.OnMinigameEnded += EnableMove;
+        Origami.OnOrigamiStarted += DisableMove;
+        Origami.OnOrigamiEnded += EnableMove;
     }
 
     private void OnEnable()

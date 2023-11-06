@@ -139,6 +139,346 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: shirt_Frame_1
+    originalName: 
+    pivot: {x: 0.46875, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 25
+      width: 16
+      height: 13
+    spriteID: e63006b7263d9094fa390e7fad45d62e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 25}
+  - name: shirt_Frame_2
+    originalName: 
+    pivot: {x: 0.43333334, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 46
+      width: 15
+      height: 13
+    spriteID: de45ebcd78842a34e94167cbe714141f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 46}
+  - name: shirt_Frame_3
+    originalName: 
+    pivot: {x: 0.34615386, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 67
+      width: 13
+      height: 13
+    spriteID: 1f4ef6df6a6c9f64a92b57b156143449
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 67}
+  - name: shirt_Frame_4
+    originalName: 
+    pivot: {x: 0.2272727, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 88
+      width: 11
+      height: 13
+    spriteID: 82849661696976844addbcf2ecc3d4f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 88}
+  - name: shirt_Frame_5
+    originalName: 
+    pivot: {x: 0.2272727, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 109
+      width: 11
+      height: 13
+    spriteID: 1d876087dd30e5143b81a5f08e1d4e50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 109}
+  - name: shirt_Frame_6
+    originalName: 
+    pivot: {x: 0.2272727, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 4
+      width: 11
+      height: 13
+    spriteID: 1cff245cec47e2e478ec769f0baaad10
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 4}
+  - name: shirt_Frame_7
+    originalName: 
+    pivot: {x: 0.24999999, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 25
+      width: 10
+      height: 13
+    spriteID: 12ec46e92a3e04d4fb28b5ba3732e2c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 25}
+  - name: shirt_Frame_8
+    originalName: 
+    pivot: {x: 0.31249997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 46
+      width: 8
+      height: 13
+    spriteID: 985b86e9a1aad6f4aa7ba8628b16a991
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 46}
+  - name: shirt_Frame_9
+    originalName: 
+    pivot: {x: 0.35714284, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 67
+      width: 7
+      height: 13
+    spriteID: ecf46c9978c2b96449e51bc8aa1d2bc9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 67}
+  - name: shirt_Frame_10
+    originalName: 
+    pivot: {x: 0.41666663, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 88
+      width: 6
+      height: 13
+    spriteID: eb6012b7cf8a313448bc8afa44b5a0e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 88}
+  - name: shirt_Frame_11
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 109
+      width: 5
+      height: 13
+    spriteID: e10fbee09de7efb4288d03de1663c20a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 109}
+  - name: shirt_Frame_12
+    originalName: 
+    pivot: {x: 0.49999997, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 4
+      width: 5
+      height: 13
+    spriteID: 67e29bfb82e631043b36a69dc1ccddb1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 4}
+  - name: shirt_Frame_13
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.083333336}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 25
+      width: 5
+      height: 12
+    spriteID: 4edeaf8b809a3ff4e8cadbaeac153c1a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 25}
+  - name: shirt_Frame_14
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.29999998}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 45
+      width: 5
+      height: 10
+    spriteID: 70c71cace266f7f4bab68feb2e048b7b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 45}
+  - name: shirt_Frame_15
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.625}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 63
+      width: 5
+      height: 8
+    spriteID: 7d2f5827677a0ad44a3d1235535b1ae4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 63}
+  - name: shirt_Frame_16
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.85714287}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 79
+      width: 5
+      height: 7
+    spriteID: 50fed72a2195f9b49822e1a3c62aab6d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 79}
+  - name: shirt_Frame_17
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.85714287}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 94
+      width: 5
+      height: 7
+    spriteID: 86479080d4272a048b8fc11f10edd5e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 94}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -148,7 +488,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: shirt
+    - name: shirt_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
@@ -156,6 +496,142 @@ ScriptedImporter:
         width: 17
         height: 13
       spriteId: db5099a69585b86479a0e48b37cac865
+    - name: shirt_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 1
+        y: 0
+        width: 16
+        height: 13
+      spriteId: e63006b7263d9094fa390e7fad45d62e
+    - name: shirt_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 2
+        y: 0
+        width: 15
+        height: 13
+      spriteId: de45ebcd78842a34e94167cbe714141f
+    - name: shirt_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 4
+        y: 0
+        width: 13
+        height: 13
+      spriteId: 1f4ef6df6a6c9f64a92b57b156143449
+    - name: shirt_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 6
+        y: 0
+        width: 11
+        height: 13
+      spriteId: 82849661696976844addbcf2ecc3d4f4
+    - name: shirt_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 6
+        y: 0
+        width: 11
+        height: 13
+      spriteId: 1d876087dd30e5143b81a5f08e1d4e50
+    - name: shirt_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 6
+        y: 0
+        width: 11
+        height: 13
+      spriteId: 1cff245cec47e2e478ec769f0baaad10
+    - name: shirt_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 6
+        y: 0
+        width: 10
+        height: 13
+      spriteId: 12ec46e92a3e04d4fb28b5ba3732e2c4
+    - name: shirt_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 6
+        y: 0
+        width: 8
+        height: 13
+      spriteId: 985b86e9a1aad6f4aa7ba8628b16a991
+    - name: shirt_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 6
+        y: 0
+        width: 7
+        height: 13
+      spriteId: ecf46c9978c2b96449e51bc8aa1d2bc9
+    - name: shirt_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 6
+        y: 0
+        width: 6
+        height: 13
+      spriteId: eb6012b7cf8a313448bc8afa44b5a0e8
+    - name: shirt_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 6
+        y: 0
+        width: 5
+        height: 13
+      spriteId: e10fbee09de7efb4288d03de1663c20a
+    - name: shirt_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 6
+        y: 0
+        width: 5
+        height: 13
+      spriteId: 67e29bfb82e631043b36a69dc1ccddb1
+    - name: shirt_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 6
+        y: 1
+        width: 5
+        height: 12
+      spriteId: 4edeaf8b809a3ff4e8cadbaeac153c1a
+    - name: shirt_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 6
+        y: 3
+        width: 5
+        height: 10
+      spriteId: 70c71cace266f7f4bab68feb2e048b7b
+    - name: shirt_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 6
+        y: 5
+        width: 5
+        height: 8
+      spriteId: 7d2f5827677a0ad44a3d1235535b1ae4
+    - name: shirt_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 6
+        y: 6
+        width: 5
+        height: 7
+      spriteId: 50fed72a2195f9b49822e1a3c62aab6d
+    - name: shirt_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 6
+        y: 6
+        width: 5
+        height: 7
+      spriteId: 86479080d4272a048b8fc11f10edd5e8
     linkedCells: []
     parentIndex: -1
   platformSettings: []

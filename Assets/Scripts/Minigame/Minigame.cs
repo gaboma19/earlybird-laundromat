@@ -46,6 +46,7 @@ public class Minigame : MonoBehaviour
         laundry = _laundry;
         washingMachine = _washingMachine;
         readyClothes = laundry.clothes.FindAll(FindReady);
+
         OnMinigameStarted?.Invoke();
         Open();
     }
