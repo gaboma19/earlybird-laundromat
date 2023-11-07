@@ -14,9 +14,17 @@ public class Origami : MonoBehaviour
     private List<Clothes> readyClothes;
     private List<Clothes> foldedClothes;
     private List<Instruction> instructionList;
+    private Instruction currentInstruction;
+    [SerializeField] private float sequenceDuration = 4f;
+    private float sequenceTimeout;
+    private int sequenceIndex;
+    private float totalRollingAngle = 0f;
+    private Vector2 previousMoveDirection = Vector2.zero;
+    private Vector2 currentMoveDirection;
+    private Vector2 moveDirectionDelta;
     private FoldingTableController foldingTable;
     private bool isActive = false;
-    private bool tableInUse = false;
+    private bool isSequenceInProgress = false;
     public static event Action OnOrigamiStarted;
     public static event Action OnOrigamiEnded;
     public PlayerInputActions playerControls;
@@ -61,51 +69,106 @@ public class Origami : MonoBehaviour
             }
             else
             {
-                Vector2 moveDirection = move.ReadValue<Vector2>();
-                if (tableInUse == false)
+                currentMoveDirection = move.ReadValue<Vector2>();
+
+                // Check if the player is not already in the middle of a sequence
+                if (!isSequenceInProgress)
                 {
-                    tableInUse = true;
+                    // Set a flag to indicate that a sequence is in progress
+                    isSequenceInProgress = true;
+                    // Start a timer for the sequence timeout
+                    sequenceTimeout = sequenceDuration;
+                    // Initialize the sequence index
+                    sequenceIndex = 0;
+                }
 
-                    // given instructionsList
-                    // player needs to input the instructions in sequence
-                    // within some timeframe, like Auron's overdrive minigame from FFX
+                if (isSequenceInProgress)
+                {
+                    currentInstruction = instructionList[sequenceIndex];
+                    if (currentInstruction.direction == Instruction.DIRECTION.ROTATE)
+                    {
+                        // Calculate the difference between current and previous moveDirection
+                        moveDirectionDelta = currentMoveDirection - previousMoveDirection;
+                        // Calculate the angle of the rolling motion
+                        float rollingAngle = Mathf.Atan2(moveDirectionDelta.y, moveDirectionDelta.x) * Mathf.Rad2Deg;
+                        // Update the total accumulated angle
+                        totalRollingAngle += rollingAngle;
 
-                    // switch (instructionList[0].direction)
-                    // {
-                    //     case Instruction.DIRECTION.UP:
-                    //         break;
-                    //     case Instruction.DIRECTION.DOWN:
-                    //         break;
-                    //     case Instruction.DIRECTION.LEFT:
-                    //         break;
-                    //     case Instruction.DIRECTION.RIGHT:
-                    //         break;
-                    //     case Instruction.DIRECTION.ROTATE:
-                    //         break;
-                    // }
+                        // Check for full circle input
+                        if (Mathf.Abs(totalRollingAngle) >= 360f)
+                        {
+                            // Increment the sequence index
+                            sequenceIndex++;
+
+                            // Reset the total angle
+                            totalRollingAngle = 0f;
+                        }
+                    }
+
+                    if (currentInstruction.direction == Instruction.DIRECTION.UP)
+                    {
+                        if (currentMoveDirection.y > 0.5)
+                        {
+                            sequenceIndex++;
+                            Debug.Log("up");
+                        }
+                    }
+                    if (currentInstruction.direction == Instruction.DIRECTION.DOWN)
+                    {
+                        if (currentMoveDirection.y < -0.5f)
+                        {
+                            sequenceIndex++;
+                        }
+                    }
+                    if (currentInstruction.direction == Instruction.DIRECTION.LEFT)
+                    {
+                        if (currentMoveDirection.x < -0.5f)
+                        {
+                            sequenceIndex++;
+                        }
+                    }
+                    if (currentInstruction.direction == Instruction.DIRECTION.RIGHT)
+                    {
+                        if (currentMoveDirection.x > 0.5f)
+                        {
+                            sequenceIndex++;
+                        }
+                    }
+
+                    // Check if the player completed the sequence
+                    if (sequenceIndex >= instructionList.Count)
+                    {
+                        // Reset the sequence-related variables
+                        isSequenceInProgress = false;
+                        sequenceTimeout = 0f;
+                        sequenceIndex = 0;
+
+                        // Do something when the player successfully completes the sequence
+                        Debug.Log("Sequence completed!");
+                    }
+                }
+
+                // Update the sequence timeout
+                sequenceTimeout -= Time.deltaTime;
+
+                // Check if the sequence timed out
+                if (isSequenceInProgress && sequenceTimeout <= 0f)
+                {
+                    // Reset the sequence-related variables
+                    isSequenceInProgress = false;
+                    sequenceTimeout = 0f;
+                    sequenceIndex = 0;
+
+                    // Do something when the sequence times out
+                    Debug.Log("Sequence timed out.");
+                }
+
+                if (!isSequenceInProgress)
+                {
+                    // Handle other instructions or actions here
                 }
             }
         }
-    }
-
-    private void OruClothes()
-    {
-        // if (moveDirection.y > 0.5)
-        // {
-        //     Debug.Log("up");
-        // }
-        // else if (moveDirection.y < -0.5f)
-        // {
-        //     Debug.Log("down");
-        // }
-        // else if (moveDirection.x > 0.5f)
-        // {
-        //     Debug.Log("right");
-        // }
-        // else if (moveDirection.x < -0.5f)
-        // {
-        //     Debug.Log("left");
-        // }
     }
 
     private bool IsClothesListEmpty()
