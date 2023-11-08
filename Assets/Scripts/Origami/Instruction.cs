@@ -5,6 +5,7 @@ public class Instruction
         UP, DOWN, LEFT, RIGHT, ROTATE
     }
     public DIRECTION direction { get; }
+    public bool isCompleted = false;
 
     public Instruction(DIRECTION _direction)
     {

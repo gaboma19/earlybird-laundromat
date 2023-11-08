@@ -80,7 +80,7 @@ public class Minigame : MonoBehaviour
     private void LoadClothes()
     {
         clothesProcessed = true;
-        readyClothes[0].state = Clothes.STATE.LOADED;
+        readyClothes[0].state = Clothes.STATE.DONE;
         loadedClothes.Add(readyClothes[0]);
         clothesWheel.AnimateLoad();
     }
@@ -126,6 +126,7 @@ public class Minigame : MonoBehaviour
         else
         {
             laundry.clothes = loadedClothes;
+            laundry.SetClothesToReady();
             washingMachine.loadedLaundry = laundry;
             OnLoadDirtyLaundry.Invoke(laundry);
         }

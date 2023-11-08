@@ -13,26 +13,29 @@ public class Arrow : MonoBehaviour
     {
         Image arrow;
 
-        switch (instruction.direction)
+        if (!instruction.isCompleted)
         {
-            case Instruction.DIRECTION.UP:
-                Instantiate(instructionArrow, arrowContainer);
-                break;
-            case Instruction.DIRECTION.DOWN:
-                arrow = Instantiate(instructionArrow, arrowContainer);
-                arrow.transform.Rotate(0, 0, 180f);
-                break;
-            case Instruction.DIRECTION.LEFT:
-                arrow = Instantiate(instructionArrow, arrowContainer);
-                arrow.transform.Rotate(0, 0, 90f);
-                break;
-            case Instruction.DIRECTION.RIGHT:
-                arrow = Instantiate(instructionArrow, arrowContainer);
-                arrow.transform.Rotate(0, 0, -90f);
-                break;
-            case Instruction.DIRECTION.ROTATE:
-                Instantiate(instructionRotateArrow, arrowContainer);
-                break;
+            switch (instruction.direction)
+            {
+                case Instruction.DIRECTION.UP:
+                    Instantiate(instructionArrow, arrowContainer);
+                    break;
+                case Instruction.DIRECTION.DOWN:
+                    arrow = Instantiate(instructionArrow, arrowContainer);
+                    arrow.transform.Rotate(0, 0, 180f);
+                    break;
+                case Instruction.DIRECTION.LEFT:
+                    arrow = Instantiate(instructionArrow, arrowContainer);
+                    arrow.transform.Rotate(0, 0, 90f);
+                    break;
+                case Instruction.DIRECTION.RIGHT:
+                    arrow = Instantiate(instructionArrow, arrowContainer);
+                    arrow.transform.Rotate(0, 0, -90f);
+                    break;
+                case Instruction.DIRECTION.ROTATE:
+                    Instantiate(instructionRotateArrow, arrowContainer);
+                    break;
+            }
         }
     }
 }

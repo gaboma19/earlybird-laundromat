@@ -12,7 +12,7 @@ public class Clothes
     }
     public enum STATE
     {
-        READY, LOADED
+        READY, DONE
     }
     public TYPE type { get; }
     public COLOR color { get; }
@@ -64,5 +64,8 @@ public class Clothes
                 foldingInstructions.Add(new Instruction(Instruction.DIRECTION.DOWN));
                 break;
         }
+
+        Instruction.DIRECTION direction = GetRandomEnum<Instruction.DIRECTION>();
+        foldingInstructions.Add(new Instruction(direction));
     }
 }

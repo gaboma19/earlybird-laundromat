@@ -18,6 +18,8 @@ public class ArrowGrid : MonoBehaviour
         UpdateVisual();
 
         Origami.OnOrigamiStarted += UpdateVisual;
+        Origami.OnInstructionCompleted += UpdateVisual;
+        Origami.OnSequenceCompleted += UpdateVisual;
     }
 
     void UpdateVisual()

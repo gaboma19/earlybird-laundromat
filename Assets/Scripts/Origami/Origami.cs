@@ -8,15 +8,16 @@ using System.Linq;
 public class Origami : MonoBehaviour
 {
     public static Origami instance;
+    [SerializeField] private CanvasGroup origami;
     [SerializeField] private ArrowGrid arrowGrid;
     public Laundry laundry;
     private List<Clothes> readyClothes;
-    private List<Clothes> foldedClothes;
     private List<Instruction> instructionList;
     private Instruction currentInstruction;
     [SerializeField] private float sequenceDuration = 4f;
     private float sequenceTimeout;
     private int sequenceIndex;
+    private int clothesIndex;
     private float totalRollingAngle = 0f;
     private Vector2 previousMoveDirection = Vector2.zero;
     private Vector2 currentMoveDirection;
@@ -24,24 +25,32 @@ public class Origami : MonoBehaviour
     private FoldingTableController foldingTable;
     private bool isActive = false;
     private bool isSequenceInProgress = false;
+    private bool isOrigamiInProgress = false;
     public static event Action OnOrigamiStarted;
     public static event Action<FoldingTableController> OnOrigamiEnded;
+    public static event Action OnInstructionCompleted;
+    public static event Action OnSequenceCompleted;
     public PlayerInputActions playerControls;
     private InputAction move;
 
     public void Open()
     {
-        this.gameObject.SetActive(true);
+        origami.gameObject.SetActive(true);
     }
 
     public void Close()
     {
-        this.gameObject.SetActive(false);
+        origami.gameObject.SetActive(false);
     }
 
     public List<Instruction> GetInstructionList()
     {
         return instructionList;
+    }
+
+    public Clothes GetCurrentClothes()
+    {
+        return readyClothes[clothesIndex];
     }
 
     public void FoldClothes(Laundry _laundry, FoldingTableController _foldingTable)
@@ -70,6 +79,20 @@ public class Origami : MonoBehaviour
             {
                 currentMoveDirection = move.ReadValue<Vector2>();
 
+                if (!isOrigamiInProgress)
+                {
+                    isOrigamiInProgress = true;
+                    // Initialize the ready clothes index
+                    clothesIndex = 0;
+                }
+
+                if (isOrigamiInProgress && clothesIndex >= readyClothes.Count)
+                {
+                    isOrigamiInProgress = false;
+
+                    EndOrigami();
+                }
+
                 // Check if the player is not already in the middle of a sequence
                 if (!isSequenceInProgress)
                 {
@@ -84,6 +107,7 @@ public class Origami : MonoBehaviour
                 if (isSequenceInProgress)
                 {
                     currentInstruction = instructionList[sequenceIndex];
+
                     if (currentInstruction.direction == Instruction.DIRECTION.ROTATE)
                     {
                         // Calculate the difference between current and previous moveDirection
@@ -99,6 +123,9 @@ public class Origami : MonoBehaviour
                             // Increment the sequence index
                             sequenceIndex++;
 
+                            currentInstruction.isCompleted = true;
+                            OnInstructionCompleted.Invoke();
+
                             // Reset the total angle
                             totalRollingAngle = 0f;
                         }
@@ -109,7 +136,9 @@ public class Origami : MonoBehaviour
                         if (currentMoveDirection.y > 0.5)
                         {
                             sequenceIndex++;
-                            Debug.Log("up");
+
+                            currentInstruction.isCompleted = true;
+                            OnInstructionCompleted.Invoke();
                         }
                     }
                     if (currentInstruction.direction == Instruction.DIRECTION.DOWN)
@@ -117,6 +146,9 @@ public class Origami : MonoBehaviour
                         if (currentMoveDirection.y < -0.5f)
                         {
                             sequenceIndex++;
+
+                            currentInstruction.isCompleted = true;
+                            OnInstructionCompleted.Invoke();
                         }
                     }
                     if (currentInstruction.direction == Instruction.DIRECTION.LEFT)
@@ -124,6 +156,9 @@ public class Origami : MonoBehaviour
                         if (currentMoveDirection.x < -0.5f)
                         {
                             sequenceIndex++;
+
+                            currentInstruction.isCompleted = true;
+                            OnInstructionCompleted.Invoke();
                         }
                     }
                     if (currentInstruction.direction == Instruction.DIRECTION.RIGHT)
@@ -131,6 +166,9 @@ public class Origami : MonoBehaviour
                         if (currentMoveDirection.x > 0.5f)
                         {
                             sequenceIndex++;
+
+                            currentInstruction.isCompleted = true;
+                            OnInstructionCompleted.Invoke();
                         }
                     }
 
@@ -141,9 +179,14 @@ public class Origami : MonoBehaviour
                         isSequenceInProgress = false;
                         sequenceTimeout = 0f;
                         sequenceIndex = 0;
+                        // Fold the next clothes in ready clothes
+                        readyClothes[clothesIndex].state = Clothes.STATE.DONE;
+                        clothesIndex++;
 
                         // Do something when the player successfully completes the sequence
                         Debug.Log("Sequence completed!");
+
+                        OnSequenceCompleted.Invoke();
                     }
                 }
 
@@ -157,14 +200,14 @@ public class Origami : MonoBehaviour
                     isSequenceInProgress = false;
                     sequenceTimeout = 0f;
                     sequenceIndex = 0;
+                    // Fold the next clothes in ready clothes
+                    readyClothes[clothesIndex].state = Clothes.STATE.DONE;
+                    clothesIndex++;
 
                     // Do something when the sequence times out
                     Debug.Log("Sequence timed out.");
-                }
 
-                if (!isSequenceInProgress)
-                {
-                    // Handle other instructions or actions here
+                    OnSequenceCompleted.Invoke();
                 }
             }
         }
@@ -196,13 +239,12 @@ public class Origami : MonoBehaviour
 
     private void EndOrigami()
     {
-        laundry.clothes = foldedClothes;
+        laundry.clothes = readyClothes;
         foldingTable.loadedLaundry = laundry;
         // OnLaundryFolded.Invoke(laundry);
 
         OnOrigamiEnded.Invoke(foldingTable);
         isActive = false;
-        foldedClothes = new();
         Close();
     }
 

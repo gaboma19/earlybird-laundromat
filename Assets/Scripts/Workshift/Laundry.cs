@@ -30,4 +30,12 @@ public class Laundry
 
         this.state = STATE.DIRTY;
     }
+
+    public void SetClothesToReady()
+    {
+        foreach (Clothes c in clothes)
+        {
+            c.state = Clothes.STATE.READY;
+        }
+    }
 }
