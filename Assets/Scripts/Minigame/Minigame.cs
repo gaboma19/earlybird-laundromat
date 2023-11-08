@@ -11,7 +11,7 @@ public class Minigame : MonoBehaviour
     [SerializeField] private ClothesWheel clothesWheel;
     [SerializeField] private CanvasGroup minigame;
     public static event Action OnMinigameStarted;
-    public static event Action OnMinigameEnded;
+    public static event Action<WashingMachineController> OnMinigameEnded;
     public PlayerInputActions playerControls;
     private InputAction move;
     public Laundry laundry;
@@ -130,7 +130,7 @@ public class Minigame : MonoBehaviour
             OnLoadDirtyLaundry.Invoke(laundry);
         }
 
-        OnMinigameEnded.Invoke();
+        OnMinigameEnded.Invoke(washingMachine);
         isActive = false;
         loadedClothes = new();
         keptClothes = new();

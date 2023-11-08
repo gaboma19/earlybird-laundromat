@@ -5,7 +5,7 @@ using UnityEngine;
 public class Laundry
 {
     public List<Clothes> clothes = new List<Clothes>();
-    [SerializeField] private int maximumNumberOfClothes = 13;
+    [SerializeField] private int maximumNumberOfClothes = 8;
     public enum STATE
     {
         DIRTY, LOADED_WASH, WASHING, WASHED, UNLOADED_WASH, LOADED_DRY, DRYING, DRIED, UNLOADED_DRY, FOLDING, FOLDED, DONE, DISCARD
@@ -16,7 +16,7 @@ public class Laundry
 
     public Laundry()
     {
-        int clothesCount = Random.Range(8, maximumNumberOfClothes + 1);
+        int clothesCount = Random.Range(4, maximumNumberOfClothes + 1);
         for (int i = 0; i < clothesCount; i++)
         {
             Clothes newClothes = new Clothes();

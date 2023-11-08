@@ -17,7 +17,7 @@ public class Clothes
     public TYPE type { get; }
     public COLOR color { get; }
     public STATE state;
-    public List<Instruction> foldingInstructions;
+    public List<Instruction> foldingInstructions = new();
 
     public Clothes()
     {

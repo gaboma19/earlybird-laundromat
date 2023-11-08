@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class ReadyWash : WashingMachineState
 {
@@ -48,9 +47,9 @@ public class ReadyWash : WashingMachineState
         }
     }
 
-    void EndReady()
+    void EndReady(WashingMachineController _washingMachineController)
     {
-        if (washingMachineController.loadedLaundry != null)
+        if (washingMachineController == _washingMachineController)
         {
             anim.SetTrigger("Transition");
             nextState = new LoadedWash(washingMachine, anim);

@@ -8,7 +8,6 @@ using System.Linq;
 public class Origami : MonoBehaviour
 {
     public static Origami instance;
-    [SerializeField] private CanvasGroup origami;
     [SerializeField] private ArrowGrid arrowGrid;
     public Laundry laundry;
     private List<Clothes> readyClothes;
@@ -26,18 +25,18 @@ public class Origami : MonoBehaviour
     private bool isActive = false;
     private bool isSequenceInProgress = false;
     public static event Action OnOrigamiStarted;
-    public static event Action OnOrigamiEnded;
+    public static event Action<FoldingTableController> OnOrigamiEnded;
     public PlayerInputActions playerControls;
     private InputAction move;
 
     public void Open()
     {
-        origami.gameObject.SetActive(true);
+        this.gameObject.SetActive(true);
     }
 
     public void Close()
     {
-        origami.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     public List<Instruction> GetInstructionList()
@@ -201,7 +200,7 @@ public class Origami : MonoBehaviour
         foldingTable.loadedLaundry = laundry;
         // OnLaundryFolded.Invoke(laundry);
 
-        OnOrigamiEnded.Invoke();
+        OnOrigamiEnded.Invoke(foldingTable);
         isActive = false;
         foldedClothes = new();
         Close();

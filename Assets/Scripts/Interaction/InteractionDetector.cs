@@ -13,7 +13,7 @@ public class InteractionDetector : MonoBehaviour
     {
         playerControls = new PlayerInputActions();
         Minigame.OnMinigameStarted += DisableInteract;
-        Minigame.OnMinigameEnded += EnableInteract;
+        Minigame.OnMinigameEnded += (_) => EnableInteract();
     }
 
     private void OnEnable()
