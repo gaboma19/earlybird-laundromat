@@ -17,8 +17,6 @@ public class ReadyFold : FoldingTableState
     {
         foldingTableController.isInteractable = true;
 
-        Origami.OnOrigamiEnded += EndReady;
-
         base.Enter();
     }
 
@@ -26,30 +24,21 @@ public class ReadyFold : FoldingTableState
     {
         if (foldingTableController.isInteractedWith)
         {
-            foldingTableController.isInteractedWith = false;
-
             if (Workshift.instance.state == Workshift.STATE.STARTED)
             {
                 Laundry selectedLaundry = Workshift.instance.GetSelectedLaundry();
 
                 if (selectedLaundry.state == Laundry.STATE.UNLOADED_DRY)
                 {
-                    Origami.instance.FoldClothes(selectedLaundry, foldingTableController);
+                    foldingTableController.loadedLaundry = selectedLaundry;
+                    nextState = new InUseFold(foldingTable, anim);
+                    stage = EVENT.EXIT;
                 }
                 else
                 {
                     // show dialogue "selected laundry is not ready for folding"
                 }
             }
-        }
-    }
-
-    private void EndReady(FoldingTableController _foldingTableController)
-    {
-        if (foldingTableController == _foldingTableController)
-        {
-            nextState = new InUseFold(foldingTable, anim);
-            stage = EVENT.EXIT;
         }
     }
 

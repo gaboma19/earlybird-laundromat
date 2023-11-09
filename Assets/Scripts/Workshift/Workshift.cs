@@ -105,7 +105,7 @@ public class Workshift : MonoBehaviour
         timer.timerIsRunning = true;
         state = STATE.STARTED;
 
-        AddActiveLaundry(Laundry.STATE.UNLOADED_DRY);
+        // AddActiveLaundry(Laundry.STATE.UNLOADED_DRY);
     }
 
     private void EndWorkShift()

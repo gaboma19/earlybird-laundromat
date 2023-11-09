@@ -14,6 +14,7 @@ public class Origami : MonoBehaviour
     private List<Clothes> readyClothes;
     private List<Instruction> instructionList;
     private Instruction currentInstruction;
+    [SerializeField] private SequenceTimer sequenceTimer;
     [SerializeField] private float sequenceDuration = 4f;
     private float sequenceTimeout;
     private int sequenceIndex;
@@ -50,6 +51,11 @@ public class Origami : MonoBehaviour
 
     public Clothes GetCurrentClothes()
     {
+        if (clothesIndex >= readyClothes.Count)
+        {
+            return readyClothes[^1];
+        }
+
         return readyClothes[clothesIndex];
     }
 
@@ -117,6 +123,8 @@ public class Origami : MonoBehaviour
                         // Update the total accumulated angle
                         totalRollingAngle += rollingAngle;
 
+                        Debug.Log(totalRollingAngle);
+
                         // Check for full circle input
                         if (Mathf.Abs(totalRollingAngle) >= 360f)
                         {
@@ -183,6 +191,11 @@ public class Origami : MonoBehaviour
                         readyClothes[clothesIndex].state = Clothes.STATE.DONE;
                         clothesIndex++;
 
+                        if (clothesIndex < readyClothes.Count)
+                        {
+                            instructionList = readyClothes[clothesIndex].foldingInstructions;
+                        }
+
                         // Do something when the player successfully completes the sequence
                         Debug.Log("Sequence completed!");
 
@@ -192,6 +205,7 @@ public class Origami : MonoBehaviour
 
                 // Update the sequence timeout
                 sequenceTimeout -= Time.deltaTime;
+                sequenceTimer.DisplayTime(sequenceTimeout);
 
                 // Check if the sequence timed out
                 if (isSequenceInProgress && sequenceTimeout <= 0f)
@@ -203,6 +217,7 @@ public class Origami : MonoBehaviour
                     // Fold the next clothes in ready clothes
                     readyClothes[clothesIndex].state = Clothes.STATE.DONE;
                     clothesIndex++;
+                    instructionList = readyClothes[clothesIndex].foldingInstructions;
 
                     // Do something when the sequence times out
                     Debug.Log("Sequence timed out.");
