@@ -24,11 +24,10 @@ public class ReadyFold : FoldingTableState
     {
         if (foldingTableController.isInteractedWith)
         {
-            foldingTableController.isInteractedWith = false;
-
             if (Workshift.instance.state == Workshift.STATE.STARTED)
             {
                 Laundry selectedLaundry = Workshift.instance.GetSelectedLaundry();
+
                 if (selectedLaundry.state == Laundry.STATE.UNLOADED_DRY)
                 {
                     foldingTableController.loadedLaundry = selectedLaundry;

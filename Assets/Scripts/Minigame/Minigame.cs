@@ -11,7 +11,7 @@ public class Minigame : MonoBehaviour
     [SerializeField] private ClothesWheel clothesWheel;
     [SerializeField] private CanvasGroup minigame;
     public static event Action OnMinigameStarted;
-    public static event Action OnMinigameEnded;
+    public static event Action<WashingMachineController> OnMinigameEnded;
     public PlayerInputActions playerControls;
     private InputAction move;
     public Laundry laundry;
@@ -46,6 +46,7 @@ public class Minigame : MonoBehaviour
         laundry = _laundry;
         washingMachine = _washingMachine;
         readyClothes = laundry.clothes.FindAll(FindReady);
+
         OnMinigameStarted?.Invoke();
         Open();
     }
@@ -79,7 +80,7 @@ public class Minigame : MonoBehaviour
     private void LoadClothes()
     {
         clothesProcessed = true;
-        readyClothes[0].state = Clothes.STATE.LOADED;
+        readyClothes[0].state = Clothes.STATE.DONE;
         loadedClothes.Add(readyClothes[0]);
         clothesWheel.AnimateLoad();
     }
@@ -125,11 +126,12 @@ public class Minigame : MonoBehaviour
         else
         {
             laundry.clothes = loadedClothes;
+            laundry.SetClothesToReady();
             washingMachine.loadedLaundry = laundry;
             OnLoadDirtyLaundry.Invoke(laundry);
         }
 
-        OnMinigameEnded.Invoke();
+        OnMinigameEnded.Invoke(washingMachine);
         isActive = false;
         loadedClothes = new();
         keptClothes = new();

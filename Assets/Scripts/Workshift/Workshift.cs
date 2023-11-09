@@ -61,7 +61,7 @@ public class Workshift : MonoBehaviour
         InUseFold.OnLaundryFolded += SetFoldedLaundry;
         RegisterController.OnLaundryDone += SetDoneLaundry;
         Minigame.OnMinigameStarted += DisableSelect;
-        Minigame.OnMinigameEnded += EnableSelect;
+        Minigame.OnMinigameEnded += (_) => EnableSelect();
 
         playerControls = new PlayerInputActions();
         spawnPoint = GameObject.Find("Spawn Point");
@@ -104,6 +104,8 @@ public class Workshift : MonoBehaviour
     {
         timer.timerIsRunning = true;
         state = STATE.STARTED;
+
+        // AddActiveLaundry(Laundry.STATE.UNLOADED_DRY);
     }
 
     private void EndWorkShift()
@@ -156,6 +158,21 @@ public class Workshift : MonoBehaviour
     private void AddActiveLaundry()
     {
         Laundry newLaundry = new Laundry();
+
+        if (selectedLaundry is null)
+        {
+            newLaundry.isSelected = true;
+            selectedLaundry = newLaundry;
+        }
+        activeLaundry.Add(newLaundry);
+        OnLaundrySpawned.Invoke();
+    }
+    private void AddActiveLaundry(Laundry.STATE _state)
+    {
+        Laundry newLaundry = new Laundry
+        {
+            state = _state
+        };
 
         if (selectedLaundry is null)
         {
