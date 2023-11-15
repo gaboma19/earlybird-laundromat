@@ -13,9 +13,9 @@ public class Workshift : MonoBehaviour
     [SerializeField] private Timer timer;
     public float customerTimeInterval;
     private float customerTimeRemaining;
-    [SerializeField] private GameObject customer;
     public static event Action OnLaundrySpawned;
     private GameObject spawnPoint;
+    private Spawn spawn;
     public PlayerInputActions playerControls;
     private InputAction selectLeft;
     private InputAction selectRight;
@@ -65,6 +65,7 @@ public class Workshift : MonoBehaviour
 
         playerControls = new PlayerInputActions();
         spawnPoint = GameObject.Find("Spawn Point");
+        spawn = spawnPoint.GetComponent<Spawn>();
     }
     private void OnEnable()
     {
@@ -129,7 +130,7 @@ public class Workshift : MonoBehaviour
             }
             else
             {
-                Instantiate(customer, spawnPoint.transform.position, Quaternion.identity);
+                spawn.SpawnCustomer();
                 customerTimeRemaining = customerTimeInterval;
             }
         }

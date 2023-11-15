@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4baf8bd9a2ebf26499dc9ea0cd35354b, type: 3}
-  m_Name: Customer Order Dialogue
+  m_Name: Myul Dialogue
   m_EditorClassIdentifier: 
   dialogue:
-  - hello
-  - i'd like to place an order
-  - thank you
-  - goodbye
+  - take heed of my words my feathered friend
+  - 'the Signal''s trace can still be felt, even now, after all that has happened '
+  - this galaxy will again respond to its call
+  - how will you respond, ave?
