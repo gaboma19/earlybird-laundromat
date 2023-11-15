@@ -1,0 +1,1286 @@
+fileFormatVersion: 2
+guid: 183da3af517b4bc4d8399ce054734cf7
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: idle
+    second: {fileID: 7400000, guid: 8ed9fa9c051cfd0459446098f81ddce4, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: move
+    second: {fileID: 7400000, guid: bf9f69b5ff48cfa4ab7928072db69b5c, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 10
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638355803662546578
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: philo_Frame_0
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 13
+      height: 9
+    spriteID: fe855aab648746446ad48567da6fcdbc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: philo_Frame_1
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 25
+      y: 4
+      width: 13
+      height: 9
+    spriteID: 2e04502e5aef6a7439dcc74560a059e4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 25, y: 4}
+  - name: philo_Frame_2
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 46
+      y: 4
+      width: 13
+      height: 9
+    spriteID: 1430bd5417513d841b1ce98176563150
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 46, y: 4}
+  - name: philo_Frame_3
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 67
+      y: 4
+      width: 13
+      height: 9
+    spriteID: f37e303bb170b2b4abd6972d358602be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 67, y: 4}
+  - name: philo_Frame_4
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 88
+      y: 4
+      width: 13
+      height: 9
+    spriteID: 93fa949e02a55764bb5de0c0cfc29198
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 4}
+  - name: philo_Frame_5
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 109
+      y: 4
+      width: 13
+      height: 9
+    spriteID: 4e1c187305df72e4889e7ba5155b8195
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 109, y: 4}
+  - name: philo_Frame_6
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 21
+      width: 13
+      height: 9
+    spriteID: ed0be4a3fc8b68544a6af977eb355d19
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 21}
+  - name: philo_Frame_7
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 25
+      y: 21
+      width: 13
+      height: 9
+    spriteID: a41befc6e2dd03b4aa7809a6a9ad6f27
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 25, y: 21}
+  - name: philo_Frame_8
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 46
+      y: 21
+      width: 13
+      height: 9
+    spriteID: c1d93f3fda4f867418cf406fcf6826ff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 46, y: 21}
+  - name: philo_Frame_9
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 67
+      y: 21
+      width: 13
+      height: 9
+    spriteID: 49cd0228c4ed5ef4985c6f94c4397104
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 67, y: 21}
+  - name: philo_Frame_10
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 88
+      y: 21
+      width: 13
+      height: 9
+    spriteID: e0e66a6fffafa984c866aad5aa680b34
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 21}
+  - name: philo_Frame_11
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 109
+      y: 21
+      width: 13
+      height: 9
+    spriteID: 86b84e6662e7f0c478606ea29fff63f3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 109, y: 21}
+  - name: philo_Frame_12
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 38
+      width: 13
+      height: 9
+    spriteID: 6fa79d0df7532ca48b0363fd8814809e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 38}
+  - name: philo_Frame_13
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 25
+      y: 38
+      width: 13
+      height: 9
+    spriteID: 0fbbd58d0d15026468df9506ce14c288
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 25, y: 38}
+  - name: philo_Frame_14
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 46
+      y: 38
+      width: 13
+      height: 9
+    spriteID: 070ee89051767d04193345c7fc7ab492
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 46, y: 38}
+  - name: philo_Frame_15
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 67
+      y: 38
+      width: 13
+      height: 9
+    spriteID: cd925f95b6abea04a86205d0e94cfba3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 67, y: 38}
+  - name: philo_Frame_16
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 88
+      y: 38
+      width: 13
+      height: 9
+    spriteID: 97125a750396f1642ad6f9c891fe390b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 38}
+  - name: philo_Frame_17
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 109
+      y: 38
+      width: 13
+      height: 9
+    spriteID: 3b4e5df9e2596ba47b327009a6c1c3ac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 109, y: 38}
+  - name: philo_Frame_18
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 55
+      width: 13
+      height: 9
+    spriteID: 3f0a585bd687ade41bf61454983afe9c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 55}
+  - name: philo_Frame_19
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 25
+      y: 55
+      width: 13
+      height: 9
+    spriteID: a1e1c1ff2ff3a064aae7a23907f7ab59
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 25, y: 55}
+  - name: philo_Frame_20
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 46
+      y: 55
+      width: 13
+      height: 9
+    spriteID: bc100a40b69c5ab4a9144d6811230ec4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 46, y: 55}
+  - name: philo_Frame_21
+    originalName: 
+    pivot: {x: 0.45454547, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 38
+      y: 72
+      width: 11
+      height: 10
+    spriteID: 92ae12fe2d7232c48bb8d2e015a90e28
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 38, y: 72}
+  - name: philo_Frame_22
+    originalName: 
+    pivot: {x: 0.44444445, y: -0.16666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 114
+      y: 72
+      width: 9
+      height: 12
+    spriteID: dd58ae24d96fa9849a671011bd1d87fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 114, y: 72}
+  - name: philo_Frame_23
+    originalName: 
+    pivot: {x: 0.44444445, y: -0.15384616}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 72
+      width: 9
+      height: 13
+    spriteID: 89df446b7c3c0f8479d172d7db49e78d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 72}
+  - name: philo_Frame_24
+    originalName: 
+    pivot: {x: 0.44444445, y: -0.16666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 93
+      width: 9
+      height: 12
+    spriteID: 2998f52872cf18d4aac8800abe740082
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 93}
+  - name: philo_Frame_25
+    originalName: 
+    pivot: {x: 0.45454547, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 57
+      y: 72
+      width: 11
+      height: 10
+    spriteID: 5763d4e1c601b4e4ba3d93ff91c1ffb5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 57, y: 72}
+  - name: philo_Frame_26
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 88
+      y: 55
+      width: 13
+      height: 8
+    spriteID: 1c27f29395d60c24a9daa033b9975c6f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 55}
+  - name: philo_Frame_27
+    originalName: 
+    pivot: {x: 0.4666667, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 93
+      width: 15
+      height: 6
+    spriteID: 8c9bb3a7795d70647992bf8de9430b1b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 93}
+  - name: philo_Frame_28
+    originalName: 
+    pivot: {x: 0.5, y: -0.4}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 101
+      y: 93
+      width: 16
+      height: 5
+    spriteID: 4dcf0d689034a534c9b8f471698f7cf4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 101, y: 93}
+  - name: philo_Frame_29
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.22222222}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 67
+      y: 55
+      width: 13
+      height: 9
+    spriteID: 1a6a89bd1e1985149a3295345df66a3d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 67, y: 55}
+  - name: philo_Frame_30
+    originalName: 
+    pivot: {x: 0.45454547, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 72
+      width: 11
+      height: 10
+    spriteID: d1da2b5850257c64990efa6481b85139
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 72}
+  - name: philo_Frame_31
+    originalName: 
+    pivot: {x: 0.44444445, y: -0.16666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 21
+      y: 93
+      width: 9
+      height: 12
+    spriteID: 827b91c638c89024d86f39af544b77d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 21, y: 93}
+  - name: philo_Frame_32
+    originalName: 
+    pivot: {x: 0.44444445, y: -0.15384616}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 21
+      y: 72
+      width: 9
+      height: 13
+    spriteID: 583a6f16bb4f29640b267969b3d58305
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 21, y: 72}
+  - name: philo_Frame_33
+    originalName: 
+    pivot: {x: 0.44444445, y: -0.16666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 38
+      y: 93
+      width: 9
+      height: 12
+    spriteID: 7e3033b5aa22ca6469218c86227d8d10
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 38, y: 93}
+  - name: philo_Frame_34
+    originalName: 
+    pivot: {x: 0.45454547, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 95
+      y: 72
+      width: 11
+      height: 10
+    spriteID: eb3d9fe57ff2df34986c5e4b01a41376
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 95, y: 72}
+  - name: philo_Frame_35
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 109
+      y: 55
+      width: 13
+      height: 8
+    spriteID: a0b94568283b83746ada938ecadd3c9d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 109, y: 55}
+  - name: philo_Frame_36
+    originalName: 
+    pivot: {x: 0.4666667, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 93
+      width: 15
+      height: 6
+    spriteID: ad26bca5e6c464d43ac8ca633900a912
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 93}
+  - name: philo_Frame_37
+    originalName: 
+    pivot: {x: 0.5, y: -0.4}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 38
+      y: 113
+      width: 16
+      height: 5
+    spriteID: 0c2d3ad08131c7046acda82765d423b4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 38, y: 113}
+  - name: philo_Frame_38
+    originalName: 
+    pivot: {x: 0.4615385, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 113
+      width: 13
+      height: 6
+    spriteID: 46db1572d933aef48bc8186d3eac1323
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 113}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1857893768
+    name: philo
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: philo_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: fe855aab648746446ad48567da6fcdbc
+    - name: philo_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 2e04502e5aef6a7439dcc74560a059e4
+    - name: philo_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 1430bd5417513d841b1ce98176563150
+    - name: philo_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: f37e303bb170b2b4abd6972d358602be
+    - name: philo_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 93fa949e02a55764bb5de0c0cfc29198
+    - name: philo_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 4e1c187305df72e4889e7ba5155b8195
+    - name: philo_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: ed0be4a3fc8b68544a6af977eb355d19
+    - name: philo_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: a41befc6e2dd03b4aa7809a6a9ad6f27
+    - name: philo_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: c1d93f3fda4f867418cf406fcf6826ff
+    - name: philo_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 49cd0228c4ed5ef4985c6f94c4397104
+    - name: philo_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: e0e66a6fffafa984c866aad5aa680b34
+    - name: philo_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 86b84e6662e7f0c478606ea29fff63f3
+    - name: philo_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 6fa79d0df7532ca48b0363fd8814809e
+    - name: philo_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 0fbbd58d0d15026468df9506ce14c288
+    - name: philo_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 070ee89051767d04193345c7fc7ab492
+    - name: philo_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: cd925f95b6abea04a86205d0e94cfba3
+    - name: philo_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 97125a750396f1642ad6f9c891fe390b
+    - name: philo_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 3b4e5df9e2596ba47b327009a6c1c3ac
+    - name: philo_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 3f0a585bd687ade41bf61454983afe9c
+    - name: philo_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: a1e1c1ff2ff3a064aae7a23907f7ab59
+    - name: philo_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: bc100a40b69c5ab4a9144d6811230ec4
+    - name: philo_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 3
+        y: 2
+        width: 11
+        height: 10
+      spriteId: 92ae12fe2d7232c48bb8d2e015a90e28
+    - name: philo_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 4
+        y: 2
+        width: 9
+        height: 12
+      spriteId: dd58ae24d96fa9849a671011bd1d87fb
+    - name: philo_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 4
+        y: 2
+        width: 9
+        height: 13
+      spriteId: 89df446b7c3c0f8479d172d7db49e78d
+    - name: philo_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 4
+        y: 2
+        width: 9
+        height: 12
+      spriteId: 2998f52872cf18d4aac8800abe740082
+    - name: philo_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 3
+        y: 2
+        width: 11
+        height: 10
+      spriteId: 5763d4e1c601b4e4ba3d93ff91c1ffb5
+    - name: philo_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 8
+      spriteId: 1c27f29395d60c24a9daa033b9975c6f
+    - name: philo_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 1
+        y: 2
+        width: 15
+        height: 6
+      spriteId: 8c9bb3a7795d70647992bf8de9430b1b
+    - name: philo_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 0
+        y: 2
+        width: 16
+        height: 5
+      spriteId: 4dcf0d689034a534c9b8f471698f7cf4
+    - name: philo_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 9
+      spriteId: 1a6a89bd1e1985149a3295345df66a3d
+    - name: philo_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 3
+        y: 2
+        width: 11
+        height: 10
+      spriteId: d1da2b5850257c64990efa6481b85139
+    - name: philo_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 4
+        y: 2
+        width: 9
+        height: 12
+      spriteId: 827b91c638c89024d86f39af544b77d3
+    - name: philo_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 4
+        y: 2
+        width: 9
+        height: 13
+      spriteId: 583a6f16bb4f29640b267969b3d58305
+    - name: philo_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 4
+        y: 2
+        width: 9
+        height: 12
+      spriteId: 7e3033b5aa22ca6469218c86227d8d10
+    - name: philo_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 3
+        y: 2
+        width: 11
+        height: 10
+      spriteId: eb3d9fe57ff2df34986c5e4b01a41376
+    - name: philo_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 8
+      spriteId: a0b94568283b83746ada938ecadd3c9d
+    - name: philo_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 1
+        y: 2
+        width: 15
+        height: 6
+      spriteId: ad26bca5e6c464d43ac8ca633900a912
+    - name: philo_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 0
+        y: 2
+        width: 16
+        height: 5
+      spriteId: 0c2d3ad08131c7046acda82765d423b4
+    - name: philo_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 2
+        y: 2
+        width: 13
+        height: 6
+      spriteId: 46db1572d933aef48bc8186d3eac1323
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 16, y: 16}

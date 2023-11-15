@@ -1,8 +1,18 @@
 fileFormatVersion: 2
-guid: 183da3af517b4bc4d8399ce054734cf7
+guid: be3c1e78978918e48941f6c148bf6fdd
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: idle
+    second: {fileID: 7400000, guid: c6d6efaf420901644ae9d204b7a875e6, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: walk
+    second: {fileID: 7400000, guid: cf6cc946b07036443980f21dbcaa8832, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -35,7 +45,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 10
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -95,7 +105,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638355765575343533
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +129,338 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: philo_Frame_0
+  - name: kiku_Frame_0
     originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 50
+      width: 10
+      height: 15
+    spriteID: 051fcb3809814394b9580c5341219bb6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 50}
+  - name: kiku_Frame_1
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 73
+      width: 10
+      height: 15
+    spriteID: 64601e35adcbbde4eb2cece7b6441bdb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 73}
+  - name: kiku_Frame_2
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 96
+      width: 10
+      height: 15
+    spriteID: 6c3a0a49056c6804caaf9eb8e38a8d93
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 96}
+  - name: kiku_Frame_3
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 24
+      y: 4
+      width: 10
+      height: 15
+    spriteID: f08846ed8dd86324abd339047d79e4ea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 24, y: 4}
+  - name: kiku_Frame_4
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 24
+      y: 27
+      width: 10
+      height: 15
+    spriteID: efbadec43fbd1014bbd29f4fe4d28d1c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 24, y: 27}
+  - name: kiku_Frame_5
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 24
+      y: 50
+      width: 10
+      height: 15
+    spriteID: 6b700e81e24bb83489392ee430fa23b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 24, y: 50}
+  - name: kiku_Frame_6
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 24
+      y: 73
+      width: 10
+      height: 15
+    spriteID: f9c85f078bb8e0049aa177d78023980f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 24, y: 73}
+  - name: kiku_Frame_7
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 24
+      y: 96
+      width: 10
+      height: 15
+    spriteID: f83bb2e6aa01928429baa6dcc473155a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 24, y: 96}
+  - name: kiku_Frame_8
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 42
+      y: 4
+      width: 10
+      height: 15
+    spriteID: ae79626a714a6a944b92c049595b8968
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 42, y: 4}
+  - name: kiku_Frame_9
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 42
+      y: 27
+      width: 10
+      height: 15
+    spriteID: 028e0b3e9e9bcbc4b9e5d58e354893aa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 42, y: 27}
+  - name: kiku_Frame_10
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 42
+      y: 50
+      width: 10
+      height: 15
+    spriteID: 35746e26fdb4504479c20395f283a24f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 42, y: 50}
+  - name: kiku_Frame_11
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 42
+      y: 73
+      width: 10
+      height: 15
+    spriteID: 33f9174134dc4ea46bc637451417c5f3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 42, y: 73}
+  - name: kiku_Frame_12
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 42
+      y: 96
+      width: 10
+      height: 15
+    spriteID: 1d9aa3a46b26bc346b1ec06c5a402edf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 42, y: 96}
+  - name: kiku_Frame_13
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 4
+      width: 10
+      height: 15
+    spriteID: 999e81987f29e3141afee6f44e5cc433
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 4}
+  - name: kiku_Frame_14
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 27
+      width: 10
+      height: 15
+    spriteID: 42c9863d02becbc4fb0cd684d82d7125
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 27}
+  - name: kiku_Frame_15
+    originalName: 
+    pivot: {x: 0.6363636, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 27
+      width: 11
+      height: 15
+    spriteID: 893dfabb5553677488616ec9656cdec7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 27}
+  - name: kiku_Frame_16
+    originalName: 
+    pivot: {x: 0.5833334, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 13
-      height: 9
-    spriteID: fe855aab648746446ad48567da6fcdbc
+      width: 12
+      height: 15
+    spriteID: 44e5a0607b21950448b228c9d409feb9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,18 +469,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: philo_Frame_1
+  - name: kiku_Frame_17
     originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
+    pivot: {x: 0.7, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 21
-      width: 13
-      height: 9
-    spriteID: 2e04502e5aef6a7439dcc74560a059e4
+      x: 60
+      y: 50
+      width: 10
+      height: 15
+    spriteID: e5ef1350989cbfd4c8109be673dea950
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -158,539 +488,211 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 21}
-  - name: philo_Frame_2
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 38
-      width: 13
-      height: 9
-    spriteID: 1430bd5417513d841b1ce98176563150
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 38}
-  - name: philo_Frame_3
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 55
-      width: 13
-      height: 9
-    spriteID: f37e303bb170b2b4abd6972d358602be
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 55}
-  - name: philo_Frame_4
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 72
-      width: 13
-      height: 9
-    spriteID: 93fa949e02a55764bb5de0c0cfc29198
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 72}
-  - name: philo_Frame_5
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 89
-      width: 13
-      height: 9
-    spriteID: 4e1c187305df72e4889e7ba5155b8195
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 89}
-  - name: philo_Frame_6
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 106
-      width: 13
-      height: 9
-    spriteID: ed0be4a3fc8b68544a6af977eb355d19
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 106}
-  - name: philo_Frame_7
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 25
-      y: 4
-      width: 13
-      height: 9
-    spriteID: a41befc6e2dd03b4aa7809a6a9ad6f27
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 25, y: 4}
-  - name: philo_Frame_8
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 25
-      y: 21
-      width: 13
-      height: 9
-    spriteID: c1d93f3fda4f867418cf406fcf6826ff
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 25, y: 21}
-  - name: philo_Frame_9
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 25
-      y: 38
-      width: 13
-      height: 9
-    spriteID: 49cd0228c4ed5ef4985c6f94c4397104
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 25, y: 38}
-  - name: philo_Frame_10
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 25
-      y: 55
-      width: 13
-      height: 9
-    spriteID: e0e66a6fffafa984c866aad5aa680b34
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 25, y: 55}
-  - name: philo_Frame_11
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 25
-      y: 72
-      width: 13
-      height: 9
-    spriteID: 86b84e6662e7f0c478606ea29fff63f3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 25, y: 72}
-  - name: philo_Frame_12
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 25
-      y: 89
-      width: 13
-      height: 9
-    spriteID: 6fa79d0df7532ca48b0363fd8814809e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 25, y: 89}
-  - name: philo_Frame_13
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 25
-      y: 106
-      width: 13
-      height: 9
-    spriteID: 0fbbd58d0d15026468df9506ce14c288
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 25, y: 106}
-  - name: philo_Frame_14
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 46
-      y: 4
-      width: 13
-      height: 9
-    spriteID: 070ee89051767d04193345c7fc7ab492
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 46, y: 4}
-  - name: philo_Frame_15
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 46
-      y: 21
-      width: 13
-      height: 9
-    spriteID: cd925f95b6abea04a86205d0e94cfba3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 46, y: 21}
-  - name: philo_Frame_16
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 46
-      y: 38
-      width: 13
-      height: 9
-    spriteID: 97125a750396f1642ad6f9c891fe390b
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 46, y: 38}
-  - name: philo_Frame_17
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 46
-      y: 55
-      width: 13
-      height: 9
-    spriteID: 3b4e5df9e2596ba47b327009a6c1c3ac
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 46, y: 55}
-  - name: philo_Frame_18
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 46
-      y: 72
-      width: 13
-      height: 9
-    spriteID: 3f0a585bd687ade41bf61454983afe9c
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 46, y: 72}
-  - name: philo_Frame_19
-    originalName: 
-    pivot: {x: 0.4615385, y: -0.22222222}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 46
-      y: 89
-      width: 13
-      height: 9
-    spriteID: a1e1c1ff2ff3a064aae7a23907f7ab59
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 46, y: 89}
+    uvTransform: {x: 60, y: 50}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1857893768
-    name: philo
+    guid: -1133507590
+    name: kiku
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: philo_Frame_0
+    - name: kiku_Frame_0
       frameIndex: 0
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: fe855aab648746446ad48567da6fcdbc
-    - name: philo_Frame_1
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: 051fcb3809814394b9580c5341219bb6
+    - name: kiku_Frame_1
       frameIndex: 1
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: 2e04502e5aef6a7439dcc74560a059e4
-    - name: philo_Frame_2
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: 64601e35adcbbde4eb2cece7b6441bdb
+    - name: kiku_Frame_2
       frameIndex: 2
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: 1430bd5417513d841b1ce98176563150
-    - name: philo_Frame_3
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: 6c3a0a49056c6804caaf9eb8e38a8d93
+    - name: kiku_Frame_3
       frameIndex: 3
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: f37e303bb170b2b4abd6972d358602be
-    - name: philo_Frame_4
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: f08846ed8dd86324abd339047d79e4ea
+    - name: kiku_Frame_4
       frameIndex: 4
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: 93fa949e02a55764bb5de0c0cfc29198
-    - name: philo_Frame_5
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: efbadec43fbd1014bbd29f4fe4d28d1c
+    - name: kiku_Frame_5
       frameIndex: 5
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: 4e1c187305df72e4889e7ba5155b8195
-    - name: philo_Frame_6
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: 6b700e81e24bb83489392ee430fa23b3
+    - name: kiku_Frame_6
       frameIndex: 6
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: ed0be4a3fc8b68544a6af977eb355d19
-    - name: philo_Frame_7
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: f9c85f078bb8e0049aa177d78023980f
+    - name: kiku_Frame_7
       frameIndex: 7
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: a41befc6e2dd03b4aa7809a6a9ad6f27
-    - name: philo_Frame_8
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: f83bb2e6aa01928429baa6dcc473155a
+    - name: kiku_Frame_8
       frameIndex: 8
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: c1d93f3fda4f867418cf406fcf6826ff
-    - name: philo_Frame_9
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: ae79626a714a6a944b92c049595b8968
+    - name: kiku_Frame_9
       frameIndex: 9
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: 49cd0228c4ed5ef4985c6f94c4397104
-    - name: philo_Frame_10
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: 028e0b3e9e9bcbc4b9e5d58e354893aa
+    - name: kiku_Frame_10
       frameIndex: 10
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: e0e66a6fffafa984c866aad5aa680b34
-    - name: philo_Frame_11
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: 35746e26fdb4504479c20395f283a24f
+    - name: kiku_Frame_11
       frameIndex: 11
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: 86b84e6662e7f0c478606ea29fff63f3
-    - name: philo_Frame_12
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: 33f9174134dc4ea46bc637451417c5f3
+    - name: kiku_Frame_12
       frameIndex: 12
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: 6fa79d0df7532ca48b0363fd8814809e
-    - name: philo_Frame_13
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: 1d9aa3a46b26bc346b1ec06c5a402edf
+    - name: kiku_Frame_13
       frameIndex: 13
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: 0fbbd58d0d15026468df9506ce14c288
-    - name: philo_Frame_14
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: 999e81987f29e3141afee6f44e5cc433
+    - name: kiku_Frame_14
       frameIndex: 14
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: 070ee89051767d04193345c7fc7ab492
-    - name: philo_Frame_15
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: 42c9863d02becbc4fb0cd684d82d7125
+    - name: kiku_Frame_15
       frameIndex: 15
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: cd925f95b6abea04a86205d0e94cfba3
-    - name: philo_Frame_16
+        x: 1
+        y: 0
+        width: 11
+        height: 15
+      spriteId: 893dfabb5553677488616ec9656cdec7
+    - name: kiku_Frame_16
       frameIndex: 16
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: 97125a750396f1642ad6f9c891fe390b
-    - name: philo_Frame_17
+        x: 1
+        y: 0
+        width: 12
+        height: 15
+      spriteId: 44e5a0607b21950448b228c9d409feb9
+    - name: kiku_Frame_17
       frameIndex: 17
       cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: 3b4e5df9e2596ba47b327009a6c1c3ac
-    - name: philo_Frame_18
-      frameIndex: 18
-      cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: 3f0a585bd687ade41bf61454983afe9c
-    - name: philo_Frame_19
-      frameIndex: 19
-      cellRect:
-        x: 2
-        y: 2
-        width: 13
-        height: 9
-      spriteId: a1e1c1ff2ff3a064aae7a23907f7ab59
+        x: 1
+        y: 0
+        width: 10
+        height: 15
+      spriteId: e5ef1350989cbfd4c8109be673dea950
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 16, y: 16}
