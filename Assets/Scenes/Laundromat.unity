@@ -4303,6 +4303,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5940666151335313014, guid: 88313a34d4facab49aef6b8e2d46e5b0, type: 3}
+      propertyPath: m_text
+      value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      objectReference: {fileID: 0}
     - target: {fileID: 9024786025466580324, guid: 88313a34d4facab49aef6b8e2d46e5b0, type: 3}
       propertyPath: m_Name
       value: Dialogue Box

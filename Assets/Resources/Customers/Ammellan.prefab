@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  dialogueAsset: {fileID: 11400000, guid: 4999abb290572724e8501bd6900b724b, type: 2}
+  dialogueAsset: {fileID: 11400000, guid: 290a9efc1ecd7c94aaf0405ff5dd1791, type: 2}
 --- !u!50 &3097777151283411909
 Rigidbody2D:
   serializedVersion: 4

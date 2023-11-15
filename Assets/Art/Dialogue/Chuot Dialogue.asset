@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4baf8bd9a2ebf26499dc9ea0cd35354b, type: 3}
   m_Name: Chuot Dialogue
   m_EditorClassIdentifier: 
-  dialogue: []
+  dialogue:
+  - greetings, protector of the laundromat
+  - "i sense your thoughts... \nyou seem busy"
+  - i will entrust you with my belongings
+  - Monolith guide you, protector

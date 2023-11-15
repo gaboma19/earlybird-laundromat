@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4baf8bd9a2ebf26499dc9ea0cd35354b, type: 3}
   m_Name: Harmonykeeper Dialogue
   m_EditorClassIdentifier: 
-  dialogue: []
+  dialogue:
+  - yeah hi
+  - i have laundry for drop off
+  - you can throw out anything that has bullet holes
+  - ok thanks a lot bye

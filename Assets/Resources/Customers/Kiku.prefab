@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  dialogueAsset: {fileID: 11400000, guid: 4999abb290572724e8501bd6900b724b, type: 2}
+  dialogueAsset: {fileID: 11400000, guid: ac10feb8ef9ba30458c46d9aed779fda, type: 2}
 --- !u!4 &619268415865084884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: b483af7527174c04ba5b523c32e8e52f, type: 3}

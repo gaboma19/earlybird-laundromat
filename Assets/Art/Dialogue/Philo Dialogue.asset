@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4baf8bd9a2ebf26499dc9ea0cd35354b, type: 3}
   m_Name: Philo Dialogue
   m_EditorClassIdentifier: 
-  dialogue: []
+  dialogue:
+  - good day attendant
+  - unlike your kind i have no need for clothing
+  - i only purchased these clothes out of pure whimsy
+  - ok see you later
