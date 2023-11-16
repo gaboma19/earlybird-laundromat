@@ -25,7 +25,6 @@ public class RegisterController : MonoBehaviour, IInteractable
         else if (Workshift.instance.state == Workshift.STATE.READY)
         {
             OnWorkshiftStart.Invoke();
-            // call DialogueBoxController to inform player
         }
         else if (Workshift.instance.state == Workshift.STATE.DONE)
         {

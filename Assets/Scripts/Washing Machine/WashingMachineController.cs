@@ -23,6 +23,18 @@ public class WashingMachineController : MonoBehaviour, IInteractable
         currentState = currentState.Process();
     }
 
+    void Awake()
+    {
+        Timer.OnTimerEnded += SetReadyState;
+    }
+
+    private void SetReadyState()
+    {
+        anim.SetTrigger("Off");
+        currentState = new ReadyWash(this.gameObject, anim);
+        loadedLaundry = null;
+    }
+
     public void Interact()
     {
         if (!isInteractable)

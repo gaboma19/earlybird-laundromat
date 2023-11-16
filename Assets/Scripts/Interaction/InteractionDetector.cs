@@ -14,6 +14,10 @@ public class InteractionDetector : MonoBehaviour
         playerControls = new PlayerInputActions();
         Minigame.OnMinigameStarted += DisableInteract;
         Minigame.OnMinigameEnded += (_) => EnableInteract();
+        Minigame.OnMinigameKilled += EnableInteract;
+        Origami.OnOrigamiStarted += DisableInteract;
+        Origami.OnOrigamiEnded += (_) => EnableInteract();
+        Origami.OnOrigamiKilled += EnableInteract;
     }
 
     private void OnEnable()

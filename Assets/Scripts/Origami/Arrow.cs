@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Arrow : MonoBehaviour
 {
     [SerializeField] private Image instructionArrow;
-    [SerializeField] private Image instructionRotateArrow;
+    // [SerializeField] private Image instructionRotateArrow;
     [SerializeField] private Transform arrowContainer;
 
     public void SetArrow(Instruction instruction)
@@ -32,9 +32,9 @@ public class Arrow : MonoBehaviour
                     arrow = Instantiate(instructionArrow, arrowContainer);
                     arrow.transform.Rotate(0, 0, -90f);
                     break;
-                case Instruction.DIRECTION.ROTATE:
-                    Instantiate(instructionRotateArrow, arrowContainer);
-                    break;
+                    // case Instruction.DIRECTION.ROTATE:
+                    //     Instantiate(instructionRotateArrow, arrowContainer);
+                    //     break;
             }
         }
     }
