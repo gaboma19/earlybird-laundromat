@@ -183,7 +183,7 @@ public class Origami : MonoBehaviour
                     {
                         // Reset the sequence-related variables
                         isSequenceInProgress = false;
-                        sequenceTimeout = 0f;
+                        // sequenceTimeout = 0f;
                         sequenceIndex = 0;
                         // Fold the next clothes in ready clothes
                         readyClothes[clothesIndex].state = Clothes.STATE.DONE;
