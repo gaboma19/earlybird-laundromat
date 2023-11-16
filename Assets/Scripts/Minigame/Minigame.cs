@@ -23,6 +23,7 @@ public class Minigame : MonoBehaviour
     private WashingMachineController washingMachine;
     public static event Action<Laundry> OnLoadDirtyLaundry;
     public static event Action<Laundry, Laundry.STATE> OnDiscardLaundry;
+    public static event Action OnMinigameKilled;
     public void Open()
     {
         minigame.gameObject.SetActive(true);
@@ -145,6 +146,15 @@ public class Minigame : MonoBehaviour
         clothesProcessed = false;
     }
 
+    private void KillMinigame()
+    {
+        OnMinigameKilled.Invoke();
+        isActive = false;
+        loadedClothes = new();
+        keptClothes = new();
+        Close();
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -161,5 +171,7 @@ public class Minigame : MonoBehaviour
 
         UpAnimationEnd.OnClothesLoaded += PopReadyClothes;
         DownAnimationEnd.OnClothesKept += PopReadyClothes;
+
+        Timer.OnTimerEnded += KillMinigame;
     }
 }

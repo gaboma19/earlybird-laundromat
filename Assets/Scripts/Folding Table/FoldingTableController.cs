@@ -22,6 +22,16 @@ public class FoldingTableController : MonoBehaviour, IInteractable
     {
         currentState = currentState.Process();
     }
+    void Awake()
+    {
+        Timer.OnTimerEnded += SetReadyState;
+    }
+
+    private void SetReadyState()
+    {
+        currentState = new ReadyFold(this.gameObject, anim);
+        loadedLaundry = null;
+    }
 
     public void Interact()
     {

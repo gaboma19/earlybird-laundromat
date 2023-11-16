@@ -31,6 +31,7 @@ public class Origami : MonoBehaviour
     public static event Action<FoldingTableController> OnOrigamiEnded;
     public static event Action OnInstructionCompleted;
     public static event Action OnSequenceCompleted;
+    public static event Action OnOrigamiKilled;
     public PlayerInputActions playerControls;
     private InputAction move;
 
@@ -261,6 +262,13 @@ public class Origami : MonoBehaviour
         Close();
     }
 
+    private void KillOrigami()
+    {
+        OnOrigamiKilled.Invoke();
+        isActive = false;
+        Close();
+    }
+
     void Awake()
     {
         if (instance == null)
@@ -274,5 +282,7 @@ public class Origami : MonoBehaviour
 
         playerControls = new PlayerInputActions();
         move = playerControls.Player.Move;
+
+        Timer.OnTimerEnded += KillOrigami;
     }
 }

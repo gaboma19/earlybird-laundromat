@@ -1099,7 +1099,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructionArrow: {fileID: 2758563710955295058, guid: 93a8b11673df3a24a978606b993219c3, type: 3}
-  instructionRotateArrow: {fileID: 2925724078500546901, guid: aded7b58554d0c34b9fa6e10bf6a9360, type: 3}
   arrowContainer: {fileID: 587311679}
 --- !u!1 &756207683
 GameObject:
@@ -4631,6 +4630,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 886400651}
     m_Modifications:
+    - target: {fileID: 231690328515180593, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
+      propertyPath: timeRemaining
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 549771052434962916, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
       propertyPath: splash
       value: 
