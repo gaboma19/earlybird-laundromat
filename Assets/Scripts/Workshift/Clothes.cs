@@ -36,36 +36,39 @@ public class Clothes
 
     private void SetFoldingInstructions(TYPE type)
     {
-        switch (type)
-        {
-            case TYPE.SHIRT:
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.RIGHT));
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.LEFT));
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.UP));
-                break;
-            case TYPE.PANTS:
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.LEFT));
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.UP));
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.UP));
-                break;
-            case TYPE.PANTIES:
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.UP));
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.LEFT));
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.RIGHT));
-                break;
-            case TYPE.BOXERS:
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.RIGHT));
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.LEFT));
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.UP));
-                break;
-            case TYPE.SOCKS:
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.RIGHT));
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.ROTATE));
-                foldingInstructions.Add(new Instruction(Instruction.DIRECTION.DOWN));
-                break;
-        }
+        // switch (type)
+        // {
+        //     case TYPE.SHIRT:
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.RIGHT));
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.LEFT));
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.UP));
+        //         break;
+        //     case TYPE.PANTS:
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.LEFT));
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.UP));
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.UP));
+        //         break;
+        //     case TYPE.PANTIES:
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.UP));
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.LEFT));
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.RIGHT));
+        //         break;
+        //     case TYPE.BOXERS:
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.RIGHT));
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.LEFT));
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.UP));
+        //         break;
+        //     case TYPE.SOCKS:
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.RIGHT));
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.ROTATE));
+        //         foldingInstructions.Add(new Instruction(Instruction.DIRECTION.DOWN));
+        //         break;
+        // }
 
-        Instruction.DIRECTION direction = GetRandomEnum<Instruction.DIRECTION>();
-        foldingInstructions.Add(new Instruction(direction));
+        for (int i = 0; i < 4; i++)
+        {
+            Instruction.DIRECTION direction = GetRandomEnum<Instruction.DIRECTION>();
+            foldingInstructions.Add(new Instruction(direction));
+        }
     }
 }

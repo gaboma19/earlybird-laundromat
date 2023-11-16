@@ -8,7 +8,7 @@ public class OnWash : WashingMachineState
     public static event Action<Laundry, Laundry.STATE> OnLaundryWashed;
     public static event Action<Laundry, Laundry.STATE> OnLaundryWashing;
     private WashingMachineController washingMachineController;
-    [SerializeField] private float washCycleTime = 30f;
+    [SerializeField] private float washCycleTime = 20f;
     public OnWash(GameObject _washingMachine, Animator _anim) :
         base(_washingMachine, _anim)
     {

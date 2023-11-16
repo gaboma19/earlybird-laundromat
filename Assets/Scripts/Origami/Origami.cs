@@ -19,7 +19,7 @@ public class Origami : MonoBehaviour
     private float sequenceTimeout;
     private int sequenceIndex;
     private int clothesIndex;
-    private float totalRollingAngle = 0f;
+    // private float totalRollingAngle = 0f;
     private Vector2 previousMoveDirection = Vector2.zero;
     private Vector2 currentMoveDirection;
     private Vector2 moveDirectionDelta;
@@ -114,28 +114,28 @@ public class Origami : MonoBehaviour
                 {
                     currentInstruction = instructionList[sequenceIndex];
 
-                    if (currentInstruction.direction == Instruction.DIRECTION.ROTATE)
-                    {
-                        // Calculate the difference between current and previous moveDirection
-                        moveDirectionDelta = currentMoveDirection - previousMoveDirection;
-                        // Calculate the angle of the rolling motion
-                        float rollingAngle = Mathf.Atan2(moveDirectionDelta.y, moveDirectionDelta.x) * Mathf.Rad2Deg;
-                        // Update the total accumulated angle
-                        totalRollingAngle += rollingAngle;
+                    // if (currentInstruction.direction == Instruction.DIRECTION.ROTATE)
+                    // {
+                    //     // Calculate the difference between current and previous moveDirection
+                    //     moveDirectionDelta = currentMoveDirection - previousMoveDirection;
+                    //     // Calculate the angle of the rolling motion
+                    //     float rollingAngle = Mathf.Atan2(moveDirectionDelta.y, moveDirectionDelta.x) * Mathf.Rad2Deg;
+                    //     // Update the total accumulated angle
+                    //     totalRollingAngle += rollingAngle;
 
-                        // Check for full circle input
-                        if (Mathf.Abs(totalRollingAngle) >= 360f)
-                        {
-                            // Increment the sequence index
-                            sequenceIndex++;
+                    //     // Check for full circle input
+                    //     if (Mathf.Abs(totalRollingAngle) >= 360f)
+                    //     {
+                    //         // Increment the sequence index
+                    //         sequenceIndex++;
 
-                            currentInstruction.isCompleted = true;
-                            OnInstructionCompleted.Invoke();
+                    //         currentInstruction.isCompleted = true;
+                    //         OnInstructionCompleted.Invoke();
 
-                            // Reset the total angle
-                            totalRollingAngle = 0f;
-                        }
-                    }
+                    //         // Reset the total angle
+                    //         totalRollingAngle = 0f;
+                    //     }
+                    // }
 
                     if (currentInstruction.direction == Instruction.DIRECTION.UP)
                     {
