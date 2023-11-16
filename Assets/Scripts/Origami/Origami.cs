@@ -123,8 +123,6 @@ public class Origami : MonoBehaviour
                         // Update the total accumulated angle
                         totalRollingAngle += rollingAngle;
 
-                        Debug.Log(totalRollingAngle);
-
                         // Check for full circle input
                         if (Mathf.Abs(totalRollingAngle) >= 360f)
                         {

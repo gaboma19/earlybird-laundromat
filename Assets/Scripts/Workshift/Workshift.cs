@@ -11,6 +11,7 @@ public class Workshift : MonoBehaviour
     private List<Laundry> activeLaundry = new List<Laundry>();
     private List<Laundry> doneLaundry = new List<Laundry>();
     [SerializeField] private Timer timer;
+    [SerializeField] private Splash splash;
     public float customerTimeInterval;
     private float customerTimeRemaining;
     public static event Action OnLaundrySpawned;
@@ -105,6 +106,7 @@ public class Workshift : MonoBehaviour
     {
         timer.timerIsRunning = true;
         state = STATE.STARTED;
+        splash.DisplaySplash("Open for business!");
 
         // AddActiveLaundry(Laundry.STATE.UNLOADED_DRY);
     }
@@ -116,8 +118,7 @@ public class Workshift : MonoBehaviour
         activeLaundry.Clear();
         selectedLaundry = null;
         OnLaundryRemoved.Invoke();
-
-        // show a "shift ended" UI element
+        splash.DisplaySplash("Closed for the day!");
     }
 
     void Update()
