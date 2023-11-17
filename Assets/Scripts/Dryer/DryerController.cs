@@ -6,6 +6,7 @@ public class DryerController : MonoBehaviour, IInteractable
 {
     GameObject buttonPrompt;
     Animator anim;
+    [SerializeField] private AudioSource audioSource;
     public bool isInteractable { get; set; }
     public bool isInteractedWith { get; set; }
     DryerState currentState;
@@ -59,5 +60,14 @@ public class DryerController : MonoBehaviour, IInteractable
     public void HideInputPrompt()
     {
         buttonPrompt.SetActive(false);
+    }
+    public void PlaySound()
+    {
+        audioSource.Play();
+    }
+
+    public void StopSound()
+    {
+        audioSource.Stop();
     }
 }

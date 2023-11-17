@@ -8,6 +8,7 @@ public class Order : CustomerState
     Vector2 lookDirection;
     Vector2 moveDirection;
     CustomerController customerController;
+    Rigidbody2D rigidbody2D;
     public static event Action OnOrderPlaced;
 
     public Order(GameObject _customer, Animator _anim, GameObject _player) :
@@ -20,6 +21,8 @@ public class Order : CustomerState
 
         DialogueBoxController.OnDialogueEnded += EndOrder;
 
+        rigidbody2D = customerController.GetComponent<Rigidbody2D>();
+
         FacePlayer();
     }
 
@@ -29,6 +32,8 @@ public class Order : CustomerState
 
         float random = UnityEngine.Random.Range(0f, 260f);
         moveDirection = new Vector2(Mathf.Cos(random), Mathf.Sin(random));
+
+        rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
 
         base.Enter();
     }
@@ -63,7 +68,6 @@ public class Order : CustomerState
     void WalkRandom()
     {
         float speed = customerController.speed;
-        Rigidbody2D rigidbody2d = customer.GetComponent<Rigidbody2D>();
 
         if (!Mathf.Approximately(moveDirection.x, 0.0f) || !Mathf.Approximately(moveDirection.y, 0.0f))
         {
@@ -75,17 +79,19 @@ public class Order : CustomerState
         anim.SetFloat("Look Y", lookDirection.y);
         anim.SetFloat("Speed", moveDirection.magnitude);
 
-        Vector2 position = rigidbody2d.position;
+        Vector2 position = rigidbody2D.position;
         position.x = position.x + speed * moveDirection.x * Time.deltaTime;
         position.y = position.y + speed * moveDirection.y * Time.deltaTime;
 
-        rigidbody2d.MovePosition(position);
+        rigidbody2D.MovePosition(position);
     }
 
     public override void Exit()
     {
         // customer leaves the laundromat
         // and is destroyed
+        rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         WalkRandom();
 
         customerController.isInteractable = false;

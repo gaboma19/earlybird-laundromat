@@ -16,6 +16,8 @@ public class DoneDry : DryerState
 
     public override void Enter()
     {
+        dryerController.StopSound();
+
         base.Enter();
     }
 

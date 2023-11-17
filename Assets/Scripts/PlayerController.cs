@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 6.0f;
     Rigidbody2D rigidbody2d;
     Animator animator;
+    BoxCollider2D col;
     Vector2 lookDirection = new(0, -1);
     Vector2 moveDirection;
     public PlayerInputActions playerControls;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+        col = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
     }
 
@@ -29,6 +31,8 @@ public class PlayerController : MonoBehaviour
         Origami.OnOrigamiStarted += DisableMove;
         Origami.OnOrigamiEnded += (_) => EnableMove();
         Origami.OnOrigamiKilled += EnableMove;
+        DialogueBoxController.OnDialogueStarted += DisableMove;
+        DialogueBoxController.OnDialogueEnded += EnableMove;
     }
 
     private void OnEnable()
@@ -45,11 +49,13 @@ public class PlayerController : MonoBehaviour
     private void DisableMove()
     {
         move.Disable();
+        col.enabled = false;
     }
 
     private void EnableMove()
     {
         move.Enable();
+        col.enabled = true;
     }
 
     // Update is called once per frame
