@@ -108,7 +108,7 @@ public class Workshift : MonoBehaviour
         state = STATE.STARTED;
         splash.DisplaySplash("Open for business!");
 
-        AddActiveLaundry(Laundry.STATE.UNLOADED_DRY);
+        // AddActiveLaundry(Laundry.STATE.UNLOADED_DRY);
     }
 
     private void EndWorkShift()
