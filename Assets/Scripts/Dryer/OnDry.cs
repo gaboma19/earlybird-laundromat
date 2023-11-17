@@ -23,6 +23,8 @@ public class OnDry : DryerState
 
         OnLaundryDrying.Invoke(dryerController.loadedLaundry);
 
+        dryerController.PlaySound();
+
         base.Enter();
     }
 

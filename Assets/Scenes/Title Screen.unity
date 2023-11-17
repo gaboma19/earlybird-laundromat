@@ -1587,6 +1587,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1112034552}
+  - {fileID: 1295121648}
   - {fileID: 1052592837}
   m_Father: {fileID: 1956772942}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2003,11 +2004,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 560937217}
-  m_Father: {fileID: 1966026386}
+  m_Father: {fileID: 1079140088}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -166}
+  m_AnchoredPosition: {x: 0, y: -140}
   m_SizeDelta: {x: 240, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1295121649
@@ -2054,7 +2055,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1966026385}
+      - m_Target: {fileID: 1079140087}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2660,7 +2661,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1966026385}
+      - m_Target: {fileID: 1079140087}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2672,9 +2673,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1966026387}
+      - m_Target: {fileID: 1079140089}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: SelectBackButton
+        m_MethodName: SelectPlayButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3013,7 +3014,6 @@ RectTransform:
   m_Children:
   - {fileID: 1433995481}
   - {fileID: 2013032505}
-  - {fileID: 1295121648}
   - {fileID: 421960017}
   m_Father: {fileID: 1956772942}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -6,6 +6,7 @@ public class WashingMachineController : MonoBehaviour, IInteractable
 {
     GameObject buttonPrompt;
     Animator anim;
+    [SerializeField] private AudioSource audioSource;
     public bool isInteractedWith { get; set; }
     public bool isInteractable { get; set; }
     WashingMachineState currentState;
@@ -58,5 +59,15 @@ public class WashingMachineController : MonoBehaviour, IInteractable
     public void HideInputPrompt()
     {
         buttonPrompt.SetActive(false);
+    }
+
+    public void PlaySound()
+    {
+        audioSource.Play();
+    }
+
+    public void StopSound()
+    {
+        audioSource.Stop();
     }
 }

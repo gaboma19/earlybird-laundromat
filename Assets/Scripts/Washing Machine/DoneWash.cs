@@ -16,6 +16,8 @@ public class DoneWash : WashingMachineState
 
     public override void Enter()
     {
+        washingMachineController.StopSound();
+
         base.Enter();
     }
 

@@ -23,6 +23,8 @@ public class OnWash : WashingMachineState
 
         OnLaundryWashing.Invoke(washingMachineController.loadedLaundry, Laundry.STATE.WASHING);
 
+        washingMachineController.PlaySound();
+
         base.Enter();
     }
 
