@@ -15,8 +15,6 @@ public class Workshift : MonoBehaviour
     public float customerTimeInterval;
     private float customerTimeRemaining;
     public static event Action OnLaundrySpawned;
-    private GameObject spawnPoint;
-    private Spawn spawn;
     public PlayerInputActions playerControls;
     private InputAction selectLeft;
     private InputAction selectRight;
@@ -65,8 +63,6 @@ public class Workshift : MonoBehaviour
         Minigame.OnMinigameEnded += (_) => EnableSelect();
 
         playerControls = new PlayerInputActions();
-        spawnPoint = GameObject.Find("Spawn Point");
-        spawn = spawnPoint.GetComponent<Spawn>();
     }
     private void OnEnable()
     {
@@ -131,7 +127,7 @@ public class Workshift : MonoBehaviour
             }
             else
             {
-                spawn.SpawnCustomer();
+                Spawn.instance.SpawnCustomer();
                 customerTimeRemaining = customerTimeInterval;
             }
         }
