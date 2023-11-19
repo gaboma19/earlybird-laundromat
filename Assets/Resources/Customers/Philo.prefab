@@ -264,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   dialogueAsset: {fileID: 11400000, guid: 60f889704813b2042bc330e5b60132bc, type: 2}
+  queueIndex: 0
 --- !u!4 &619268415865084884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: b483af7527174c04ba5b523c32e8e52f, type: 3}

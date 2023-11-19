@@ -10,8 +10,9 @@ public class CustomerController : MonoBehaviour, IInteractable
     public bool isInteractedWith { get; set; }
     public bool isInteractable { get; set; }
     GameObject buttonPrompt;
-    public float speed = 5.0f;
+    public float speed = 10.0f;
     public DialogueAsset dialogueAsset;
+    public int queueIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class CustomerController : MonoBehaviour, IInteractable
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         currentState = currentState.Process();
     }
@@ -50,5 +51,10 @@ public class CustomerController : MonoBehaviour, IInteractable
     public void HideInputPrompt()
     {
         buttonPrompt.SetActive(false);
+    }
+
+    public void DestroyGameObject()
+    {
+        Destroy(gameObject);
     }
 }

@@ -6,7 +6,6 @@ using System;
 public class Order : CustomerState
 {
     Vector2 lookDirection;
-    Vector2 moveDirection;
     CustomerController customerController;
     Rigidbody2D rigidbody2D;
     public static event Action OnOrderPlaced;
@@ -29,9 +28,6 @@ public class Order : CustomerState
     public override void Enter()
     {
         DialogueBoxController.instance.StartDialogue(customerController.dialogueAsset, 0, "Customer");
-
-        float random = UnityEngine.Random.Range(0f, 260f);
-        moveDirection = new Vector2(Mathf.Cos(random), Mathf.Sin(random));
 
         rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
 
@@ -63,41 +59,47 @@ public class Order : CustomerState
         nextState = this;
         stage = EVENT.EXIT;
         OnOrderPlaced.Invoke();
+        QueuePointsController.instance.SetQueuePointAvailable(customerController.queueIndex);
     }
 
-    void WalkRandom()
+    private void ExitScene()
     {
+        Vector2 currentPosition = rigidbody2D.position;
         float speed = customerController.speed;
+        Vector2 exitPosition = Spawn.instance.exitPoint;
 
-        if (!Mathf.Approximately(moveDirection.x, 0.0f) || !Mathf.Approximately(moveDirection.y, 0.0f))
+        float step = speed * Time.deltaTime;
+        if (currentPosition != exitPosition)
         {
-            lookDirection.Set(moveDirection.x, moveDirection.y);
+            Vector2 newPosition = Vector2.MoveTowards(currentPosition, exitPosition, step);
+
+            lookDirection = newPosition - currentPosition;
             lookDirection.Normalize();
+
+            anim.SetFloat("Look X", lookDirection.x);
+            anim.SetFloat("Look Y", lookDirection.y);
+            anim.SetFloat("Speed", lookDirection.magnitude);
+
+            rigidbody2D.MovePosition(newPosition);
         }
-
-        anim.SetFloat("Look X", lookDirection.x);
-        anim.SetFloat("Look Y", lookDirection.y);
-        anim.SetFloat("Speed", moveDirection.magnitude);
-
-        Vector2 position = rigidbody2D.position;
-        position.x = position.x + speed * moveDirection.x * Time.deltaTime;
-        position.y = position.y + speed * moveDirection.y * Time.deltaTime;
-
-        rigidbody2D.MovePosition(position);
+        else
+        {
+            customerController.DestroyGameObject();
+        }
     }
 
     public override void Exit()
     {
-        // customer leaves the laundromat
-        // and is destroyed
         rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-        WalkRandom();
+        ExitScene();
 
         customerController.isInteractable = false;
         customerController.HideInputPrompt();
 
         DialogueBoxController.OnDialogueEnded -= EndOrder;
+
+        Spawn.instance.DequeueCustomer();
 
         base.Exit();
     }

@@ -25,6 +25,7 @@ public class RegisterController : MonoBehaviour, IInteractable
         else if (Workshift.instance.state == Workshift.STATE.READY)
         {
             OnWorkshiftStart.Invoke();
+            Spawn.instance.SpawnCustomer();
         }
         else if (Workshift.instance.state == Workshift.STATE.DONE)
         {
