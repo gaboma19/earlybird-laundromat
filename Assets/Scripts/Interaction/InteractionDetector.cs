@@ -12,6 +12,7 @@ public class InteractionDetector : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerInputActions();
+
         Minigame.OnMinigameStarted += DisableInteract;
         Minigame.OnMinigameEnded += (_) => EnableInteract();
         Minigame.OnMinigameKilled += EnableInteract;
