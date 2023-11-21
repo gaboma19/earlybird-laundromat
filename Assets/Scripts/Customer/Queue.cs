@@ -32,10 +32,6 @@ public class Queue : CustomerState
 
     public override void Update()
     {
-        // customer queues up at the furthest queue spot
-        // if there is a further queue spot available 
-        // then the customer moves up
-
         WalkToRegister();
 
         if (customerController.isInteractedWith) // and is at the furthest queue spot

@@ -8,6 +8,8 @@ public class Splash : MonoBehaviour
     [SerializeField] TextMeshProUGUI splashText;
     [SerializeField] private float duration = 4f;
     [SerializeField] private GameObject scoreImage;
+    [SerializeField] private GameObject workshiftImage;
+    [SerializeField] private GameObject calendarImage;
     [SerializeField] TextMeshProUGUI scoreText;
     private float timeout;
     private bool isActive = false;
@@ -17,7 +19,7 @@ public class Splash : MonoBehaviour
         isActive = true;
         timeout = duration;
         splashText.text = _text;
-        gameObject.SetActive(true);
+        workshiftImage.SetActive(true);
     }
 
     public void DisplayScore(string _text)
@@ -26,6 +28,13 @@ public class Splash : MonoBehaviour
         timeout = duration;
         scoreText.text = "$" + _text;
         scoreImage.SetActive(true);
+    }
+
+    public void DisplayNewDay()
+    {
+        isActive = true;
+        timeout = duration;
+        calendarImage.SetActive(true);
     }
 
     void Update()
@@ -40,7 +49,9 @@ public class Splash : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 scoreImage.SetActive(false);
+                calendarImage.SetActive(false);
                 timeout = duration;
+                isActive = false;
             }
         }
     }
