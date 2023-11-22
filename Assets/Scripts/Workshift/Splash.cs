@@ -47,7 +47,7 @@ public class Splash : MonoBehaviour
             }
             else
             {
-                gameObject.SetActive(false);
+                workshiftImage.SetActive(false);
                 scoreImage.SetActive(false);
                 calendarImage.SetActive(false);
                 timeout = duration;

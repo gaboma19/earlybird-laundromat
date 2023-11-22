@@ -5,41 +5,64 @@ using UnityEngine.InputSystem;
 
 public class Tutorial : MonoBehaviour
 {
+    public static Tutorial instance;
     public PlayerInputActions playerControls;
     private InputAction interact;
-    [SerializeField] GameObject tutorial1;
-    [SerializeField] GameObject tutorial2;
+    private List<Transform> tutorials = new();
+    private int tutorialIndex = 0;
 
-    void Start()
+    public void ShowTutorial(List<string> tutorialNames)
     {
-        interact = playerControls.Player.Interact;
+        foreach (string name in tutorialNames)
+        {
+            tutorials.Add(transform.Find(name));
+        }
+
+        tutorials[0].gameObject.SetActive(true);
+
+        EnableInteract();
+    }
+
+    private void EnableInteract()
+    {
         interact.Enable();
         interact.performed += Progress;
     }
 
-    void Awake()
-    {
-        tutorial1.gameObject.SetActive(true);
-        playerControls = new PlayerInputActions();
-    }
-
     private void Progress(InputAction.CallbackContext context)
     {
-        if (tutorial2.activeInHierarchy)
+        tutorials[tutorialIndex].gameObject.SetActive(false);
+
+        if (tutorialIndex != tutorials.Count - 1)
+        {
+            tutorials[tutorialIndex + 1].gameObject.SetActive(true);
+            tutorialIndex++;
+        }
+        else
         {
             EndTutorial();
-        }
-        else if (tutorial1.activeInHierarchy)
-        {
-            tutorial1.SetActive(false);
-            tutorial2.SetActive(true);
         }
     }
 
     private void EndTutorial()
     {
+        tutorialIndex = 0;
         interact.Disable();
         interact.performed -= Progress;
-        gameObject.SetActive(false);
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
+        playerControls = new PlayerInputActions();
+        interact = playerControls.Player.Interact;
     }
 }

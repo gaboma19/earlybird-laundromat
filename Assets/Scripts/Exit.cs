@@ -15,13 +15,19 @@ public class Exit : MonoBehaviour
     private float fadeTimeRemaining;
     public static event Action OnDayStarted;
     public static event Action OnDayEnded;
+
+    public void ActivateWithDelay(float time)
+    {
+        Invoke("Activate", time);
+    }
+
     public void Activate()
     {
         sprite.SetActive(true);
         isActive = true;
         if (Calendar.instance.GetDate() == 1)
         {
-            Debug.Log("show exit tutorial");
+            Tutorial.instance.ShowTutorial(new List<string> { "Good work attendant" });
         }
     }
 
@@ -35,17 +41,11 @@ public class Exit : MonoBehaviour
     {
         if (isActive)
         {
-            Debug.Log("exit laundromat scene");
-
             black.Fade();
             fadingToBlack = true;
             fadeTimeRemaining = fadeTime;
             Deactivate();
             OnDayEnded.Invoke();
-        }
-        else
-        {
-            Debug.Log("exit is inactive");
         }
     }
 
@@ -62,6 +62,7 @@ public class Exit : MonoBehaviour
                 fadingToBlack = false;
                 black.Unfade();
                 OnDayStarted.Invoke();
+                splash.DisplayNewDay();
             }
         }
     }

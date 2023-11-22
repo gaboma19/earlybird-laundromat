@@ -115,7 +115,7 @@ public class Workshift : MonoBehaviour
         selectedLaundry = null;
         OnLaundryRemoved.Invoke();
         splash.DisplaySplash("Closed for the day!");
-        Exit.instance.Activate();
+        Exit.instance.ActivateWithDelay(5f);
     }
 
     void Update()
