@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa664f5231c587488cdd71388b9d914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 240
+  workshiftDuration: 160
   timerIsRunning: 0
   timeText: {fileID: 3778534923074454224}
 --- !u!1 &5293977816189794936
@@ -596,6 +596,7 @@ GameObject:
   - component: {fileID: 7528878080431455324}
   - component: {fileID: 5568056960818404194}
   - component: {fileID: 2441247000463290570}
+  - component: {fileID: 8681265447209015904}
   m_Layer: 5
   m_Name: Calendar
   m_TagString: Untagged
@@ -661,6 +662,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8681265447209015904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8851928795288236614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5597e3d1d5ad94646a1a76ed769e0a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  calendarText: {fileID: 1135071118685994806}
 --- !u!1 &9109109090661197249
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,8 +706,8 @@ RectTransform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8627594433724078165}
   - {fileID: 4657826715998869750}
+  - {fileID: 8627594433724078165}
   - {fileID: 7528878080431455324}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

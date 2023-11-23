@@ -10,20 +10,21 @@ public class Clothes
     {
         DARK, LIGHT
     }
-    public enum STATE
-    {
-        READY, DONE
-    }
     public TYPE type { get; }
     public COLOR color { get; }
-    public STATE state;
     public List<Instruction> foldingInstructions = new();
 
     public Clothes()
     {
         type = GetRandomEnum<TYPE>();
         color = GetRandomEnum<COLOR>();
-        state = STATE.READY;
+        SetFoldingInstructions(type);
+    }
+
+    public Clothes(TYPE _type)
+    {
+        type = _type;
+        color = GetRandomEnum<COLOR>();
         SetFoldingInstructions(type);
     }
 

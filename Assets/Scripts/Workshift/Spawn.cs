@@ -9,9 +9,10 @@ public class Spawn : MonoBehaviour
     private GameObject[] customers;
     private int customersQueueing = 0;
     public Vector2 exitPoint;
+    public int maximumCustomers = 1;
     public void SpawnCustomer()
     {
-        if (customersQueueing < 10)
+        if (customersQueueing < maximumCustomers)
         {
             GameObject nextCustomer = customers[Random.Range(0, customers.Length)];
 
@@ -24,6 +25,16 @@ public class Spawn : MonoBehaviour
     public void DequeueCustomer()
     {
         customersQueueing--;
+    }
+
+    private void SetMaximumCustomers()
+    {
+        maximumCustomers = Calendar.instance.GetDate();
+
+        if (maximumCustomers > 10)
+        {
+            maximumCustomers = 10;
+        }
     }
 
     void Start()
@@ -43,6 +54,8 @@ public class Spawn : MonoBehaviour
         }
 
         exitPoint = transform.Find("Exit Point").position;
+
+        Exit.OnDayStarted += SetMaximumCustomers;
     }
 
 }

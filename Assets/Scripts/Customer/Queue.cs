@@ -18,6 +18,7 @@ public class Queue : CustomerState
         rigidbody2d = customer.GetComponent<Rigidbody2D>();
         customerController = customer.GetComponent<CustomerController>();
         speed = customerController.speed;
+        Timer.OnTimerEnded += Leave;
     }
 
     public override void Enter()
@@ -75,6 +76,13 @@ public class Queue : CustomerState
                 anim.SetTrigger("Idle");
             }
         }
+    }
+
+    void Leave()
+    {
+        nextState = new Leave(customer, anim, player);
+        stage = EVENT.EXIT;
+        QueuePointsController.instance.SetQueuePointAvailable(customerController.queueIndex);
     }
 
     public override void Exit()

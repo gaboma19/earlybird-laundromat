@@ -27,6 +27,7 @@ public class WashingMachineController : MonoBehaviour, IInteractable
     void Awake()
     {
         Timer.OnTimerEnded += SetReadyState;
+        Timer.OnTimerEnded += StopSound;
     }
 
     private void SetReadyState()

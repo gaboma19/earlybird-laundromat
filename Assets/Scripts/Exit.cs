@@ -11,7 +11,7 @@ public class Exit : MonoBehaviour
     [SerializeField] Splash splash;
     private bool isActive = false;
     private bool fadingToBlack = false;
-    private float fadeTime = 5f;
+    private float fadeTime = 3f;
     private float fadeTimeRemaining;
     public static event Action OnDayStarted;
     public static event Action OnDayEnded;
@@ -44,8 +44,18 @@ public class Exit : MonoBehaviour
             black.Fade();
             fadingToBlack = true;
             fadeTimeRemaining = fadeTime;
+            DestroyAllCustomers();
             Deactivate();
             OnDayEnded.Invoke();
+        }
+    }
+
+    private void DestroyAllCustomers()
+    {
+        GameObject[] customers = GameObject.FindGameObjectsWithTag("Customer");
+        foreach (GameObject go in customers)
+        {
+            Destroy(go);
         }
     }
 

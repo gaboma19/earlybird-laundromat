@@ -62,6 +62,42 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Origami Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""a93d548b-7e30-4d5f-860e-aea57b6062f2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Origami Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""6380655d-37ec-4387-b7fb-03b5bb701de5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Origami Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""29bd5541-f155-405c-983c-fc9a154aa407"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Origami Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6e579c5-c1e3-482c-9f31-82c3cc21098a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -260,6 +296,138 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Select Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""12ca9d4d-5f7b-4d21-b4ed-38439b886bad"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Origami Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""630463d1-567b-4532-8b88-e6e98a2b16ff"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Origami Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0003989-a234-464e-ab54-dd234f0d9954"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Origami Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""38ea1616-035a-4f77-bd10-a241db99a63b"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Origami Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39a01e41-3e19-4472-9667-6ee3bd54b1da"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Origami Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6a1cdc9-58ac-4b5e-9608-11879ec1c524"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Origami Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9da333cf-8c91-482f-b857-4203f9c1e556"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Origami Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abf69f49-c682-43b0-9309-219b998afc7f"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Origami Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a1c83a7-2b5a-4a12-8a1e-1f251dc24826"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Origami Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f59bdd4-8330-4f8d-b357-cd46ee107714"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Origami Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9229b48-94fc-47a9-91b5-612ddd386936"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Origami Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8e54576-7df5-4b25-af3e-d6cd49df0d5b"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Origami Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -851,6 +1019,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_SelectLeft = m_Player.FindAction("Select Left", throwIfNotFound: true);
         m_Player_SelectRight = m_Player.FindAction("Select Right", throwIfNotFound: true);
+        m_Player_OrigamiUp = m_Player.FindAction("Origami Up", throwIfNotFound: true);
+        m_Player_OrigamiDown = m_Player.FindAction("Origami Down", throwIfNotFound: true);
+        m_Player_OrigamiLeft = m_Player.FindAction("Origami Left", throwIfNotFound: true);
+        m_Player_OrigamiRight = m_Player.FindAction("Origami Right", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -928,6 +1100,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_SelectLeft;
     private readonly InputAction m_Player_SelectRight;
+    private readonly InputAction m_Player_OrigamiUp;
+    private readonly InputAction m_Player_OrigamiDown;
+    private readonly InputAction m_Player_OrigamiLeft;
+    private readonly InputAction m_Player_OrigamiRight;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -936,6 +1112,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @SelectLeft => m_Wrapper.m_Player_SelectLeft;
         public InputAction @SelectRight => m_Wrapper.m_Player_SelectRight;
+        public InputAction @OrigamiUp => m_Wrapper.m_Player_OrigamiUp;
+        public InputAction @OrigamiDown => m_Wrapper.m_Player_OrigamiDown;
+        public InputAction @OrigamiLeft => m_Wrapper.m_Player_OrigamiLeft;
+        public InputAction @OrigamiRight => m_Wrapper.m_Player_OrigamiRight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -957,6 +1137,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SelectRight.started += instance.OnSelectRight;
             @SelectRight.performed += instance.OnSelectRight;
             @SelectRight.canceled += instance.OnSelectRight;
+            @OrigamiUp.started += instance.OnOrigamiUp;
+            @OrigamiUp.performed += instance.OnOrigamiUp;
+            @OrigamiUp.canceled += instance.OnOrigamiUp;
+            @OrigamiDown.started += instance.OnOrigamiDown;
+            @OrigamiDown.performed += instance.OnOrigamiDown;
+            @OrigamiDown.canceled += instance.OnOrigamiDown;
+            @OrigamiLeft.started += instance.OnOrigamiLeft;
+            @OrigamiLeft.performed += instance.OnOrigamiLeft;
+            @OrigamiLeft.canceled += instance.OnOrigamiLeft;
+            @OrigamiRight.started += instance.OnOrigamiRight;
+            @OrigamiRight.performed += instance.OnOrigamiRight;
+            @OrigamiRight.canceled += instance.OnOrigamiRight;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -973,6 +1165,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SelectRight.started -= instance.OnSelectRight;
             @SelectRight.performed -= instance.OnSelectRight;
             @SelectRight.canceled -= instance.OnSelectRight;
+            @OrigamiUp.started -= instance.OnOrigamiUp;
+            @OrigamiUp.performed -= instance.OnOrigamiUp;
+            @OrigamiUp.canceled -= instance.OnOrigamiUp;
+            @OrigamiDown.started -= instance.OnOrigamiDown;
+            @OrigamiDown.performed -= instance.OnOrigamiDown;
+            @OrigamiDown.canceled -= instance.OnOrigamiDown;
+            @OrigamiLeft.started -= instance.OnOrigamiLeft;
+            @OrigamiLeft.performed -= instance.OnOrigamiLeft;
+            @OrigamiLeft.canceled -= instance.OnOrigamiLeft;
+            @OrigamiRight.started -= instance.OnOrigamiRight;
+            @OrigamiRight.performed -= instance.OnOrigamiRight;
+            @OrigamiRight.canceled -= instance.OnOrigamiRight;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1159,6 +1363,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnSelectLeft(InputAction.CallbackContext context);
         void OnSelectRight(InputAction.CallbackContext context);
+        void OnOrigamiUp(InputAction.CallbackContext context);
+        void OnOrigamiDown(InputAction.CallbackContext context);
+        void OnOrigamiLeft(InputAction.CallbackContext context);
+        void OnOrigamiRight(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

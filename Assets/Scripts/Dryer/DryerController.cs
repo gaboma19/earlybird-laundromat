@@ -28,6 +28,7 @@ public class DryerController : MonoBehaviour, IInteractable
     void Awake()
     {
         Timer.OnTimerEnded += SetReadyState;
+        Timer.OnTimerEnded += StopSound;
     }
 
     private void SetReadyState()

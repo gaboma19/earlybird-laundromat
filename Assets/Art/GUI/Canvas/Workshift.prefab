@@ -138,10 +138,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7912497779427733202}
     m_Modifications:
-    - target: {fileID: 2215424359057567254, guid: ff1487dac2ea6e640ba98582607fb221, type: 3}
-      propertyPath: timeRemaining
-      value: 240
-      objectReference: {fileID: 0}
     - target: {fileID: 5784188858826364162, guid: ff1487dac2ea6e640ba98582607fb221, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -229,10 +225,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8851928795288236614, guid: ff1487dac2ea6e640ba98582607fb221, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6714509899169881135}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff1487dac2ea6e640ba98582607fb221, type: 3}
 --- !u!114 &231690328515180593 stripped
 MonoBehaviour:
@@ -245,40 +238,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa664f5231c587488cdd71388b9d914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1317708318826866961 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1135071118685994806, guid: ff1487dac2ea6e640ba98582607fb221, type: 3}
-  m_PrefabInstance: {fileID: 2128484736372692519}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &5605983764326630181 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5784188858826364162, guid: ff1487dac2ea6e640ba98582607fb221, type: 3}
   m_PrefabInstance: {fileID: 2128484736372692519}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7444938100136027233 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8851928795288236614, guid: ff1487dac2ea6e640ba98582607fb221, type: 3}
-  m_PrefabInstance: {fileID: 2128484736372692519}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6714509899169881135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7444938100136027233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5597e3d1d5ad94646a1a76ed769e0a21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  calendarText: {fileID: 1317708318826866961}
 --- !u!1001 &5069121855213787035
 PrefabInstance:
   m_ObjectHideFlags: 0

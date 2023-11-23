@@ -19,6 +19,7 @@ public class Order : CustomerState
         customerController.isInteractedWith = false;
 
         DialogueBoxController.OnDialogueEnded += EndOrder;
+        Timer.OnTimerEnded += Leave;
 
         rigidbody2D = customerController.GetComponent<Rigidbody2D>();
 
@@ -59,47 +60,23 @@ public class Order : CustomerState
         nextState = this;
         stage = EVENT.EXIT;
         OnOrderPlaced.Invoke();
-        QueuePointsController.instance.SetQueuePointAvailable(customerController.queueIndex);
     }
 
-    private void ExitScene()
+    void Leave()
     {
-        Vector2 currentPosition = rigidbody2D.position;
-        float speed = customerController.speed;
-        Vector2 exitPosition = Spawn.instance.exitPoint;
-
-        float step = speed * Time.deltaTime;
-        if (currentPosition != exitPosition)
-        {
-            Vector2 newPosition = Vector2.MoveTowards(currentPosition, exitPosition, step);
-
-            lookDirection = newPosition - currentPosition;
-            lookDirection.Normalize();
-
-            anim.SetFloat("Look X", lookDirection.x);
-            anim.SetFloat("Look Y", lookDirection.y);
-            anim.SetFloat("Speed", lookDirection.magnitude);
-
-            rigidbody2D.MovePosition(newPosition);
-        }
-        else
-        {
-            customerController.DestroyGameObject();
-        }
+        nextState = new Leave(customer, anim, player);
+        stage = EVENT.EXIT;
+        QueuePointsController.instance.SetQueuePointAvailable(customerController.queueIndex);
     }
 
     public override void Exit()
     {
         rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-        ExitScene();
-
         customerController.isInteractable = false;
         customerController.HideInputPrompt();
 
         DialogueBoxController.OnDialogueEnded -= EndOrder;
-
-        Spawn.instance.DequeueCustomer();
 
         base.Exit();
     }
