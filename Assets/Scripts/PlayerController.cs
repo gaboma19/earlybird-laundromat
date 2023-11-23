@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
         Origami.OnOrigamiKilled += EnableMove;
         DialogueBoxController.OnDialogueStarted += DisableMove;
         DialogueBoxController.OnDialogueEnded += EnableMove;
+        Exit.OnDayEnded += DisableMove;
+        Exit.OnDayStarted += EnableMove;
     }
 
     private void OnEnable()

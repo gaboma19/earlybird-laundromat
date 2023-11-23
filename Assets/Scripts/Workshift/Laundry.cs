@@ -24,18 +24,10 @@ public class Laundry
 
             if (newClothes.type == Clothes.TYPE.SOCKS)
             {
-                clothes.Add(newClothes);
+                clothes.Add(new Clothes(Clothes.TYPE.SOCKS));
             }
         }
 
         this.state = STATE.DIRTY;
-    }
-
-    public void SetClothesToReady()
-    {
-        foreach (Clothes c in clothes)
-        {
-            c.state = Clothes.STATE.READY;
-        }
     }
 }

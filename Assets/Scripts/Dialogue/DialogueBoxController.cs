@@ -25,6 +25,14 @@ public class DialogueBoxController : MonoBehaviour
         {
             Destroy(this);
         }
+
+        Timer.OnTimerEnded += StopDialogue;
+    }
+
+    private void StopDialogue()
+    {
+        StopAllCoroutines();
+        dialogueBox.gameObject.SetActive(false);
     }
 
     public void StartDialogue(DialogueAsset dialogueAsset, int startPosition, string name)

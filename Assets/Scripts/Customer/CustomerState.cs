@@ -6,7 +6,7 @@ public class CustomerState
 {
     public enum STATE
     {
-        QUEUE, ORDER, CHAT, WASH, DRY, FOLD
+        QUEUE, ORDER, CHAT, WASH, DRY, FOLD, LEAVE
     };
 
     public enum EVENT

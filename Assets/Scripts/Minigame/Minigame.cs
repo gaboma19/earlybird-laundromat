@@ -46,7 +46,7 @@ public class Minigame : MonoBehaviour
 
         laundry = _laundry;
         washingMachine = _washingMachine;
-        readyClothes = laundry.clothes.FindAll(FindReady);
+        readyClothes = laundry.clothes;
 
         OnMinigameStarted?.Invoke();
         Open();
@@ -81,7 +81,6 @@ public class Minigame : MonoBehaviour
     private void LoadClothes()
     {
         clothesProcessed = true;
-        readyClothes[0].state = Clothes.STATE.DONE;
         loadedClothes.Add(readyClothes[0]);
         clothesWheel.AnimateLoad();
     }
@@ -89,7 +88,6 @@ public class Minigame : MonoBehaviour
     private void KeepClothes()
     {
         clothesProcessed = true;
-        readyClothes[0].state = Clothes.STATE.READY;
         keptClothes.Add(readyClothes[0]);
         clothesWheel.AnimateKeep();
     }
@@ -106,18 +104,6 @@ public class Minigame : MonoBehaviour
         }
     }
 
-    private bool FindReady(Clothes clothes)
-    {
-        if (clothes.state == Clothes.STATE.READY)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     private void EndMinigame()
     {
         if (!loadedClothes.Any())
@@ -127,7 +113,6 @@ public class Minigame : MonoBehaviour
         else
         {
             laundry.clothes = loadedClothes;
-            laundry.SetClothesToReady();
             washingMachine.loadedLaundry = laundry;
             OnLoadDirtyLaundry.Invoke(laundry);
         }

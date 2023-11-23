@@ -62,6 +62,8 @@ public class Workshift : MonoBehaviour
         Minigame.OnMinigameStarted += DisableSelect;
         Minigame.OnMinigameEnded += (_) => EnableSelect();
 
+        Exit.OnDayStarted += ResetWorkShift;
+
         playerControls = new PlayerInputActions();
     }
     private void OnEnable()
@@ -115,6 +117,13 @@ public class Workshift : MonoBehaviour
         selectedLaundry = null;
         OnLaundryRemoved.Invoke();
         splash.DisplaySplash("Closed for the day!");
+        Exit.instance.ActivateWithDelay(4f);
+    }
+
+    private void ResetWorkShift()
+    {
+        state = STATE.READY;
+        timer.ResetTimer();
     }
 
     void Update()
@@ -365,7 +374,4 @@ public class Workshift : MonoBehaviour
         int laundryIndex = activeLaundry.IndexOf(laundry);
         activeLaundry[laundryIndex].state = state;
     }
-
-    // play “getting it done” - game loop.
-
 }
