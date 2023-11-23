@@ -9,13 +9,17 @@ public class Order : CustomerState
     CustomerController customerController;
     Rigidbody2D rigidbody2D;
     public static event Action OnOrderPlaced;
+    bool arrived;
+    float speed;
+    Vector2 queuePosition;
 
     public Order(GameObject _customer, Animator _anim, GameObject _player) :
         base(_customer, _anim, _player)
     {
         name = STATE.ORDER;
         customerController = customer.GetComponent<CustomerController>();
-
+        speed = customerController.speed;
+        queuePosition = customerController.queuePosition;
         customerController.isInteractedWith = false;
 
         DialogueBoxController.OnDialogueEnded += EndOrder;
@@ -69,8 +73,40 @@ public class Order : CustomerState
         QueuePointsController.instance.SetQueuePointAvailable(customerController.queueIndex);
     }
 
+    private void WalkToRegister()
+    {
+        if (!arrived)
+        {
+            Vector2 currentPosition = rigidbody2D.position;
+
+            float step = speed * Time.deltaTime;
+            if (currentPosition != queuePosition)
+            {
+                Vector2 newPosition = Vector2.MoveTowards(currentPosition, queuePosition, step);
+
+                lookDirection = newPosition - currentPosition;
+                lookDirection.Normalize();
+
+                anim.SetFloat("Look X", lookDirection.x);
+                anim.SetFloat("Look Y", lookDirection.y);
+                anim.SetFloat("Speed", lookDirection.magnitude);
+
+                rigidbody2D.MovePosition(newPosition);
+            }
+            else
+            {
+                arrived = true;
+
+                anim.SetFloat("Speed", 0f);
+                anim.SetTrigger("Idle");
+            }
+        }
+    }
+
     public override void Exit()
     {
+        WalkToRegister();
+
         rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         customerController.isInteractable = false;

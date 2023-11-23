@@ -27,6 +27,7 @@ public class Queue : CustomerState
 
         queuePosition = QueuePointsController.instance.NextAvailablePosition(customerController);
         arrived = false;
+        customerController.queuePosition = queuePosition;
 
         base.Enter();
     }

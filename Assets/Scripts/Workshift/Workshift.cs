@@ -22,6 +22,11 @@ public class Workshift : MonoBehaviour
     public static event Action OnLaundryRemoved;
     private Laundry selectedLaundry;
     public static event Action<decimal> OnScoreAdded;
+    public static event Action<decimal> OnBonusScoreAdded;
+    private int doneLaundryCount;
+    private bool isEndedEarly;
+    [SerializeField] private int bonusTimeInterval = 20;
+    private int discardedLaundryCount;
     public enum STATE
     {
         READY, STARTED, DONE
@@ -102,6 +107,7 @@ public class Workshift : MonoBehaviour
 
     private void StartWorkShift()
     {
+        isEndedEarly = false;
         timer.timerIsRunning = true;
         state = STATE.STARTED;
         splash.DisplaySplash("Open for business!");
@@ -111,25 +117,53 @@ public class Workshift : MonoBehaviour
 
     private void EndWorkShift()
     {
+        if (!isEndedEarly)
+        {
+            state = STATE.DONE;
+
+            doneLaundryCount = 0;
+            activeLaundry.Clear();
+            selectedLaundry = null;
+            OnLaundryRemoved.Invoke();
+            splash.DisplaySplash("Closed for the day!");
+            Exit.instance.ActivateWithDelay(4f);
+        }
+    }
+
+    private void EndWorkShiftEarly()
+    {
+        if (discardedLaundryCount < 1)
+        {
+            decimal bonus = (decimal)Math.Floor(timer.GetTimeRemaining() / bonusTimeInterval);
+            OnBonusScoreAdded.Invoke(bonus);
+        }
+
         state = STATE.DONE;
 
-        activeLaundry.Clear();
-        selectedLaundry = null;
-        OnLaundryRemoved.Invoke();
-        splash.DisplaySplash("Closed for the day!");
+        timer.StopTimer();
+
+        doneLaundryCount = 0;
+        splash.DisplaySplash("All laundry completed!");
         Exit.instance.ActivateWithDelay(4f);
     }
 
     private void ResetWorkShift()
     {
         state = STATE.READY;
-        timer.ResetTimer();
     }
 
     void Update()
     {
         if (state == STATE.STARTED)
         {
+            if (doneLaundryCount == Spawn.instance.maximumCustomers)
+            {
+                EndWorkShiftEarly();
+
+                // don't run EndWorkShift
+                isEndedEarly = true;
+            }
+
             if (customerTimeRemaining > 0)
             {
                 customerTimeRemaining -= Time.deltaTime;
@@ -353,8 +387,10 @@ public class Workshift : MonoBehaviour
 
         if (selectedLaundry.state == Laundry.STATE.FOLDED)
         {
+
             activeLaundry[selectedLaundryIndex].state = Laundry.STATE.DONE;
             doneLaundry.Add(activeLaundry[selectedLaundryIndex]);
+            doneLaundryCount++;
             OnScoreAdded.Invoke(1m);
         }
 
@@ -367,6 +403,8 @@ public class Workshift : MonoBehaviour
         activeLaundry[laundryIndex].state = state;
 
         doneLaundry.Add(laundry);
+        doneLaundryCount++;
+        discardedLaundryCount++;
     }
 
     private void SetLaundryState(Laundry laundry, Laundry.STATE state)

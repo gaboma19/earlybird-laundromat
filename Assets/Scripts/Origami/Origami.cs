@@ -169,11 +169,7 @@ public class Origami : MonoBehaviour
                         if (clothesIndex < readyClothes.Count)
                         {
                             instructionList = readyClothes[clothesIndex].foldingInstructions;
-                            Debug.Log("instruction list " + instructionList.Count);
                         }
-
-                        // Do something when the player successfully completes the sequence
-                        Debug.Log("Sequence completed!");
 
                         OnSequenceCompleted.Invoke();
                     }
@@ -195,11 +191,7 @@ public class Origami : MonoBehaviour
                     if (clothesIndex < readyClothes.Count)
                     {
                         instructionList = readyClothes[clothesIndex].foldingInstructions;
-                        Debug.Log("instruction list " + instructionList.Count);
                     }
-
-                    // Do something when the sequence times out
-                    Debug.Log("Sequence timed out.");
 
                     OnSequenceCompleted.Invoke();
                 }
@@ -223,7 +215,6 @@ public class Origami : MonoBehaviour
     {
         laundry.clothes = readyClothes;
         foldingTable.loadedLaundry = laundry;
-        // OnLaundryFolded.Invoke(laundry);
 
         OnOrigamiEnded.Invoke(foldingTable);
         isActive = false;
