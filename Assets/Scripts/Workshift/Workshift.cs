@@ -33,6 +33,11 @@ public class Workshift : MonoBehaviour
     }
     public STATE state;
 
+    public int GetDoneLaundryCount()
+    {
+        return doneLaundryCount;
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -119,7 +124,6 @@ public class Workshift : MonoBehaviour
         {
             state = STATE.DONE;
 
-            doneLaundryCount = 0;
             activeLaundry.Clear();
             selectedLaundry = null;
             OnLaundryRemoved.Invoke();
@@ -140,7 +144,6 @@ public class Workshift : MonoBehaviour
 
         timer.StopTimer();
 
-        doneLaundryCount = 0;
         splash.DisplaySplash("All laundry completed!");
         Exit.instance.ActivateWithDelay(4f);
     }
@@ -148,6 +151,8 @@ public class Workshift : MonoBehaviour
     private void ResetWorkShift()
     {
         state = STATE.READY;
+        doneLaundryCount = 0;
+        discardedLaundryCount = 0;
     }
 
     void Update()

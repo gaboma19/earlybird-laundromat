@@ -45,12 +45,10 @@ public class Wait : CustomerState
         if (customerController.laundry.state == Laundry.STATE.DONE)
         {
             Leave();
-            patience.SetDone();
         }
         if (customerController.laundry.state == Laundry.STATE.DISCARD)
         {
             Leave();
-            patience.SetDiscard();
         }
     }
 

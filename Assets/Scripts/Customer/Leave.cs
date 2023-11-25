@@ -23,6 +23,15 @@ public class Leave : CustomerState
     {
         Spawn.instance.DequeueCustomer();
 
+        if (customerController.laundry.state == Laundry.STATE.DONE)
+        {
+            customerController.patience.SetDone();
+        }
+        if (customerController.laundry.state == Laundry.STATE.DISCARD)
+        {
+            customerController.patience.SetDiscard();
+        }
+
         base.Enter();
     }
 
