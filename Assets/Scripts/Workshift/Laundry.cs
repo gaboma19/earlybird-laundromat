@@ -13,6 +13,7 @@ public class Laundry
     public STATE state { get; set; }
     public bool isSelected { get; set; }
     public float doneTimeRemaining = 2f;
+    public CustomerController customerController;
 
     public Laundry()
     {

@@ -84,6 +84,10 @@ public class Origami : MonoBehaviour
             {
                 EndOrigami();
             }
+            else if (laundry.state == Laundry.STATE.DISCARD)
+            {
+                KillOrigami();
+            }
             else
             {
                 if (!isOrigamiInProgress)

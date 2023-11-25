@@ -1,16 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class Patience : MonoBehaviour
 {
     FillBar fillBar;
     [SerializeField] Face face;
-    [SerializeField] float patienceDuration = 60f;
+    [SerializeField] float patienceDuration = 120f;
     float patienceRemaining;
     bool isPatienceRunning = false;
-    public static event Action OnPatienceEnded;
+    public bool hasPatienceEnded = false;
+    public float fillAmount;
+
+    public void StartPatienceMeter()
+    {
+        gameObject.SetActive(true);
+        isPatienceRunning = true;
+    }
+
+    public void SetDone()
+    {
+        isPatienceRunning = false;
+        patienceRemaining = patienceDuration;
+        DisplayPatience();
+    }
+    public void SetDiscard()
+    {
+        isPatienceRunning = false;
+        patienceRemaining = 0;
+        DisplayPatience();
+    }
 
     void Start()
     {
@@ -31,14 +50,14 @@ public class Patience : MonoBehaviour
             else
             {
                 isPatienceRunning = false;
-                OnPatienceEnded.Invoke();
+                hasPatienceEnded = true;
             }
         }
     }
 
     private void DisplayPatience()
     {
-        float fillAmount = (patienceDuration - patienceRemaining) / patienceDuration;
+        fillAmount = (patienceDuration - patienceRemaining) / patienceDuration;
         fillBar.SetFillBar(fillAmount);
         face.SetFace(fillAmount);
     }

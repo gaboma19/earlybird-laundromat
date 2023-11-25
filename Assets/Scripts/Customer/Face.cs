@@ -14,7 +14,7 @@ public class Face : MonoBehaviour
 
         if (fillAmount < 0.33333)
         {
-            ChangeSprite(TYPE.CROSS);
+            ChangeSprite(TYPE.SMILE);
         }
         else if (fillAmount < 0.66666 && fillAmount > 0.33333)
         {
@@ -22,7 +22,7 @@ public class Face : MonoBehaviour
         }
         else
         {
-            ChangeSprite(TYPE.SMILE);
+            ChangeSprite(TYPE.CROSS);
         }
     }
 

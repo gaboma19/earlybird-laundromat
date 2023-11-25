@@ -19,6 +19,8 @@ public class InteractionDetector : MonoBehaviour
         Origami.OnOrigamiStarted += DisableInteract;
         Origami.OnOrigamiEnded += (_) => EnableInteract();
         Origami.OnOrigamiKilled += EnableInteract;
+        DialogueBoxController.OnDialogueStarted += DisableInteract;
+        DialogueBoxController.OnDialogueEnded += EnableInteract;
     }
 
     private void OnEnable()
