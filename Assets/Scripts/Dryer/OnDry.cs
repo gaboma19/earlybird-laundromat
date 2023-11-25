@@ -8,7 +8,7 @@ public class OnDry : DryerState
     public static event Action<Laundry> OnLaundryDried;
     public static event Action<Laundry> OnLaundryDrying;
     private DryerController dryerController;
-    [SerializeField] private float dryCycleTime = 40f;
+    [SerializeField] private float dryCycleTime = 30f;
     public OnDry(GameObject _dryer, Animator _anim) :
         base(_dryer, _anim)
     {

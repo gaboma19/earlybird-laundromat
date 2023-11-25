@@ -22,6 +22,11 @@ public class WashingMachineController : MonoBehaviour, IInteractable
     void Update()
     {
         currentState = currentState.Process();
+
+        if (loadedLaundry != null && loadedLaundry.state == Laundry.STATE.DISCARD)
+        {
+            SetReadyState();
+        }
     }
 
     void Awake()

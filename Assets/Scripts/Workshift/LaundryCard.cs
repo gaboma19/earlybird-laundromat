@@ -22,8 +22,16 @@ public class LaundryCard : MonoBehaviour
     [SerializeField] private Image doneIcon;
     [SerializeField] private Image discardIcon;
     [SerializeField] private Image selectionIndicator;
+    Patience patience;
+    FillBar fillBar;
+
     public void SetLaundry(Laundry laundry)
     {
+        if (patience == null)
+        {
+            patience = laundry.customerController.patience;
+        }
+
         foreach (Transform child in iconContainer)
         {
             Destroy(child.gameObject);
@@ -93,5 +101,15 @@ public class LaundryCard : MonoBehaviour
         {
             selectionIndicator.gameObject.SetActive(false);
         }
+    }
+
+    void Start()
+    {
+        fillBar = gameObject.GetComponent<FillBar>();
+    }
+
+    void Update()
+    {
+        fillBar.SetFillBar(patience.fillAmount);
     }
 }

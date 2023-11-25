@@ -30,6 +30,7 @@ public class Spawn : MonoBehaviour
     private void SetMaximumCustomers()
     {
         maximumCustomers = Calendar.instance.GetDate();
+        customersQueueing = 0;
 
         if (maximumCustomers > 10)
         {

@@ -1,33 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Queue : CustomerState
+public class Wait : CustomerState
 {
-    Vector2 queuePosition;
-    Vector2 lookDirection;
-    float speed;
-    Rigidbody2D rigidbody2d;
     CustomerController customerController;
+    Rigidbody2D rigidbody2D;
+    Patience patience;
     bool arrived;
+    float speed;
+    Vector2 queuePosition;
+    public static event Action<Laundry> OnPatienceEnded;
 
-    public Queue(GameObject _customer, Animator _anim, GameObject _player) :
+    public Wait(GameObject _customer, Animator _anim, GameObject _player) :
         base(_customer, _anim, _player)
     {
-        name = STATE.QUEUE;
-        rigidbody2d = customer.GetComponent<Rigidbody2D>();
+        name = STATE.WAIT;
         customerController = customer.GetComponent<CustomerController>();
+        rigidbody2D = customerController.GetComponent<Rigidbody2D>();
+        patience = customerController.patience;
         speed = customerController.speed;
+        queuePosition = customerController.queuePosition;
+
         Timer.OnTimerEnded += Leave;
     }
 
     public override void Enter()
     {
-        customerController.isInteractable = true;
-
-        queuePosition = QueuePointsController.instance.NextAvailablePosition(customerController);
-        arrived = false;
-        customerController.queuePosition = queuePosition;
+        patience.StartPatienceMeter();
 
         base.Enter();
     }
@@ -36,38 +37,42 @@ public class Queue : CustomerState
     {
         WalkToRegister();
 
-        if (customerController.isInteractedWith) // and is at the furthest queue spot
+        if (patience.hasPatienceEnded)
         {
-            nextState = new Order(customer, anim, player);
-            stage = EVENT.EXIT;
+            Leave();
+            OnPatienceEnded.Invoke(customerController.laundry);
         }
-    }
-
-    public Vector2 RandomVector2(float angle, float angleMin)
-    {
-        float random = Random.value * angle + angleMin;
-        return new Vector2(Mathf.Cos(random), Mathf.Sin(random));
+        if (customerController.laundry.state == Laundry.STATE.DONE)
+        {
+            Leave();
+            patience.SetDone();
+        }
+        if (customerController.laundry.state == Laundry.STATE.DISCARD)
+        {
+            Leave();
+            patience.SetDiscard();
+        }
     }
 
     private void WalkToRegister()
     {
         if (!arrived)
         {
-            Vector2 currentPosition = rigidbody2d.position;
+            Vector2 currentPosition = rigidbody2D.position;
 
             float step = speed * Time.deltaTime;
             if (currentPosition != queuePosition)
             {
                 Vector2 newPosition = Vector2.MoveTowards(currentPosition, queuePosition, step);
 
-                lookDirection = newPosition - currentPosition;
+                Vector2 lookDirection = newPosition - currentPosition;
                 lookDirection.Normalize();
 
                 anim.SetFloat("Look X", lookDirection.x);
                 anim.SetFloat("Look Y", lookDirection.y);
                 anim.SetFloat("Speed", lookDirection.magnitude);
 
-                rigidbody2d.MovePosition(newPosition);
+                rigidbody2D.MovePosition(newPosition);
             }
             else
             {
@@ -79,7 +84,7 @@ public class Queue : CustomerState
         }
     }
 
-    void Leave()
+    private void Leave()
     {
         nextState = new Leave(customer, anim, player);
         stage = EVENT.EXIT;

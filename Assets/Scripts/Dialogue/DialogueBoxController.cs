@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using System;
 using TMPro;
 
@@ -14,25 +14,12 @@ public class DialogueBoxController : MonoBehaviour
     public static event Action OnDialogueStarted;
     public static event Action OnDialogueEnded;
     bool skipLineTriggered;
+    public PlayerInputActions playerControls;
+    private InputAction interact;
 
-    private void Awake()
+    public void SkipLine(InputAction.CallbackContext context)
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
-
-        Timer.OnTimerEnded += StopDialogue;
-    }
-
-    private void StopDialogue()
-    {
-        StopAllCoroutines();
-        dialogueBox.gameObject.SetActive(false);
+        skipLineTriggered = true;
     }
 
     public void StartDialogue(DialogueAsset dialogueAsset, int startPosition, string name)
@@ -48,6 +35,7 @@ public class DialogueBoxController : MonoBehaviour
         string[] dialogue = dialogueAsset.dialogue;
         skipLineTriggered = false;
         OnDialogueStarted?.Invoke();
+        EnableInteract();
         for (int i = startPosition; i < dialogue.Length; i++)
         {
             dialogueText.text = dialogue[i];
@@ -59,10 +47,42 @@ public class DialogueBoxController : MonoBehaviour
             skipLineTriggered = false;
         }
         OnDialogueEnded?.Invoke();
+        DisableInteract();
         dialogueBox.gameObject.SetActive(false);
     }
-    public void SkipLine()
+
+    private void EnableInteract()
     {
-        skipLineTriggered = true;
+        interact.Enable();
+        interact.performed += SkipLine;
+    }
+
+    private void DisableInteract()
+    {
+        interact.Disable();
+        interact.performed -= SkipLine;
+    }
+
+    private void StopDialogue()
+    {
+        StopAllCoroutines();
+        dialogueBox.gameObject.SetActive(false);
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
+        playerControls = new PlayerInputActions();
+        interact = playerControls.Player.Interact;
+
+        Timer.OnTimerEnded += StopDialogue;
     }
 }

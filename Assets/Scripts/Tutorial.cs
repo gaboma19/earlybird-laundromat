@@ -51,6 +51,12 @@ public class Tutorial : MonoBehaviour
         interact.performed -= Progress;
     }
 
+    private void KillTutorial()
+    {
+        tutorials[tutorialIndex].gameObject.SetActive(false);
+        EndTutorial();
+    }
+
     void Awake()
     {
         if (instance == null)
@@ -64,5 +70,6 @@ public class Tutorial : MonoBehaviour
 
         playerControls = new PlayerInputActions();
         interact = playerControls.Player.Interact;
+        Exit.OnDayEnded += KillTutorial;
     }
 }

@@ -9,17 +9,25 @@ public class Timer : MonoBehaviour
     public float workshiftDuration = 160;
     float timeRemaining;
     public bool timerIsRunning = false;
+    private bool isTimerStopped = false;
     [SerializeField] TextMeshProUGUI timeText;
     public static event Action OnTimerEnded;
 
-    public void ResetTimer()
+    public float GetTimeRemaining()
     {
-        timeRemaining = workshiftDuration;
+        return timeRemaining;
+    }
+
+    public void StopTimer()
+    {
+        isTimerStopped = true;
     }
 
     private void SetWorkshiftDuration()
     {
         workshiftDuration = 80 * Calendar.instance.GetDate();
+        timeRemaining = workshiftDuration;
+        DisplayTime(timeRemaining);
 
         if (workshiftDuration > 300)
         {
@@ -29,13 +37,25 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        Exit.OnDayEnded += SetWorkshiftDuration;
+        Exit.OnDayStarted += SetWorkshiftDuration;
 
         timeRemaining = workshiftDuration;
+
+        DisplayTime(timeRemaining);
     }
+
     void Update()
     {
-        if (timerIsRunning)
+        if (isTimerStopped)
+        {
+            isTimerStopped = false;
+
+            timeRemaining = 0;
+            timerIsRunning = false;
+            OnTimerEnded.Invoke();
+        }
+
+        if (timerIsRunning && !isTimerStopped)
         {
             if (timeRemaining > 0)
             {
@@ -52,7 +72,6 @@ public class Timer : MonoBehaviour
     }
     void DisplayTime(float timeToDisplay)
     {
-        timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         timeText.text = string.Format("{0}:{1:00}", minutes, seconds);

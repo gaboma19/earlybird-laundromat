@@ -13,21 +13,18 @@ public class CustomerController : MonoBehaviour, IInteractable
     public float speed = 10.0f;
     public DialogueAsset dialogueAsset;
     public int queueIndex;
+    public Vector2 queuePosition;
+    public Patience patience;
+    public Laundry laundry;
 
-    // Start is called before the first frame update
     void Start()
     {
         anim = this.GetComponent<Animator>();
         player = GameObject.Find("Player");
         buttonPrompt = this.transform.Find("Button Prompt").gameObject;
         currentState = new Queue(this.gameObject, anim, player);
-
-        // not all customers are queueing up for drop off service
-        // in this case, their start state is Wash.
-        // currentState = new Wash(this.gameObject, anim, player);
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         currentState = currentState.Process();

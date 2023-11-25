@@ -35,10 +35,9 @@ public class LaundryGrid : MonoBehaviour
         Workshift.OnLaundrySpawned += UpdateVisual;
         Workshift.OnLaundrySelected += UpdateVisual;
         Minigame.OnLoadDirtyLaundry += (_) => UpdateVisual();
-        Minigame.OnDiscardLaundry += (_, _) => UpdateVisual();
+        Minigame.OnDiscardLaundry += (_) => UpdateVisual();
         OnWash.OnLaundryWashed += (_, _) => UpdateVisual();
         OnWash.OnLaundryWashing += (_, _) => UpdateVisual();
-
         LoadedDry.OnLoadDryer += UpdateVisual;
         OnDry.OnLaundryDrying += (_) => UpdateVisual();
         OnDry.OnLaundryDried += (_) => UpdateVisual();
@@ -48,6 +47,7 @@ public class LaundryGrid : MonoBehaviour
         InUseFold.OnLaundryFolded += (_) => UpdateVisual();
         RegisterController.OnLaundryDone += UpdateVisual;
         Workshift.OnLaundryRemoved += UpdateVisual;
+        Wait.OnPatienceEnded += (_) => UpdateVisual();
     }
 
 }

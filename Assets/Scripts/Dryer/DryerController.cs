@@ -20,10 +20,14 @@ public class DryerController : MonoBehaviour, IInteractable
         currentState = new ReadyDry(this.gameObject, anim);
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentState = currentState.Process();
+
+        if (loadedLaundry != null && loadedLaundry.state == Laundry.STATE.DISCARD)
+        {
+            SetReadyState();
+        }
     }
     void Awake()
     {

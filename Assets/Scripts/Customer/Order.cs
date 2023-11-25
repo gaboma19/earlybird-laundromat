@@ -8,26 +8,23 @@ public class Order : CustomerState
     Vector2 lookDirection;
     CustomerController customerController;
     Rigidbody2D rigidbody2D;
-    public static event Action OnOrderPlaced;
+    public static event Action<CustomerController> OnOrderPlaced;
 
     public Order(GameObject _customer, Animator _anim, GameObject _player) :
         base(_customer, _anim, _player)
     {
         name = STATE.ORDER;
         customerController = customer.GetComponent<CustomerController>();
-
+        rigidbody2D = customerController.GetComponent<Rigidbody2D>();
         customerController.isInteractedWith = false;
 
         DialogueBoxController.OnDialogueEnded += EndOrder;
         Timer.OnTimerEnded += Leave;
-
-        rigidbody2D = customerController.GetComponent<Rigidbody2D>();
-
-        FacePlayer();
     }
 
     public override void Enter()
     {
+        FacePlayer();
         DialogueBoxController.instance.StartDialogue(customerController.dialogueAsset, 0, "Customer");
 
         rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
@@ -37,12 +34,7 @@ public class Order : CustomerState
 
     public override void Update()
     {
-        // interaction should be polled on the dialogue box instead
-        if (customerController.isInteractedWith)
-        {
-            DialogueBoxController.instance.SkipLine();
-            customerController.isInteractedWith = false;
-        }
+
     }
 
     void FacePlayer()
@@ -57,9 +49,9 @@ public class Order : CustomerState
 
     void EndOrder()
     {
-        nextState = this;
+        nextState = new Wait(customer, anim, player);
         stage = EVENT.EXIT;
-        OnOrderPlaced.Invoke();
+        OnOrderPlaced.Invoke(customerController);
     }
 
     void Leave()
@@ -77,6 +69,7 @@ public class Order : CustomerState
         customerController.HideInputPrompt();
 
         DialogueBoxController.OnDialogueEnded -= EndOrder;
+        Timer.OnTimerEnded -= Leave;
 
         base.Exit();
     }

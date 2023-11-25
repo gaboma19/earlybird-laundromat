@@ -22,7 +22,7 @@ public class Minigame : MonoBehaviour
     private bool isActive = false;
     private WashingMachineController washingMachine;
     public static event Action<Laundry> OnLoadDirtyLaundry;
-    public static event Action<Laundry, Laundry.STATE> OnDiscardLaundry;
+    public static event Action<Laundry> OnDiscardLaundry;
     public static event Action OnMinigameKilled;
     public void Open()
     {
@@ -59,6 +59,10 @@ public class Minigame : MonoBehaviour
             if (IsClothesListEmpty())
             {
                 EndMinigame();
+            }
+            else if (laundry.state == Laundry.STATE.DISCARD)
+            {
+                KillMinigame();
             }
             else
             {
@@ -108,7 +112,7 @@ public class Minigame : MonoBehaviour
     {
         if (!loadedClothes.Any())
         {
-            OnDiscardLaundry.Invoke(laundry, Laundry.STATE.DISCARD);
+            OnDiscardLaundry.Invoke(laundry);
         }
         else
         {
