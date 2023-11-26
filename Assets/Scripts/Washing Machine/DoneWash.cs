@@ -18,6 +18,11 @@ public class DoneWash : WashingMachineState
     {
         washingMachineController.StopSound();
 
+        if (Calendar.instance.GetDate() == 1)
+        {
+            Tutorial.instance.ShowTutorial(new List<string> { "The laundry is washed" });
+        }
+
         base.Enter();
     }
 

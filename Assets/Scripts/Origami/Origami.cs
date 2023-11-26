@@ -37,6 +37,11 @@ public class Origami : MonoBehaviour
     public void Open()
     {
         origami.gameObject.SetActive(true);
+
+        if (Calendar.instance.GetDate() == 1)
+        {
+            Tutorial.instance.ShowTutorial(new List<string> { "Input folding instructions" });
+        }
     }
 
     public void Close()

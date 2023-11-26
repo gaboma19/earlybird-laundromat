@@ -27,6 +27,11 @@ public class Minigame : MonoBehaviour
     public void Open()
     {
         minigame.gameObject.SetActive(true);
+
+        if (Calendar.instance.GetDate() == 1)
+        {
+            Tutorial.instance.ShowTutorial(new List<string> { "Load items into" });
+        }
     }
 
     public void Close()

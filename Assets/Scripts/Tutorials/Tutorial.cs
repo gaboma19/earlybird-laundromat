@@ -47,13 +47,18 @@ public class Tutorial : MonoBehaviour
     private void EndTutorial()
     {
         tutorialIndex = 0;
+        tutorials.Clear();
         interact.Disable();
         interact.performed -= Progress;
     }
 
     private void KillTutorial()
     {
-        tutorials[tutorialIndex].gameObject.SetActive(false);
+        if (tutorialIndex < tutorials.Count)
+        {
+            tutorials[tutorialIndex].gameObject.SetActive(false);
+        }
+
         EndTutorial();
     }
 

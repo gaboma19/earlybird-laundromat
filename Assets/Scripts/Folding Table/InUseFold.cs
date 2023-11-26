@@ -48,6 +48,11 @@ public class InUseFold : FoldingTableState
             OnLaundryFolded.Invoke(foldingTableController.loadedLaundry);
             foldingTableController.loadedLaundry = null;
 
+            if (Calendar.instance.GetDate() == 1)
+            {
+                Tutorial.instance.ShowTutorial(new List<string> { "Take the folded laundry" });
+            }
+
             nextState = new ReadyFold(foldingTable, anim);
             stage = EVENT.EXIT;
         }

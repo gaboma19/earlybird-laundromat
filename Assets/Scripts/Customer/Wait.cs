@@ -30,6 +30,16 @@ public class Wait : CustomerState
     {
         patience.StartPatienceMeter();
 
+        if (Calendar.instance.GetDate() == 1)
+        {
+            Tutorial.instance.ShowTutorial(new List<string> { "This laundry is dirty" });
+        }
+
+        if (Calendar.instance.GetDate() == 2 && Workshift.instance.GetActiveLaundryList().Count == 2)
+        {
+            Tutorial.instance.ShowTutorial(new List<string> { "Press Q E" });
+        }
+
         base.Enter();
     }
 

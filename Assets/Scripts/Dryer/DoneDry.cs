@@ -18,6 +18,11 @@ public class DoneDry : DryerState
     {
         dryerController.StopSound();
 
+        if (Calendar.instance.GetDate() == 1)
+        {
+            Tutorial.instance.ShowTutorial(new List<string> { "The laundry is dry" });
+        }
+
         base.Enter();
     }
 
