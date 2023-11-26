@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867b7887cb4ef01458ca1f4e6976d66e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 1
   fillImage: {fileID: 26917169112323162}
 --- !u!114 &759989655996697003
 MonoBehaviour:

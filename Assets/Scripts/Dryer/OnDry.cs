@@ -8,12 +8,15 @@ public class OnDry : DryerState
     public static event Action<Laundry> OnLaundryDried;
     public static event Action<Laundry> OnLaundryDrying;
     private DryerController dryerController;
-    [SerializeField] private float dryCycleTime = 30f;
+    [SerializeField] private float dryCycleDuration = 30f;
+    private float dryCycleRemaining;
+    private ProgressBar progressBar;
     public OnDry(GameObject _dryer, Animator _anim) :
         base(_dryer, _anim)
     {
         name = STATE.ON;
         dryerController = dryer.GetComponent<DryerController>();
+        progressBar = dryerController.progressBar;
     }
 
     public override void Enter()
@@ -25,13 +28,19 @@ public class OnDry : DryerState
 
         dryerController.PlaySound();
 
+        progressBar.StartProgressBar();
+        dryCycleRemaining = dryCycleDuration;
+
         base.Enter();
     }
 
     public override void Update()
     {
-        dryCycleTime -= Time.deltaTime;
-        if (dryCycleTime <= 0.0f)
+        dryCycleRemaining -= Time.deltaTime;
+
+        progressBar.DisplayProgress(dryCycleDuration, dryCycleRemaining);
+
+        if (dryCycleRemaining <= 0.0f)
         {
             anim.SetTrigger("Transition");
             OnLaundryDried.Invoke(dryerController.loadedLaundry);

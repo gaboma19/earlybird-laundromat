@@ -15,6 +15,7 @@ public class ReadyWash : WashingMachineState
     public override void Enter()
     {
         washingMachineController.isInteractable = true;
+        washingMachineController.progressBar.StopProgressBar();
 
         Minigame.OnMinigameEnded += EndReady;
 

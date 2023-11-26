@@ -15,6 +15,7 @@ public class ReadyDry : DryerState
     public override void Enter()
     {
         dryerController.isInteractable = true;
+        dryerController.progressBar.StopProgressBar();
 
         base.Enter();
     }
