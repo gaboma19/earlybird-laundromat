@@ -118,6 +118,7 @@ public class Minigame : MonoBehaviour
         if (!loadedClothes.Any())
         {
             OnDiscardLaundry.Invoke(laundry);
+            washingMachine.loadedLaundry = null;
         }
         else
         {
