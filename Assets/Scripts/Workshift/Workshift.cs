@@ -27,6 +27,7 @@ public class Workshift : MonoBehaviour
     private bool isEndedEarly;
     [SerializeField] private int bonusTimeInterval = 20;
     private int discardedLaundryCount;
+    private int happyLaundryCount;
     public enum STATE
     {
         READY, STARTED, DONE
@@ -36,6 +37,11 @@ public class Workshift : MonoBehaviour
     public int GetDoneLaundryCount()
     {
         return doneLaundryCount;
+    }
+
+    public int GetHappyLaundryCount()
+    {
+        return happyLaundryCount;
     }
 
     private void Awake()
@@ -152,6 +158,7 @@ public class Workshift : MonoBehaviour
     {
         state = STATE.READY;
         doneLaundryCount = 0;
+        happyLaundryCount = 0;
         discardedLaundryCount = 0;
     }
 
@@ -159,7 +166,7 @@ public class Workshift : MonoBehaviour
     {
         if (state == STATE.STARTED)
         {
-            if (doneLaundryCount == Spawn.instance.maximumCustomers)
+            if (happyLaundryCount == Spawn.instance.maximumCustomers)
             {
                 EndWorkShiftEarly();
 
@@ -398,6 +405,7 @@ public class Workshift : MonoBehaviour
             activeLaundry[selectedLaundryIndex].state = Laundry.STATE.DONE;
             doneLaundry.Add(activeLaundry[selectedLaundryIndex]);
             doneLaundryCount++;
+            happyLaundryCount++;
             OnScoreAdded.Invoke(1m);
         }
 

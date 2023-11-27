@@ -8,12 +8,16 @@ public class OnWash : WashingMachineState
     public static event Action<Laundry, Laundry.STATE> OnLaundryWashed;
     public static event Action<Laundry, Laundry.STATE> OnLaundryWashing;
     private WashingMachineController washingMachineController;
-    [SerializeField] private float washCycleTime = 20f;
+    [SerializeField] private float washCycleDuration = 20f;
+    private float washCycleRemaining;
+    private ProgressBar progressBar;
+
     public OnWash(GameObject _washingMachine, Animator _anim) :
         base(_washingMachine, _anim)
     {
         name = STATE.ON;
         washingMachineController = washingMachine.GetComponent<WashingMachineController>();
+        progressBar = washingMachineController.progressBar;
     }
 
     public override void Enter()
@@ -25,13 +29,19 @@ public class OnWash : WashingMachineState
 
         washingMachineController.PlaySound();
 
+        progressBar.StartProgressBar();
+        washCycleRemaining = washCycleDuration;
+
         base.Enter();
     }
 
     public override void Update()
     {
-        washCycleTime -= Time.deltaTime;
-        if (washCycleTime <= 0.0f)
+        washCycleRemaining -= Time.deltaTime;
+
+        progressBar.DisplayProgress(washCycleDuration, washCycleRemaining);
+
+        if (washCycleRemaining <= 0.0f)
         {
             anim.SetTrigger("Transition");
             OnLaundryWashed.Invoke(washingMachineController.loadedLaundry, Laundry.STATE.WASHED);

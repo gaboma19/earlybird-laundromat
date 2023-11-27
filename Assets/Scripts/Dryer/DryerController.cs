@@ -11,6 +11,7 @@ public class DryerController : MonoBehaviour, IInteractable
     public bool isInteractedWith { get; set; }
     DryerState currentState;
     public Laundry loadedLaundry { get; set; }
+    public ProgressBar progressBar;
 
     // Start is called before the first frame update
     void Start()

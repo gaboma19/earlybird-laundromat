@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class WashingMachineController : MonoBehaviour, IInteractable
     public bool isInteractable { get; set; }
     WashingMachineState currentState;
     public Laundry loadedLaundry { get; set; }
+    public ProgressBar progressBar;
 
     void Start()
     {
@@ -35,7 +37,7 @@ public class WashingMachineController : MonoBehaviour, IInteractable
         Timer.OnTimerEnded += StopSound;
     }
 
-    private void SetReadyState()
+    public void SetReadyState()
     {
         anim.SetTrigger("Off");
         currentState = new ReadyWash(this.gameObject, anim);

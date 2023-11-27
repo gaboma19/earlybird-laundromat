@@ -2,12 +2,27 @@ using UnityEngine;
 
 public class FillBar : MonoBehaviour
 {
+    public enum DIRECTION
+    {
+        X, Y
+    }
+    public DIRECTION direction;
+
     public Transform fillImage;
     void Start()
     {
         // Default to an empty bar
         var newScale = fillImage.localScale;
-        newScale.y = 0;
+        switch (direction)
+        {
+            case DIRECTION.Y:
+                newScale.y = 0;
+                break;
+            case DIRECTION.X:
+                newScale.x = 0;
+                break;
+        }
+
         fillImage.localScale = newScale;
     }
 
@@ -17,7 +32,17 @@ public class FillBar : MonoBehaviour
         fillAmount = Mathf.Clamp01(fillAmount);
         // Scale the fillImage accordingly
         var newScale = fillImage.localScale;
-        newScale.y = fillAmount;
+
+        switch (direction)
+        {
+            case DIRECTION.Y:
+                newScale.y = fillAmount;
+                break;
+            case DIRECTION.X:
+                newScale.x = fillAmount;
+                break;
+        }
+
         fillImage.localScale = newScale;
     }
 }

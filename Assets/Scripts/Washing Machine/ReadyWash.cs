@@ -15,6 +15,7 @@ public class ReadyWash : WashingMachineState
     public override void Enter()
     {
         washingMachineController.isInteractable = true;
+        washingMachineController.progressBar.StopProgressBar();
 
         Minigame.OnMinigameEnded += EndReady;
 
@@ -51,9 +52,18 @@ public class ReadyWash : WashingMachineState
     {
         if (washingMachineController == _washingMachineController)
         {
-            anim.SetTrigger("Transition");
-            nextState = new LoadedWash(washingMachine, anim);
-            stage = EVENT.EXIT;
+            if (washingMachineController.loadedLaundry == null)
+            {
+                anim.SetTrigger("Off");
+                nextState = new ReadyWash(washingMachine, anim);
+                stage = EVENT.EXIT;
+            }
+            else
+            {
+                anim.SetTrigger("Transition");
+                nextState = new LoadedWash(washingMachine, anim);
+                stage = EVENT.EXIT;
+            }
         }
     }
 

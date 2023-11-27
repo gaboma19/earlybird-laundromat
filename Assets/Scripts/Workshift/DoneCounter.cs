@@ -11,7 +11,7 @@ public class DoneCounter : MonoBehaviour
 
     void Update()
     {
-        doneLaundry = Workshift.instance.GetDoneLaundryCount();
+        doneLaundry = Workshift.instance.GetHappyLaundryCount();
         date = Calendar.instance.GetDate();
         counterText.text = doneLaundry + " / " + date;
     }
