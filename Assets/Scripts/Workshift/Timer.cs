@@ -65,6 +65,7 @@ public class Timer : MonoBehaviour
             else
             {
                 timeRemaining = 0;
+                DisplayTime(timeRemaining);
                 timerIsRunning = false;
                 OnTimerEnded.Invoke();
             }

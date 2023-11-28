@@ -4,19 +4,31 @@ public class Clothes
 {
     public enum TYPE
     {
-        SHIRT, PANTS, PANTIES, BOXERS, SOCKS
+        SHIRT, PANTS, PANTIES, BOXERS, SOCKS, TRASH
     }
+
+    public enum TRASH_TYPE
+    {
+        BANANA_PEEL, COIN, ENVELOPE, KEY, POOP
+    }
+
     public enum COLOR
     {
         DARK, LIGHT
     }
     public TYPE type { get; }
+    public TRASH_TYPE? trashType = null;
     public COLOR color { get; }
     public List<Instruction> foldingInstructions = new();
 
     public Clothes()
     {
         type = GetRandomEnum<TYPE>();
+        if (type == TYPE.TRASH)
+        {
+            trashType = GetRandomEnum<TRASH_TYPE>();
+        }
+
         color = GetRandomEnum<COLOR>();
         SetFoldingInstructions(type);
     }
@@ -24,6 +36,11 @@ public class Clothes
     public Clothes(TYPE _type)
     {
         type = _type;
+        if (type == TYPE.TRASH)
+        {
+            trashType = GetRandomEnum<TRASH_TYPE>();
+        }
+
         color = GetRandomEnum<COLOR>();
         SetFoldingInstructions(type);
     }

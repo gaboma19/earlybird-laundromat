@@ -10,6 +10,7 @@ public class Tutorial : MonoBehaviour
     private InputAction interact;
     private List<Transform> tutorials = new();
     private int tutorialIndex = 0;
+    public bool hasPatienceTutorialShown = false;
 
     public void ShowTutorial(List<string> tutorialNames)
     {

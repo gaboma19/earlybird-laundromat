@@ -128,6 +128,7 @@ public class Signal : MonoBehaviour
     {
         Workshift.OnLaundrySelected += SetSignals;
         Workshift.OnLaundrySpawned += SetSignals;
+        Workshift.OnLaundryRemoved += SetSignals;
         DoneWash.OnUnloadWasher += (_) => SetSignals();
         DoneDry.OnUnloadDryer += (_) => SetSignals();
         InUseFold.OnLaundryFolded += (_) => SetSignals();
