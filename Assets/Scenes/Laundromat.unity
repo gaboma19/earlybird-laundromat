@@ -2888,6 +2888,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: laundromat-front-desk
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 3050073173cdbaa458ab7d459ee084ed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 3050073173cdbaa458ab7d459ee084ed, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -6203,7 +6207,7 @@ GameObject:
   - component: {fileID: 1396178279}
   - component: {fileID: 1396178281}
   m_Layer: 0
-  m_Name: MainCamera
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
