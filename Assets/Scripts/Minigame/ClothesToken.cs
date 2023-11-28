@@ -10,6 +10,11 @@ public class ClothesToken : MonoBehaviour
     [SerializeField] private Image pantiesImage;
     [SerializeField] private Image boxersImage;
     [SerializeField] private Image sockImage;
+    [SerializeField] private Image bananaPeelImage;
+    [SerializeField] private Image coinImage;
+    [SerializeField] private Image envelopeImage;
+    [SerializeField] private Image keyImage;
+    [SerializeField] private Image poopImage;
     [SerializeField] private Transform tokenContainer;
     Animator animator;
 
@@ -42,8 +47,12 @@ public class ClothesToken : MonoBehaviour
             case Clothes.TYPE.SOCKS:
                 InstantiateSocks(clothes);
                 break;
+            case Clothes.TYPE.TRASH:
+                InstantiateTrash(clothes);
+                break;
         }
     }
+
     private void InstantiateShirt(Clothes clothes)
     {
         switch (clothes.color)
@@ -56,6 +65,7 @@ public class ClothesToken : MonoBehaviour
                 break;
         }
     }
+
     private void InstantiatePants(Clothes clothes)
     {
         switch (clothes.color)
@@ -104,6 +114,28 @@ public class ClothesToken : MonoBehaviour
                 break;
             case Clothes.COLOR.DARK:
                 Instantiate(sockImage, tokenContainer);
+                break;
+        }
+    }
+
+    private void InstantiateTrash(Clothes clothes)
+    {
+        switch (clothes.trashType)
+        {
+            case Clothes.TRASH_TYPE.BANANA_PEEL:
+                Instantiate(poopImage, tokenContainer);
+                break;
+            case Clothes.TRASH_TYPE.COIN:
+                Instantiate(coinImage, tokenContainer);
+                break;
+            case Clothes.TRASH_TYPE.ENVELOPE:
+                Instantiate(envelopeImage, tokenContainer);
+                break;
+            case Clothes.TRASH_TYPE.KEY:
+                Instantiate(keyImage, tokenContainer);
+                break;
+            case Clothes.TRASH_TYPE.POOP:
+                Instantiate(poopImage, tokenContainer);
                 break;
         }
     }

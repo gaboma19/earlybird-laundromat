@@ -24,6 +24,7 @@ public class InUseFold : FoldingTableState
         OnLaundryFolding.Invoke();
 
         Origami.OnOrigamiEnded += EndInUse;
+        Wait.OnPatienceEnded += PatienceEndInUse;
 
         base.Enter();
     }
@@ -35,9 +36,6 @@ public class InUseFold : FoldingTableState
             foldingTableController.isInteractedWith = false;
 
             Origami.instance.FoldClothes(foldingTableController.loadedLaundry, foldingTableController);
-
-            nextState = new ReadyFold(foldingTable, anim);
-            stage = EVENT.EXIT;
         }
     }
 
@@ -46,9 +44,8 @@ public class InUseFold : FoldingTableState
         if (foldingTableController == _foldingTableController)
         {
             OnLaundryFolded.Invoke(foldingTableController.loadedLaundry);
-            foldingTableController.loadedLaundry = null;
 
-            if (Calendar.instance.GetDate() == 1)
+            if (Calendar.instance.GetDate() == 1 && foldingTableController.loadedLaundry.state == Laundry.STATE.FOLDED)
             {
                 Tutorial.instance.ShowTutorial(new List<string> { "Take the folded laundry" });
             }
@@ -58,9 +55,19 @@ public class InUseFold : FoldingTableState
         }
     }
 
+    private void PatienceEndInUse(Laundry _laundry)
+    {
+        if (foldingTableController.loadedLaundry == _laundry)
+        {
+            nextState = new ReadyFold(foldingTable, anim);
+            stage = EVENT.EXIT;
+        }
+    }
+
     public override void Exit()
     {
         Origami.OnOrigamiEnded -= EndInUse;
+        foldingTableController.loadedLaundry = null;
 
         base.Exit();
     }

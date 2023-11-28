@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 6.0f;
     Rigidbody2D rigidbody2d;
     Animator animator;
-    BoxCollider2D col;
+    BoxCollider2D boxCollider2D;
     Vector2 lookDirection = new(0, -1);
     Vector2 moveDirection;
     public PlayerInputActions playerControls;
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-        col = GetComponent<BoxCollider2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
     }
 
@@ -51,13 +51,13 @@ public class PlayerController : MonoBehaviour
     private void DisableMove()
     {
         move.Disable();
-        col.enabled = false;
+        boxCollider2D.enabled = false;
     }
 
     private void EnableMove()
     {
         move.Enable();
-        col.enabled = true;
+        boxCollider2D.enabled = true;
     }
 
     // Update is called once per frame

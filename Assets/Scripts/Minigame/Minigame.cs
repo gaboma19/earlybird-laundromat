@@ -91,6 +91,18 @@ public class Minigame : MonoBehaviour
     {
         clothesProcessed = true;
         loadedClothes.Add(readyClothes[0]);
+
+        if (readyClothes[0].type == Clothes.TYPE.TRASH)
+        {
+            laundry.customerController.patience.ApplyPenalty();
+
+            if (!Tutorial.instance.hasPatienceTutorialShown)
+            {
+                Tutorial.instance.hasPatienceTutorialShown = true;
+                Tutorial.instance.ShowTutorial(new List<string> { "Loading trash items" });
+            }
+        }
+
         clothesWheel.AnimateLoad();
     }
 

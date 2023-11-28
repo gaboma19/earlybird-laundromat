@@ -11,6 +11,7 @@ public class Patience : MonoBehaviour
     bool isPatienceRunning = false;
     public bool hasPatienceEnded = false;
     public float fillAmount;
+    [SerializeField] float patiencePenalty = 20f;
 
     public void StartPatienceMeter()
     {
@@ -29,6 +30,11 @@ public class Patience : MonoBehaviour
         isPatienceRunning = false;
         patienceRemaining = 0;
         DisplayPatience();
+    }
+
+    public void ApplyPenalty()
+    {
+        patienceRemaining -= patiencePenalty;
     }
 
     void Start()

@@ -120,6 +120,7 @@ public class Workshift : MonoBehaviour
         timer.timerIsRunning = true;
         state = STATE.STARTED;
         splash.DisplaySplash("Open for business!");
+        Spawn.instance.SpawnCustomer();
 
         // AddTestLaundry(Laundry.STATE.UNLOADED_DRY);
     }
