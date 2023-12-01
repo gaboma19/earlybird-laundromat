@@ -181,4 +181,12 @@ public class Minigame : MonoBehaviour
 
         Timer.OnTimerEnded += KillMinigame;
     }
+
+    void OnDisable()
+    {
+        UpAnimationEnd.OnClothesLoaded -= PopReadyClothes;
+        DownAnimationEnd.OnClothesKept -= PopReadyClothes;
+
+        Timer.OnTimerEnded -= KillMinigame;
+    }
 }

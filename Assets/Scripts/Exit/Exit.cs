@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Exit : MonoBehaviour
 {
@@ -10,11 +11,6 @@ public class Exit : MonoBehaviour
     [SerializeField] Black black;
     [SerializeField] Splash splash;
     private bool isActive = false;
-    private bool fadingToBlack = false;
-    private float fadeTime = 3f;
-    private float fadeTimeRemaining;
-    public static event Action OnDayStarted;
-    public static event Action OnDayEnded;
 
     public void ActivateWithDelay(float time)
     {
@@ -41,12 +37,11 @@ public class Exit : MonoBehaviour
     {
         if (isActive)
         {
-            black.Fade();
-            fadingToBlack = true;
-            fadeTimeRemaining = fadeTime;
             DestroyAllCustomers();
             Deactivate();
-            OnDayEnded.Invoke();
+            Tutorial.instance.KillTutorial();
+
+            StartCoroutine(LoadExteriorScene());
         }
     }
 
@@ -59,21 +54,19 @@ public class Exit : MonoBehaviour
         }
     }
 
-    void Update()
+    IEnumerator LoadExteriorScene()
     {
-        if (fadingToBlack)
+        // The Application loads the Scene in the background as the current Scene runs.
+        // This is particularly good for creating loading screens.
+        // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
+        // a sceneBuildIndex of 1 as shown in Build Settings.
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Exterior");
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
         {
-            if (fadeTimeRemaining > 0)
-            {
-                fadeTimeRemaining -= Time.deltaTime;
-            }
-            else
-            {
-                fadingToBlack = false;
-                black.Unfade();
-                OnDayStarted.Invoke();
-                splash.DisplayNewDay();
-            }
+            yield return null;
         }
     }
 

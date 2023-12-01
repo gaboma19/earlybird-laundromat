@@ -35,6 +35,6 @@ public class Calendar : MonoBehaviour
             Destroy(this);
         }
 
-        Exit.OnDayEnded += IncrementDate;
+        Apartment.OnDayStarted += IncrementDate;
     }
 }

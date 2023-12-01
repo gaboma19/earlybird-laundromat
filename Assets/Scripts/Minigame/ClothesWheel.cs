@@ -61,4 +61,11 @@ public class ClothesWheel : MonoBehaviour
             }
         }
     }
+
+    void OnDisable()
+    {
+        UpAnimationEnd.OnClothesLoaded -= UpdateVisual;
+        DownAnimationEnd.OnClothesKept -= UpdateVisual;
+        Minigame.OnMinigameStarted -= UpdateVisual;
+    }
 }

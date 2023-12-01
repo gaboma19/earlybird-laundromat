@@ -56,7 +56,7 @@ public class Spawn : MonoBehaviour
 
         exitPoint = transform.Find("Exit Point").position;
 
-        Exit.OnDayStarted += SetMaximumCustomers;
+        Apartment.OnDayStarted += SetMaximumCustomers;
     }
 
 }

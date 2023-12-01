@@ -36,6 +36,12 @@ public class DryerController : MonoBehaviour, IInteractable
         Timer.OnTimerEnded += StopSound;
     }
 
+    void OnDisable()
+    {
+        Timer.OnTimerEnded -= SetReadyState;
+        Timer.OnTimerEnded -= StopSound;
+    }
+
     private void SetReadyState()
     {
         anim.SetTrigger("Off");

@@ -28,11 +28,25 @@ public class Workshift : MonoBehaviour
     [SerializeField] private int bonusTimeInterval = 20;
     private int discardedLaundryCount;
     private int happyLaundryCount;
+    GameObject laundryGrid;
+    GameObject doneCounter;
     public enum STATE
     {
         READY, STARTED, DONE
     }
     public STATE state;
+
+    public void SetExteriorUI()
+    {
+        laundryGrid.SetActive(false);
+        doneCounter.SetActive(false);
+    }
+
+    public void SetLaundromatUI()
+    {
+        laundryGrid.SetActive(true);
+        doneCounter.SetActive(true);
+    }
 
     public int GetDoneLaundryCount()
     {
@@ -75,10 +89,12 @@ public class Workshift : MonoBehaviour
         RegisterController.OnLaundryDone += SetDoneLaundry;
         Minigame.OnMinigameStarted += DisableSelect;
         Minigame.OnMinigameEnded += (_) => EnableSelect();
-        Exit.OnDayStarted += ResetWorkShift;
+        Apartment.OnDayStarted += ResetWorkShift;
         Wait.OnPatienceEnded += DiscardLaundry;
 
         playerControls = new PlayerInputActions();
+        laundryGrid = transform.Find("Laundry Grid").gameObject;
+        doneCounter = transform.Find("Done Counter").gameObject;
     }
     private void OnEnable()
     {
@@ -134,7 +150,9 @@ public class Workshift : MonoBehaviour
             activeLaundry.Clear();
             selectedLaundry = null;
             OnLaundryRemoved.Invoke();
-            splash.DisplaySplash("Closed for the day!");
+            splash.DisplaySplash("You've run out of time!");
+            decimal penalty = Calendar.instance.GetDate() * -2;
+            OnBonusScoreAdded(penalty);
             Exit.instance.ActivateWithDelay(4f);
         }
     }

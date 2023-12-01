@@ -33,6 +33,16 @@ public class InteractionDetector : MonoBehaviour
     private void OnDisable()
     {
         interact.Disable();
+
+        interact.performed -= Interact;
+        Minigame.OnMinigameStarted -= DisableInteract;
+        Minigame.OnMinigameEnded -= (_) => EnableInteract();
+        Minigame.OnMinigameKilled -= EnableInteract;
+        Origami.OnOrigamiStarted -= DisableInteract;
+        Origami.OnOrigamiEnded -= (_) => EnableInteract();
+        Origami.OnOrigamiKilled -= EnableInteract;
+        DialogueBoxController.OnDialogueStarted -= DisableInteract;
+        DialogueBoxController.OnDialogueEnded -= EnableInteract;
     }
 
     private void DisableInteract()

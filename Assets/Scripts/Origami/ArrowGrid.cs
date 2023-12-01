@@ -42,4 +42,11 @@ public class ArrowGrid : MonoBehaviour
             }
         }
     }
+
+    void OnDisable()
+    {
+        Origami.OnOrigamiStarted -= UpdateVisual;
+        Origami.OnInstructionCompleted -= UpdateVisual;
+        Origami.OnSequenceCompleted -= UpdateVisual;
+    }
 }

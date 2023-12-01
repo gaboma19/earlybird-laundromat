@@ -124,6 +124,17 @@ public class Signal : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        Workshift.OnLaundrySelected -= SetSignals;
+        Workshift.OnLaundrySpawned -= SetSignals;
+        Workshift.OnLaundryRemoved -= SetSignals;
+        DoneWash.OnUnloadWasher -= (_) => SetSignals();
+        DoneDry.OnUnloadDryer -= (_) => SetSignals();
+        InUseFold.OnLaundryFolded -= (_) => SetSignals();
+        Timer.OnTimerEnded -= DeactivateAllSignals;
+    }
+
     void Awake()
     {
         Workshift.OnLaundrySelected += SetSignals;

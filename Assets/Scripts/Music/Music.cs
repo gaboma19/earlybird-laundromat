@@ -24,4 +24,10 @@ public class Music : MonoBehaviour
         audioSource.Stop();
     }
 
+    void OnDisable()
+    {
+        RegisterController.OnWorkshiftStart -= PlayMusic;
+        Timer.OnTimerEnded -= StopMusic;
+    }
+
 }

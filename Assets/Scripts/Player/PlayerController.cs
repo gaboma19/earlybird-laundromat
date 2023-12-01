@@ -14,7 +14,11 @@ public class PlayerController : MonoBehaviour
     public PlayerInputActions playerControls;
     private InputAction move;
 
-    // Start is called before the first frame update
+    public void SetPosition(Vector2 position)
+    {
+        transform.position = position;
+    }
+
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -24,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
+
         playerControls = new PlayerInputActions();
         Minigame.OnMinigameStarted += DisableMove;
         Minigame.OnMinigameEnded += (_) => EnableMove();
@@ -33,8 +39,8 @@ public class PlayerController : MonoBehaviour
         Origami.OnOrigamiKilled += EnableMove;
         DialogueBoxController.OnDialogueStarted += DisableMove;
         DialogueBoxController.OnDialogueEnded += EnableMove;
-        Exit.OnDayEnded += DisableMove;
-        Exit.OnDayStarted += EnableMove;
+        Apartment.OnDayEnded += DisableMove;
+        Apartment.OnDayStarted += EnableMove;
     }
 
     private void OnEnable()
@@ -60,7 +66,6 @@ public class PlayerController : MonoBehaviour
         boxCollider2D.enabled = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         moveDirection = move.ReadValue<Vector2>();

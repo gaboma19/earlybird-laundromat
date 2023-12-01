@@ -37,6 +37,12 @@ public class WashingMachineController : MonoBehaviour, IInteractable
         Timer.OnTimerEnded += StopSound;
     }
 
+    void OnDisable()
+    {
+        Timer.OnTimerEnded -= SetReadyState;
+        Timer.OnTimerEnded -= StopSound;
+    }
+
     public void SetReadyState()
     {
         anim.SetTrigger("Off");

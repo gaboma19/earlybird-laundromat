@@ -37,7 +37,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        Exit.OnDayStarted += SetWorkshiftDuration;
+        Apartment.OnDayStarted += SetWorkshiftDuration;
 
         timeRemaining = workshiftDuration;
 

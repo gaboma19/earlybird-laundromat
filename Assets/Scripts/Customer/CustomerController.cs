@@ -20,7 +20,7 @@ public class CustomerController : MonoBehaviour, IInteractable
     void Start()
     {
         anim = this.GetComponent<Animator>();
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         buttonPrompt = this.transform.Find("Button Prompt").gameObject;
         currentState = new Queue(this.gameObject, anim, player);
     }

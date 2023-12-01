@@ -27,6 +27,11 @@ public class FoldingTableController : MonoBehaviour, IInteractable
         Timer.OnTimerEnded += SetReadyState;
     }
 
+    void OnDisable()
+    {
+        Timer.OnTimerEnded -= SetReadyState;
+    }
+
     private void SetReadyState()
     {
         currentState = new ReadyFold(this.gameObject, anim);
