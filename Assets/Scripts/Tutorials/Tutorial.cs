@@ -9,7 +9,6 @@ public class Tutorial : MonoBehaviour
     public PlayerInputActions playerControls;
     private InputAction interact;
     private List<Transform> tutorials = new();
-    private int tutorialIndex = 0;
     public bool hasPatienceTutorialShown = false;
 
     public void ShowTutorial(List<string> tutorialNames)
@@ -32,12 +31,14 @@ public class Tutorial : MonoBehaviour
 
     private void Progress(InputAction.CallbackContext context)
     {
-        tutorials[tutorialIndex].gameObject.SetActive(false);
-
-        if (tutorialIndex != tutorials.Count - 1)
+        if (tutorials.Count > 0)
         {
-            tutorials[tutorialIndex + 1].gameObject.SetActive(true);
-            tutorialIndex++;
+            tutorials[0].gameObject.SetActive(false);
+            tutorials.RemoveAt(0);
+            if (tutorials.Count > 0)
+            {
+                tutorials[0].gameObject.SetActive(true);
+            }
         }
         else
         {
@@ -47,7 +48,6 @@ public class Tutorial : MonoBehaviour
 
     private void EndTutorial()
     {
-        tutorialIndex = 0;
         tutorials.Clear();
         interact.Disable();
         interact.performed -= Progress;
@@ -55,9 +55,9 @@ public class Tutorial : MonoBehaviour
 
     private void KillTutorial()
     {
-        if (tutorialIndex < tutorials.Count)
+        if (tutorials.Count > 0)
         {
-            tutorials[tutorialIndex].gameObject.SetActive(false);
+            tutorials[0].gameObject.SetActive(false);
         }
 
         EndTutorial();

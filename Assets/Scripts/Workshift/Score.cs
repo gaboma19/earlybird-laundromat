@@ -56,7 +56,16 @@ public class Score : MonoBehaviour
     {
         string bonusScoreText = bonusScoreEarned.ToString("0.00");
         string regularScoreText = (scoreEarnedToday - bonusScoreEarned).ToString("0.00");
+        string titleText;
+        if (bonusScoreEarned > 0)
+        {
+            titleText = "Time Bonus";
+        }
+        else
+        {
+            titleText = "Time Penalty";
+        }
 
-        splash.DisplayScore(regularScoreText, bonusScoreText);
+        splash.DisplayScore(regularScoreText, bonusScoreText, titleText);
     }
 }

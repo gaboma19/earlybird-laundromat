@@ -134,7 +134,10 @@ public class Workshift : MonoBehaviour
             activeLaundry.Clear();
             selectedLaundry = null;
             OnLaundryRemoved.Invoke();
-            splash.DisplaySplash("Closed for the day!");
+
+            splash.DisplaySplash("You've run out of time!");
+            decimal penalty = Calendar.instance.GetDate() * -2;
+            OnBonusScoreAdded(penalty);
             Exit.instance.ActivateWithDelay(4f);
         }
     }
