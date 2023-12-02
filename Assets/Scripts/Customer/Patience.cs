@@ -37,6 +37,11 @@ public class Patience : MonoBehaviour
         patienceRemaining -= patiencePenalty;
     }
 
+    public void ApplyPenalty(float penalty)
+    {
+        patienceRemaining -= penalty;
+    }
+
     void Start()
     {
         fillBar = gameObject.GetComponent<FillBar>();

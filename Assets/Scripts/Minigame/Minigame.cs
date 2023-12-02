@@ -110,6 +110,12 @@ public class Minigame : MonoBehaviour
     {
         clothesProcessed = true;
         keptClothes.Add(readyClothes[0]);
+
+        if (readyClothes[0].type != Clothes.TYPE.TRASH)
+        {
+            laundry.customerController.patience.ApplyPenalty();
+        }
+
         clothesWheel.AnimateKeep();
     }
 

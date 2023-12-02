@@ -24,6 +24,16 @@ public class ReadyWash : WashingMachineState
 
     public override void Update()
     {
+        if (Calendar.instance.GetDate() > 2)
+        {
+            if (washingMachineController.randValue > 0.8f)
+            {
+                washingMachineController.SetBroken();
+                nextState = new BrokenWash(washingMachine, anim);
+                stage = EVENT.EXIT;
+            }
+        }
+
         if (washingMachineController.isInteractedWith)
         {
             washingMachineController.isInteractedWith = false;

@@ -128,40 +128,48 @@ public class Origami : MonoBehaviour
                     {
                         if (up.triggered)
                         {
-                            sequenceIndex++;
-
-                            currentInstruction.isCompleted = true;
-                            OnInstructionCompleted.Invoke();
+                            AdvanceInstruction();
+                        }
+                        else if (down.triggered || left.triggered || right.triggered)
+                        {
+                            AdvanceInstruction();
+                            laundry.customerController.patience.ApplyPenalty(10f);
                         }
                     }
                     if (currentInstruction.direction == Instruction.DIRECTION.DOWN)
                     {
                         if (down.triggered)
                         {
-                            sequenceIndex++;
-
-                            currentInstruction.isCompleted = true;
-                            OnInstructionCompleted.Invoke();
+                            AdvanceInstruction();
+                        }
+                        else if (up.triggered || left.triggered || right.triggered)
+                        {
+                            AdvanceInstruction();
+                            laundry.customerController.patience.ApplyPenalty(10f);
                         }
                     }
                     if (currentInstruction.direction == Instruction.DIRECTION.LEFT)
                     {
                         if (left.triggered)
                         {
-                            sequenceIndex++;
-
-                            currentInstruction.isCompleted = true;
-                            OnInstructionCompleted.Invoke();
+                            AdvanceInstruction();
+                        }
+                        else if (down.triggered || up.triggered || right.triggered)
+                        {
+                            AdvanceInstruction();
+                            laundry.customerController.patience.ApplyPenalty(10f);
                         }
                     }
                     if (currentInstruction.direction == Instruction.DIRECTION.RIGHT)
                     {
                         if (right.triggered)
                         {
-                            sequenceIndex++;
-
-                            currentInstruction.isCompleted = true;
-                            OnInstructionCompleted.Invoke();
+                            AdvanceInstruction();
+                        }
+                        else if (down.triggered || left.triggered || up.triggered)
+                        {
+                            AdvanceInstruction();
+                            laundry.customerController.patience.ApplyPenalty(10f);
                         }
                     }
 
@@ -206,6 +214,13 @@ public class Origami : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void AdvanceInstruction()
+    {
+        sequenceIndex++;
+        currentInstruction.isCompleted = true;
+        OnInstructionCompleted.Invoke();
     }
 
     private bool IsClothesListEmpty()

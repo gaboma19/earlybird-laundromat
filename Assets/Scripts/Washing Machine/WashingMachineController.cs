@@ -13,22 +13,41 @@ public class WashingMachineController : MonoBehaviour, IInteractable
     WashingMachineState currentState;
     public Laundry loadedLaundry { get; set; }
     public ProgressBar progressBar;
+    [SerializeField] GameObject outOfOrderSign;
+    SpriteRenderer spriteRenderer;
+    [SerializeField] Color brokenColor;
+    public float randValue;
+
+    public void SetBroken()
+    {
+        outOfOrderSign.SetActive(true);
+        spriteRenderer.color = brokenColor;
+    }
+
+    public void SetFixed()
+    {
+        randValue = UnityEngine.Random.value;
+        outOfOrderSign.SetActive(false);
+        spriteRenderer.color = Color.white;
+    }
 
     void Start()
     {
         buttonPrompt = this.transform.Find("Button Prompt").gameObject;
         anim = this.GetComponent<Animator>();
         currentState = new ReadyWash(this.gameObject, anim);
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        randValue = UnityEngine.Random.value;
     }
 
     void Update()
     {
-        currentState = currentState.Process();
-
         if (loadedLaundry != null && loadedLaundry.state == Laundry.STATE.DISCARD)
         {
             SetReadyState();
         }
+
+        currentState = currentState.Process();
     }
 
     void Awake()

@@ -8333,6 +8333,7 @@ MonoBehaviour:
   calendarImage: {fileID: 1193775680}
   scoreText: {fileID: 1326506063}
   bonusScoreText: {fileID: 899629952}
+  bonusScoreTitleText: {fileID: 1214413843}
 --- !u!1 &2003791064
 GameObject:
   m_ObjectHideFlags: 0
@@ -9388,6 +9389,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 231690328515180593, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
       propertyPath: timeRemaining
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 231690328515180593, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
+      propertyPath: workshiftDuration
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 549771052434962916, guid: 026fe141cf76b9045a6820ac83977716, type: 3}

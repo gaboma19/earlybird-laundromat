@@ -22,6 +22,16 @@ public class ReadyDry : DryerState
 
     public override void Update()
     {
+        if (Calendar.instance.GetDate() > 2)
+        {
+            if (dryerController.randValue > 0.8f)
+            {
+                dryerController.SetBroken();
+                nextState = new BrokenDry(dryer, anim);
+                stage = EVENT.EXIT;
+            }
+        }
+
         if (dryerController.isInteractedWith)
         {
             dryerController.isInteractedWith = false;

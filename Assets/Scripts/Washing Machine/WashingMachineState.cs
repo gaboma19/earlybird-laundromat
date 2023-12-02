@@ -6,7 +6,7 @@ public class WashingMachineState
 {
     public enum STATE
     {
-        READY, LOADED, ON, DONE
+        READY, LOADED, ON, DONE, BROKEN
     }
 
     public enum EVENT
