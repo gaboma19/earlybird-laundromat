@@ -150,7 +150,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bccefa33176884143804be0550ca2c38, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c6b720f04538c0d44a37c73047a2cf12, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.25
   m_Pitch: 1
@@ -846,25 +846,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Music
-
-
-    "Laundromat" by Chris Doucet
-
-
-    "Pamgaea" by Kevin MacLeod
-    (incompetech.com)
-
-    Licensed under Creative Commons: By Attribution 4.0 License
-
-
-    Fonts
-
-
-    "Pixellari"
-    by Zacchary Dempsey-Plante (ztdp.ca)
-
-    "Thaleah Fat" by Tiny Worlds (artstation.com/tinyworlds)'
+  m_text: "Created by\nGabriel Ma (gutugutumakkan.itch.io)\n\n\n\nMusic by \nChris
+    Doucet (thedoset.com)\n\nFonts by\n\"Pixellari\" by Zacchary Dempsey-Plante (ztdp.ca)\n\"Thaleah
+    Fat\" by Tiny Worlds (artstation.com/tinyworlds)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1c73e06234091b845b5c86d170f1a2f2, type: 2}
   m_sharedMaterial: {fileID: 1651337269359785948, guid: 1c73e06234091b845b5c86d170f1a2f2, type: 2}
