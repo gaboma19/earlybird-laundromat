@@ -9393,7 +9393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 231690328515180593, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
       propertyPath: workshiftDuration
-      value: 10
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 549771052434962916, guid: 026fe141cf76b9045a6820ac83977716, type: 3}
       propertyPath: splash
