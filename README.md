@@ -2,7 +2,7 @@
 
 https://gutugutumakkan.itch.io/earlybird-laundromat
 
-This is a game I will design for the capstone assignment for the **MIT xPRO Professional Certificate in Game Design**, an online course for game design taught by instructors from the MIT Game Lab.
+This is a game I designed and developed as the capstone assignment for the **MIT xPRO Professional Certificate in Game Design**, an online course for game design taught by instructors from the MIT Game Lab.
 
 A prototype for this game written in Godot is here: https://github.com/gaboma19/laundromat
 
